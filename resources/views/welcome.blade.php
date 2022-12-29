@@ -10,6 +10,7 @@
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     </head>
     <body class="antialiased">
-        <h1>Gestion travail</h1>
+        <h1>Gestion travail 2</h1>
+        <h2>Ousseynou</h2>
     </body>
 </html>
