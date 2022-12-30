@@ -95,9 +95,10 @@ https://templatemo.com/tm-564-plot-listing
                   <fieldset>
                       <select name="area" class="form-select" aria-label="Area" id="chooseCategory" onchange="this.form.click()">
                           <option selected>Région</option>
-                          <option value="New Village">New Village</option>
-                          <option value="Old Town">Old Town</option>
-                          <option value="Modern City">Modern City</option>
+                          <option value="New Village">Dakar</option>
+                          <option value="Old Town">Thies</option>
+                          <option value="Old Town">Fatick</option>
+                          <option value="Modern City">Kaolack</option>
                       </select>
                   </fieldset>
               </div>
