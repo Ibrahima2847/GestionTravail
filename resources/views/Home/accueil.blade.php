@@ -66,7 +66,7 @@ https://templatemo.com/tm-564-plot-listing
                 <li><a href="#">Gerer mes offres</a></li>
               </ul>
             </li>
-              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="login">Se connecter</a></li>
               <li><div class="main-white-button"><a href="#"><i class="fa fa-plus"></i> Add Your Listing</a></div></li>
             </ul>
             <a class='menu-trigger'>
