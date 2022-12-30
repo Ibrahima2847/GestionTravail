@@ -60,7 +60,7 @@ https://templatemo.com/tm-564-plot-listing
             <ul class="nav">
               <li><a href="index.html" class="active">Accueil</a></li>
               <li><a href="category.html">Offre d'Emploi</a></li>
-            <li><a href="listing.html">Recruteur</a>
+            <li class="dropdown"><a href="listing.html">Recruteur</a>
               <ul>
                 <li><a href="#">Publier une offre</a></li>
                 <li><a href="#">Gerer mes offres</a></li>
@@ -80,13 +80,12 @@ https://templatemo.com/tm-564-plot-listing
   </header>
   <!-- ***** Header Area End ***** -->
 
-  <div class="main-banner">
+  <div class="main-banner" style="background-image: url('./assets/img/banner-bg.jpg');">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="top-text header-text">
-            <h6>Over 36,500+ Active Listings</h6>
-            <h2>Find Nearby Places &amp; Things</h2>
+            <h2>Rechercher un ouvrier</h2>
           </div>
         </div>
         <div class="col-lg-12">
@@ -95,7 +94,7 @@ https://templatemo.com/tm-564-plot-listing
               <div class="col-lg-3 align-self-center">
                   <fieldset>
                       <select name="area" class="form-select" aria-label="Area" id="chooseCategory" onchange="this.form.click()">
-                          <option selected>All Areas</option>
+                          <option selected>Région</option>
                           <option value="New Village">New Village</option>
                           <option value="Old Town">Old Town</option>
                           <option value="Modern City">Modern City</option>
@@ -103,24 +102,25 @@ https://templatemo.com/tm-564-plot-listing
                   </fieldset>
               </div>
               <div class="col-lg-3 align-self-center">
-                  <fieldset>
-                      <input type="address" name="address" class="searchText" placeholder="Enter a location" autocomplete="on" required>
-                  </fieldset>
-              </div>
+                <fieldset>
+                    <select name="price" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
+                        <option selected>Département</option>
+                        <option value="$100 - $250">$100 - $250</option>
+                        <option value="$250 - $500">$250 - $500</option>
+                        <option value="$500 - $1000">$500 - $1,000</option>
+                        <option value="$1000+">$1,000 or more</option>
+                    </select>
+                </fieldset>
+            </div>
               <div class="col-lg-3 align-self-center">
                   <fieldset>
-                      <select name="price" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
-                          <option selected>Price Range</option>
-                          <option value="$100 - $250">$100 - $250</option>
-                          <option value="$250 - $500">$250 - $500</option>
-                          <option value="$500 - $1000">$500 - $1,000</option>
-                          <option value="$1000+">$1,000 or more</option>
-                      </select>
+                      <input type="address" name="address" class="searchText" placeholder="Type de métier" autocomplete="on" required>
                   </fieldset>
               </div>
+
               <div class="col-lg-3">
                   <fieldset>
-                      <button class="main-button"><i class="fa fa-search"></i> Search Now</button>
+                      <button class="main-button"><i class="fa fa-search"></i> Rechercher</button>
                   </fieldset>
               </div>
             </div>

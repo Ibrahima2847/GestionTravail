@@ -724,11 +724,34 @@ Banner Style
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-image: url(./img/banner-bg.jpg);
+  /* background-image: url(./img/banner-bg.jpg); */
   padding: 290px 0px 180px 0px;
   position: relative;
   overflow: hidden;
 }
+
+/* .main-nav .dropdown ul a {
+    padding: 10px 20px;
+    font-size: 14px;
+    text-transform: none;
+    color: #666666;
+  }
+
+  .main-nav .dropdown ul a {
+    font-size: 12px;
+  }
+
+  .main-nav .dropdown ul a:hover,
+  .main-nav .dropdown ul .active:hover,
+  .main-nav .dropdown ul li:hover>a {
+    color: #2dc997;
+  }
+
+  .main-nav .dropdown:hover>ul {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+  } */
 
 .main-banner .top-text {
   text-align: center;
