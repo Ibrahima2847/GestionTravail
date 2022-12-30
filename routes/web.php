@@ -1,5 +1,6 @@
 <?php
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,24 +13,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/',[HomeController::class,'accueil'])->name('accueil');
+Route::get('/apropos',[HomeController::class,'apropos'])->name('apropos');
+Route::match(['get','post'],'/admin',[HomeController::class,'admin'])->name('admin');
 
-Route::get('/', function () {
-    return view('Home.accueil');
-});
-
-Route::get('/apropos', function () {
-    return view('Home.apropos');
-});
-
-Route::get('/admin', function () {
-    return view('Admin.admin');
-});
-
-Route::get('/login', function () {
-    return view('auth.login');
-});
-
-Route::get('/register', function () {
-    return view('auth.register');
-});
+//Route::match(['get','post'],'/login',[LoginController::class,'login'])->name('login'); 
+//Route::match(['get','post'],'/register',[LoginController::class,'register'])->name('register');
 
