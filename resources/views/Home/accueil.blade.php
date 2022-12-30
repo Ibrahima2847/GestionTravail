@@ -9,19 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    {{-- <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> --}}
 
     <title>Plot Listing HTML5 Website Template</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+     <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets2/css/fontawesome.css">
-    <link rel="stylesheet" href="assets2/css/templatemo-plot-listing.css">
-    <link rel="stylesheet" href="assets2/css/animated.css">
-    <link rel="stylesheet" href="assets2/css/owl.css">
+    <link rel="stylesheet" href="./assets/css/fontawesome.css">
+    <link rel="stylesheet" href="./assets/css/templatemo-plot-listing.css">
+    <link rel="stylesheet" href="./assets/css/animated.css">
+    <link rel="stylesheet" href="./assets/css/owl.css">
 <!--
 
 TemplateMo 564 Plot Listing
@@ -58,9 +58,14 @@ https://templatemo.com/tm-564-plot-listing
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li><a href="index.html" class="active">Home</a></li>
-              <li><a href="category.html">Category</a></li>
-              <li><a href="listing.html">Listing</a></li>
+              <li><a href="index.html" class="active">Accueil</a></li>
+              <li><a href="category.html">Offre d'Emploi</a></li>
+            <li><a href="listing.html">Recruteur</a>
+              <ul>
+                <li><a href="#">Publier une offre</a></li>
+                <li><a href="#">Gerer mes offres</a></li>
+              </ul>
+            </li>
               <li><a href="contact.html">Contact Us</a></li>
               <li><div class="main-white-button"><a href="#"><i class="fa fa-plus"></i> Add Your Listing</a></div></li>
             </ul>
@@ -123,11 +128,11 @@ https://templatemo.com/tm-564-plot-listing
         </div>
         <div class="col-lg-10 offset-lg-1">
           <ul class="categories">
-            <li><a href="category.html"><span class="icon"><img src="assets/images/search-icon-01.png" alt="Home"></span> Apartments</a></li>
-            <li><a href="listing.html"><span class="icon"><img src="assets/images/search-icon-02.png" alt="Food"></span> Food &amp; Life</a></li>
-            <li><a href="#"><span class="icon"><img src="assets/images/search-icon-03.png" alt="Vehicle"></span> Cars</a></li>
-            <li><a href="#"><span class="icon"><img src="assets/images/search-icon-04.png" alt="Shopping"></span> Shopping</a></li>
-            <li><a href="#"><span class="icon"><img src="assets/images/search-icon-05.png" alt="Travel"></span> Traveling</a></li>
+            <li><a href="category.html"><span class="icon"><img src="./assets/img/search-icon-01.png" alt="Home"></span> Apartments</a></li>
+            <li><a href="listing.html"><span class="icon"><img src="./assets/img/search-icon-02.png" alt="Food"></span> Food &amp; Life</a></li>
+            <li><a href="#"><span class="icon"><img src="./assets/img/search-icon-03.png" alt="Vehicle"></span> Cars</a></li>
+            <li><a href="#"><span class="icon"><img src="./assets/img/search-icon-04.png" alt="Shopping"></span> Shopping</a></li>
+            <li><a href="#"><span class="icon"><img src="./assets/img/search-icon-05.png" alt="Travel"></span> Traveling</a></li>
           </ul>
         </div>
       </div>
@@ -152,31 +157,31 @@ https://templatemo.com/tm-564-plot-listing
                   <div class="menu">
                     <div class="first-thumb active">
                       <div class="thumb">
-                        <span class="icon"><img src="assets/images/search-icon-01.png" alt=""></span>
+                        <span class="icon"><img src="./assets/img/search-icon-01.png" alt=""></span>
                         Apartments
                       </div>
                     </div>
                     <div>
                       <div class="thumb">
-                        <span class="icon"><img src="assets/images/search-icon-02.png" alt=""></span>
+                        <span class="icon"><img src="./assets/img/search-icon-02.png" alt=""></span>
                         Food &amp; Life
                       </div>
                     </div>
                     <div>
                       <div class="thumb">
-                        <span class="icon"><img src="assets/images/search-icon-03.png" alt=""></span>
+                        <span class="icon"><img src="./assets/img/search-icon-03.png" alt=""></span>
                         Cars
                       </div>
                     </div>
                     <div>
                       <div class="thumb">
-                        <span class="icon"><img src="assets/images/search-icon-04.png" alt=""></span>
+                        <span class="icon"><img src="./assets/img/search-icon-04.png" alt=""></span>
                         Shopping
                       </div>
                     </div>
                     <div class="last-thumb">
                       <div class="thumb">
-                        <span class="icon"><img src="assets/images/search-icon-05.png" alt=""></span>
+                        <span class="icon"><img src="./assets/img/search-icon-05.png" alt=""></span>
                         Traveling
                       </div>
                     </div>
@@ -197,7 +202,7 @@ https://templatemo.com/tm-564-plot-listing
                             </div>
                             <div class="col-lg-7 align-self-center">
                               <div class="right-image">
-                                <img src="assets/images/tabs-image-01.jpg" alt="">
+                                <img src="./assets/img/tabs-image-01.jpg" alt="">
                               </div>
                             </div>
                           </div>
@@ -217,7 +222,7 @@ https://templatemo.com/tm-564-plot-listing
                             </div>
                             <div class="col-lg-7 align-self-center">
                               <div class="right-image">
-                                <img src="assets/images/tabs-image-02.jpg" alt="Foods on the table">
+                                <img src="./assets/img/tabs-image-02.jpg" alt="Foods on the table">
                               </div>
                             </div>
                           </div>
@@ -237,7 +242,7 @@ https://templatemo.com/tm-564-plot-listing
                             </div>
                             <div class="col-lg-7 align-self-center">
                               <div class="right-image">
-                                <img src="assets/images/tabs-image-03.jpg" alt="cars in the city">
+                                <img src="./assets/img/tabs-image-03.jpg" alt="cars in the city">
                               </div>
                             </div>
                           </div>
@@ -257,7 +262,7 @@ https://templatemo.com/tm-564-plot-listing
                             </div>
                             <div class="col-lg-7 align-self-center">
                               <div class="right-image">
-                                <img src="assets/images/tabs-image-04.jpg" alt="Shopping Girl">
+                                <img src="./assets/img/tabs-image-04.jpg" alt="Shopping Girl">
                               </div>
                             </div>
                           </div>
@@ -277,7 +282,7 @@ https://templatemo.com/tm-564-plot-listing
                             </div>
                             <div class="col-lg-7 align-self-center">
                               <div class="right-image">
-                                <img src="assets/images/tabs-image-05.jpg" alt="Traveling Beach">
+                                <img src="./assets/img/tabs-image-05.jpg" alt="Traveling Beach">
                               </div>
                             </div>
                           </div>
@@ -311,7 +316,7 @@ https://templatemo.com/tm-564-plot-listing
                 <div class="col-lg-12">
                   <div class="listing-item">
                     <div class="left-image">
-                      <a href="#"><img src="assets/images/listing-01.jpg" alt=""></a>
+                      <a href="#"><img src="./assets/img/listing-01.jpg" alt=""></a>
                     </div>
                     <div class="right-content align-self-center">
                       <a href="#"><h4>1. First Apartment Unit</h4></a>
@@ -324,11 +329,11 @@ https://templatemo.com/tm-564-plot-listing
                         <li><i class="fa fa-star-o"></i></li>
                         <li>(18) Reviews</li>
                       </ul>
-                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""></div> $450 - $950 / month with taxes</span>
+                      <span class="price"><div class="icon"><img src="./assets/img/listing-icon-01.png" alt=""></div> $450 - $950 / month with taxes</span>
                       <span class="details">Details: <em>2760 sq ft</em></span>
                       <ul class="info">
-                        <li><img src="assets/images/listing-icon-02.png" alt=""> 4 Bedrooms</li>
-                        <li><img src="assets/images/listing-icon-03.png" alt=""> 4 Bathrooms</li>
+                        <li><img src="./assets/img/listing-icon-02.png" alt=""> 4 Bedrooms</li>
+                        <li><img src="./assets/img/listing-icon-03.png" alt=""> 4 Bathrooms</li>
                       </ul>
                       <div class="main-white-button">
                         <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
@@ -339,7 +344,7 @@ https://templatemo.com/tm-564-plot-listing
                 <div class="col-lg-12">
                   <div class="listing-item">
                     <div class="left-image">
-                      <a href="#"><img src="assets/images/listing-02.jpg" alt=""></a>
+                      <a href="#"><img src="./assets/img/listing-02.jpg" alt=""></a>
                     </div>
                     <div class="right-content align-self-center">
                       <a href="#"><h4>2. Another House of Gaming</h4></a>
@@ -352,11 +357,11 @@ https://templatemo.com/tm-564-plot-listing
                         <li><i class="fa fa-star-o"></i></li>
                         <li>(24) Reviews</li>
                       </ul>
-                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""></div> $1,400 - $3,500 / month with taxes</span>
+                      <span class="price"><div class="icon"><img src="./assets/img/listing-icon-01.png" alt=""></div> $1,400 - $3,500 / month with taxes</span>
                       <span class="details">Details: <em>3650 sq ft</em></span>
                       <ul class="info">
-                        <li><img src="assets/images/listing-icon-02.png" alt=""> 4 Bedrooms</li>
-                        <li><img src="assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</li>
+                        <li><img src="./assets/img/listing-icon-02.png" alt=""> 4 Bedrooms</li>
+                        <li><img src="./assets/img/listing-icon-03.png" alt=""> 3 Bathrooms</li>
                       </ul>
                       <div class="main-white-button">
                         <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
@@ -367,7 +372,7 @@ https://templatemo.com/tm-564-plot-listing
                 <div class="col-lg-12">
                   <div class="listing-item">
                     <div class="left-image">
-                      <a href="#"><img src="assets/images/listing-03.jpg" alt=""></a>
+                      <a href="#"><img src="./assets/img/listing-03.jpg" alt=""></a>
                     </div>
                     <div class="right-content align-self-center">
                       <a href="#"><h4>3. Secret Place Hidden House</h4></a>
@@ -380,11 +385,11 @@ https://templatemo.com/tm-564-plot-listing
                         <li><i class="fa fa-star-o"></i></li>
                         <li>(36) Reviews</li>
                       </ul>
-                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""></div> $1,500 - $3,600 / month with taxes</span>
+                      <span class="price"><div class="icon"><img src="./assets/img/listing-icon-01.png" alt=""></div> $1,500 - $3,600 / month with taxes</span>
                       <span class="details">Details: <em>5500 sq ft</em></span>
                       <ul class="info">
-                        <li><img src="assets/images/listing-icon-02.png" alt=""> 4 Bedrooms</li>
-                        <li><img src="assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</li>
+                        <li><img src="./assets/img/listing-icon-02.png" alt=""> 4 Bedrooms</li>
+                        <li><img src="./assets/img/listing-icon-03.png" alt=""> 3 Bathrooms</li>
                       </ul>
                       <div class="main-white-button">
                         <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
@@ -399,7 +404,7 @@ https://templatemo.com/tm-564-plot-listing
                 <div class="col-lg-12">
                   <div class="listing-item">
                     <div class="left-image">
-                      <a href="#"><img src="assets/images/listing-04.jpg" alt=""></a>
+                      <a href="#"><img src="./assets/img/listing-04.jpg" alt=""></a>
                     </div>
                     <div class="right-content align-self-center">
                       <a href="#"><h4>4. Sunshine Fourth Apartment</h4></a>
@@ -412,11 +417,11 @@ https://templatemo.com/tm-564-plot-listing
                         <li><i class="fa fa-star-o"></i></li>
                         <li>(24) Reviews</li>
                       </ul>
-                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""></div> $3,600 / month with taxes</span>
+                      <span class="price"><div class="icon"><img src="./assets/img/listing-icon-01.png" alt=""></div> $3,600 / month with taxes</span>
                       <span class="details">Details: <em>3660 sq ft</em></span>
                       <ul class="info">
-                        <li><img src="assets/images/listing-icon-02.png" alt=""> 5 Bedrooms</li>
-                        <li><img src="assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</li>
+                        <li><img src="./assets/img/listing-icon-02.png" alt=""> 5 Bedrooms</li>
+                        <li><img src="./assets/img/listing-icon-03.png" alt=""> 3 Bathrooms</li>
                       </ul>
                       <div class="main-white-button">
                         <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
@@ -427,7 +432,7 @@ https://templatemo.com/tm-564-plot-listing
                 <div class="col-lg-12">
                   <div class="listing-item">
                     <div class="left-image">
-                      <a href="#"><img src="assets/images/listing-05.jpg" alt=""></a>
+                      <a href="#"><img src="./assets/img/listing-05.jpg" alt=""></a>
                     </div>
                     <div class="right-content align-self-center">
                       <a href="#"><h4>5. Best House Of the Town</h4></a>
@@ -440,11 +445,11 @@ https://templatemo.com/tm-564-plot-listing
                         <li><i class="fa fa-star-o"></i></li>
                         <li>(32) Reviews</li>
                       </ul>
-                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""></div> $5,600 / month with taxes</span>
+                      <span class="price"><div class="icon"><img src="./assets/img/listing-icon-01.png" alt=""></div> $5,600 / month with taxes</span>
                       <span class="details">Details: <em>1750 sq ft</em></span>
                       <ul class="info">
-                        <li><img src="assets/images/listing-icon-02.png" alt=""> 6 Bedrooms</li>
-                        <li><img src="assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</li>
+                        <li><img src="./assets/img/listing-icon-02.png" alt=""> 6 Bedrooms</li>
+                        <li><img src="./assets/img/listing-icon-03.png" alt=""> 3 Bathrooms</li>
                       </ul>
                       <div class="main-white-button">
                         <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
@@ -455,7 +460,7 @@ https://templatemo.com/tm-564-plot-listing
                 <div class="col-lg-12">
                   <div class="listing-item">
                     <div class="left-image">
-                      <a href="#"><img src="assets/images/listing-06.jpg" alt=""></a>
+                      <a href="#"><img src="./assets/img/listing-06.jpg" alt=""></a>
                     </div>
                     <div class="right-content align-self-center">
                       <a href="#"><h4>6. Amazing Pool Party Villa</h4></a>
@@ -468,11 +473,11 @@ https://templatemo.com/tm-564-plot-listing
                         <li><i class="fa fa-star-o"></i></li>
                         <li>(40) Reviews</li>
                       </ul>
-                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""></div> $3,850 / month with taxes</span>
+                      <span class="price"><div class="icon"><img src="./assets/img/listing-icon-01.png" alt=""></div> $3,850 / month with taxes</span>
                       <span class="details">Details: <em>3660 sq ft</em></span>
                       <ul class="info">
-                        <li><img src="assets/images/listing-icon-02.png" alt=""> 4 Bedrooms</li>
-                        <li><img src="assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</li>
+                        <li><img src="./assets/img/listing-icon-02.png" alt=""> 4 Bedrooms</li>
+                        <li><img src="./assets/img/listing-icon-03.png" alt=""> 3 Bathrooms</li>
                       </ul>
                       <div class="main-white-button">
                         <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
@@ -487,7 +492,7 @@ https://templatemo.com/tm-564-plot-listing
                 <div class="col-lg-12">
                   <div class="listing-item">
                     <div class="left-image">
-                      <a href="#"><img src="assets/images/listing-05.jpg" alt=""></a>
+                      <a href="#"><img src="./assets/img/listing-05.jpg" alt=""></a>
                     </div>
                     <div class="right-content align-self-center">
                       <a href="#"><h4>7. Sunny Apartment</h4></a>
@@ -500,11 +505,11 @@ https://templatemo.com/tm-564-plot-listing
                         <li><i class="fa fa-star-o"></i></li>
                         <li>(24) Reviews</li>
                       </ul>
-                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""></div> $5,450 / month with taxes</span>
+                      <span class="price"><div class="icon"><img src="./assets/img/listing-icon-01.png" alt=""></div> $5,450 / month with taxes</span>
                       <span class="details">Details: <em>1640 sq ft</em></span>
                       <ul class="info">
-                        <li><img src="assets/images/listing-icon-02.png" alt=""> 8 Bedrooms</li>
-                        <li><img src="assets/images/listing-icon-03.png" alt=""> 5 Bathrooms</li>
+                        <li><img src="./assets/img/listing-icon-02.png" alt=""> 8 Bedrooms</li>
+                        <li><img src="./assets/img/listing-icon-03.png" alt=""> 5 Bathrooms</li>
                       </ul>
                       <div class="main-white-button">
                         <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
@@ -515,7 +520,7 @@ https://templatemo.com/tm-564-plot-listing
                 <div class="col-lg-12">
                   <div class="listing-item">
                     <div class="left-image">
-                      <a href="#"><img src="assets/images/listing-02.jpg" alt=""></a>
+                      <a href="#"><img src="./assets/img/listing-02.jpg" alt=""></a>
                     </div>
                     <div class="right-content align-self-center">
                       <a href="#"><h4>8. Third House of Gaming</h4></a>
@@ -528,11 +533,11 @@ https://templatemo.com/tm-564-plot-listing
                         <li><i class="fa fa-star-o"></i></li>
                         <li>(15) Reviews</li>
                       </ul>
-                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""></div> $5,520 / month with taxes</span>
+                      <span class="price"><div class="icon"><img src="./assets/img/listing-icon-01.png" alt=""></div> $5,520 / month with taxes</span>
                       <span class="details">Details: <em>1660 sq ft</em></span>
                       <ul class="info">
-                        <li><img src="assets/images/listing-icon-02.png" alt=""> 5 Bedrooms</li>
-                        <li><img src="assets/images/listing-icon-03.png" alt=""> 4 Bathrooms</li>
+                        <li><img src="./assets/img/listing-icon-02.png" alt=""> 5 Bedrooms</li>
+                        <li><img src="./assets/img/listing-icon-03.png" alt=""> 4 Bathrooms</li>
                       </ul>
                       <div class="main-white-button">
                         <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
@@ -543,7 +548,7 @@ https://templatemo.com/tm-564-plot-listing
                 <div class="col-lg-12">
                   <div class="listing-item">
                     <div class="left-image">
-                      <a href="#"><img src="assets/images/listing-06.jpg" alt=""></a>
+                      <a href="#"><img src="./assets/img/listing-06.jpg" alt=""></a>
                     </div>
                     <div class="right-content align-self-center">
                       <a href="#"><h4>9. Relaxing BBQ Party Villa</h4></a>
@@ -556,11 +561,11 @@ https://templatemo.com/tm-564-plot-listing
                         <li><i class="fa fa-star-o"></i></li>
                         <li>(20) Reviews</li>
                       </ul>
-                      <span class="price"><div class="icon"><img src="assets/images/listing-icon-01.png" alt=""></div> $4,760 / month with taxes</span>
+                      <span class="price"><div class="icon"><img src="./assets/img/listing-icon-01.png" alt=""></div> $4,760 / month with taxes</span>
                       <span class="details">Details: <em>2880 sq ft</em></span>
                       <ul class="info">
-                        <li><img src="assets/images/listing-icon-02.png" alt=""> 6 Bedrooms</li>
-                        <li><img src="assets/images/listing-icon-03.png" alt=""> 4 Bathrooms</li>
+                        <li><img src="./assets/img/listing-icon-02.png" alt=""> 6 Bedrooms</li>
+                        <li><img src="./assets/img/listing-icon-03.png" alt=""> 4 Bathrooms</li>
                       </ul>
                       <div class="main-white-button">
                         <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
@@ -583,7 +588,7 @@ https://templatemo.com/tm-564-plot-listing
         <div class="col-lg-4">
           <div class="about">
             <div class="logo">
-              <img src="assets/images/black-logo.png" alt="Plot Listing">
+              <img src="./assets/img/black-logo.png" alt="Plot Listing">
             </div>
             <p>If you consider that <a rel="nofollow" href="https://templatemo.com/tm-564-plot-listing" target="_parent">Plot Listing template</a> is useful for your website, please <a rel="nofollow" href="https://www.paypal.me/templatemo" target="_blank">support us</a> a little via PayPal.</p>
           </div>
@@ -638,12 +643,12 @@ https://templatemo.com/tm-564-plot-listing
 
 
   <!-- Scripts -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets2/js/owl-carousel.js"></script>
-  <script src="assets2/js/animation.js"></script>
-  <script src="assets2/js/imagesloaded.js"></script>
-  <script src="assets2/js/custom.js"></script>
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/owl-carousel.js"></script>
+  <script src="./assets/js/animation.js"></script>
+  <script src="./assets/js/imagesloaded.js"></script>
+  <script src="./assets/js/custom.js"></script>
 
 </body>
 
