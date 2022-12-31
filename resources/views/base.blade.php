@@ -11,10 +11,10 @@
         <link rel="stylesheet" href="./assets/css/tailwind.output.css" />
         <script
         src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"defe></script>
-      
+
       <script src="./assets/js/init-alpine.js"></script>
-      <link rel="stylesheet"href="{{asset('assets3/lib/bootstrap/css/bootstrap.css')}}">
-      
+      {{-- <link rel="stylesheet"href="{{asset('assets3/lib/bootstrap/css/bootstrap.css')}}"> --}}
+
     </head>
     <body class="antialiased">
         @include('navbar/navbar')

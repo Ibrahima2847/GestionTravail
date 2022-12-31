@@ -12,7 +12,7 @@
     {{-- <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> --}}
 
-    <title>Plot Listing HTML5 Website Template</title>
+    <title>Accueil</title>
 
      <!-- Bootstrap core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -61,12 +61,33 @@ https://templatemo.com/tm-564-plot-listing
               <li><a href="index.html" class="active">Accueil</a></li>
               <li><a href="category.html">Offre d'Emploi</a></li>
             <li class="dropdown"><a href="listing.html">Recruteur</a>
-              <ul>
-                <li><a href="#">Publier une offre</a></li>
-                <li><a href="#">Gerer mes offres</a></li>
-              </ul>
+              {{--  --}}
             </li>
-              <li><a href="login">Se connecter</a></li>
+            @guest
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  My account
+                </a>
+
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="login">Login</a></li>
+                  <li><a class="dropdown-item" href="register">Create account</a></li>
+
+                </ul>
+              </div>
+            @endguest
+
+            @auth
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ auth()->user()->name }}
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="{{route('app_logout')}}">logout</a></li>
+                    </ul>
+                  </div>
+            @endauth
               <li><div class="main-white-button"><a href="#"><i class="fa fa-plus"></i> Add Your Listing</a></div></li>
             </ul>
             <a class='menu-trigger'>

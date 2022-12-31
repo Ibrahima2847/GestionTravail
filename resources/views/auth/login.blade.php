@@ -1,6 +1,8 @@
 @extends('base')
 
 @section('content')
+<form action="{{route('login')}}" method="POST">
+    @csrf
 <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
   <div
     class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800"
@@ -31,25 +33,33 @@
             <span class="text-gray-700 dark:text-gray-400">Email</span>
             <input
               class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-              placeholder="Jane Doe"
-            />
+              placeholder="Jane Doe" name="email"/>
+                @error('email')
+                      <span class="invalid-feedback is-invalid" role="alert">
+                        <strong>{{$message}}</strong>
+                      </span>
+                @enderror
           </label>
           <label class="block mt-4 text-sm">
             <span class="text-gray-700 dark:text-gray-400">Password</span>
             <input
               class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
               placeholder="***************"
-              type="password"
-            />
+              type="password" name="password"/>
+                @error('password')
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{$message}}</strong>
+                      </span>
+                @enderror
           </label>
 
           <!-- You should use a button here, as the anchor is only used for the example  -->
-          <a
+          <button
             class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-            href="admin"
+            href="{{route('admin')}}"
           >
             Log in
-          </a>
+          </button>
 
           <hr class="my-8" />
 
@@ -94,7 +104,7 @@
           <p class="mt-1">
             <a
               class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
-              href="register"
+              href="{{route('register')}}"
             >
               Create account
             </a>
@@ -104,5 +114,6 @@
     </div>
   </div>
 </div>
+</form>
 
 @endsection
