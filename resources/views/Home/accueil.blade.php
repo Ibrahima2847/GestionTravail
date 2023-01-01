@@ -87,8 +87,8 @@ https://templatemo.com/tm-564-plot-listing
                         <li><a href="{{route('app_logout')}}">logout</a></li>
                     </ul>
                   </div>
-            @endauth
-              <li><div class="main-white-button"><a href="#"><i class="fa fa-plus"></i> Add Your Listing</a></div></li>
+              <li><div class="main-white-button"><a href="{{route('nouvelleAnnonce')}}"><i class="fa fa-plus"></i> Add Your Listing</a></div></li>
+              @endauth
             </ul>
             <a class='menu-trigger'>
                 <span>Menu</span>
