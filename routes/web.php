@@ -16,14 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[HomeController::class,'accueil'])->name('accueil');
 
 Route::get('/apropos',[HomeController::class,'apropos'])->name('apropos');
+Route::get('/accueil', [HomeController::class,'accueil'])->name('accueil');
 
-
-Route::get('/accueil', function(){
-    return view('Home.accueil');
-});
-
-Route::get('/logout', [LoginController::class, 'logout'])
-        ->name('app_logout');
+Route::get('/logout', [LoginController::class, 'logout'])->name('app_logout');
 
 // Route::get('/accueil', [HomeController::class,'accueil'])
 //         ->middleware('auth')->name('accueil');
