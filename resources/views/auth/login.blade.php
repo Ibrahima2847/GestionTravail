@@ -1,6 +1,10 @@
-@extends('base')
+<script>"{{asset('assets3/lib/bootstrap/js/bootstrap.js')}}"</script>
+<script src="./assets/js/init-alpine.js"></script>
+<link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/tailwind.output.css" />
+<script
+src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"defe></script>
 
-@section('content')
 <form action="{{route('login')}}" method="POST">
     @csrf
 <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
@@ -114,4 +118,3 @@
 </div>
 </form>
 
-@endsection

@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OuvrierController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,12 @@ Route::get('/nouvelleAnnonce',[HomeController::class,'newAnnonce'])->name('nouve
 Route::get('/accueil', [HomeController::class,'accueil'])->name('accueil');
 
 Route::get('/home', [HomeController::class,'redirection'])->name('redirection');
+
+Route::get('/ouvrier', [OuvrierController::class,'index'])->name('ouvrier')->name('app_ouvrier');
+
+
+//Route::resource('ouvrier', OuvrierController::class);
+
 
 Route::get('/logout', [LoginController::class, 'logout'])
         ->name('app_logout');

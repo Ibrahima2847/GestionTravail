@@ -1,4 +1,6 @@
+@include('navbar.navbar')
 
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
   <head>
@@ -832,6 +834,8 @@
             </ul>
           </div>
         </header>
+=======
+>>>>>>> dfe0bda421a67dc53c3b4dd6745845fb5524e07e
         <main class="h-full overflow-y-auto">
           <div class="container px-6 mx-auto grid">
             <h2
