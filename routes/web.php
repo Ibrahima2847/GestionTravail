@@ -18,16 +18,22 @@ Route::get('/',[HomeController::class,'accueil'])->name('accueil');
 Route::get('/apropos',[HomeController::class,'apropos'])->name('apropos');
 Route::get('/accueil', [HomeController::class,'accueil'])->name('accueil');
 
-Route::get('/logout', [LoginController::class, 'logout'])->name('app_logout');
+// Route::get('/nouvelleAnnonce',[HomeController::class,'newAnnonce'])->name('nouvelleAnnonce');
+
+Route::get('/accueil', [HomeController::class,'accueil'])->name('accueil');
+
+Route::get('/home', [HomeController::class,'redirection'])->name('redirection');
+
+Route::get('/logout', [LoginController::class, 'logout'])
+        ->name('app_logout');
 
 // Route::get('/accueil', [HomeController::class,'accueil'])
-//         ->middleware('auth')->name('accueil');
+//         ->name('accueil');
 
 
 Route::middleware(['auth', 'profil:admin'])->group(function(){
-    Route::get('/admin', function(){
-        return view('Admin.admin');
-    })->name('admin');
+    Route::get('/admin', [HomeController::class, 'admin'])
+        ->name('app_admin');
     //
 });
 
