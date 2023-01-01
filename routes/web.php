@@ -18,7 +18,7 @@ Route::get('/',[HomeController::class,'accueil'])->name('accueil');
 Route::get('/apropos',[HomeController::class,'apropos'])->name('apropos');
 Route::get('/accueil', [HomeController::class,'accueil'])->name('accueil');
 
-// Route::get('/nouvelleAnnonce',[HomeController::class,'newAnnonce'])->name('nouvelleAnnonce');
+Route::get('/nouvelleAnnonce',[HomeController::class,'newAnnonce'])->name('nouvelleAnnonce');
 
 Route::get('/accueil', [HomeController::class,'accueil'])->name('accueil');
 
