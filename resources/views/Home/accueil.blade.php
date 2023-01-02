@@ -10,24 +10,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
      <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> --}}
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
 
     <title>Accueil</title>
 
      <!-- Bootstrap core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-{{-- 
-    <!-- Additional CSS Files -->
+
+    <!-- Additional CSS Files 
     <link rel="stylesheet" href="./assets/css/fontawesome.css">
     <link rel="stylesheet" href="./assets/css/templatemo-plot-listing.css">
     <link rel="stylesheet" href="./assets/css/animated.css">
-    <link rel="stylesheet" href="./assets/css/owl.css">
-<!-- --}}
-TemplateMo 564 Plot Listing
-
-https://templatemo.com/tm-564-plot-listing
-
--->
+    <link rel="stylesheet" href="./assets/css/owl.css"> -->
   </head>
 
 <body>
@@ -69,8 +63,8 @@ https://templatemo.com/tm-564-plot-listing
                 </a>
 
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="login">Login</a></li>
-                  <li><a class="dropdown-item" href="register">Create account</a></li>
+                  <li><a class="dropdown-item" href="{{route('login')}}">Login</a></li>
+                  <li><a class="dropdown-item" href="{{route('register')}}">Create account</a></li>
 
                 </ul>
               </div>

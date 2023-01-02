@@ -25,10 +25,10 @@ Route::get('/accueil', [HomeController::class,'accueil'])->name('accueil');
 
 Route::get('/home', [HomeController::class,'redirection'])->name('redirection');
 
-Route::get('/ouvrier', [OuvrierController::class,'index'])->name('ouvrier')->name('app_ouvrier');
+//Route::get('/ouvrier', [OuvrierController::class,'index'])->name('app_ouvrier');
 
 
-//Route::resource('ouvrier', OuvrierController::class);
+Route::resource('ouvriers', OuvrierController::class);
 
 
 Route::get('/logout', [LoginController::class, 'logout'])
@@ -43,7 +43,7 @@ Route::middleware(['auth', 'profil:admin'])->group(function(){
         ->name('app_admin');
     //
 });
+//php artisan make:controller ProductController --resource --model=Product;
+// php artisan make:migration create_products_table --create=products;
 
-//Route::match(['get','post'],'/login',[LoginController::class,'login'])->name('login');
-//Route::match(['get','post'],'/register',[LoginController::class,'register'])->name('register');
-
+ 

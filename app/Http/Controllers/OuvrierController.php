@@ -13,8 +13,12 @@ class OuvrierController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('Admin.ouvrier');
+    {    //dd($request->all());
+        $ouvriers = Ouvrier::latest()->paginate(5);
+       
+        return view('ouvriers.index',compact('ouvriers'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+     
     }
 
     /**
@@ -24,7 +28,8 @@ class OuvrierController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('ouvriers.create');
     }
 
     /**
@@ -35,9 +40,21 @@ class OuvrierController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'nom' => 'required',
+            'prenom' => 'required',
+            'telephone' => 'required',
+            'email' => 'required|email',
+        ]);
 
+        //dd($request->all());
+
+        $input = $request->all();
+        Ouvrier::create($input);
+
+        return redirect()->route('ouvriers.index')
+                        ->with('success','Ouvrier created successfully.');
+    }
     /**
      * Display the specified resource.
      *
@@ -45,10 +62,10 @@ class OuvrierController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Ouvrier $ouvrier)
-    {
-        //
+    { 
+       
+        return view('ouvriers.show',compact('ouvrier'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -57,7 +74,7 @@ class OuvrierController extends Controller
      */
     public function edit(Ouvrier $ouvrier)
     {
-        //
+        return view('ouvriers.show',compact('ouvrier'));
     }
 
     /**
@@ -69,7 +86,22 @@ class OuvrierController extends Controller
      */
     public function update(Request $request, Ouvrier $ouvrier)
     {
-        //
+    
+            $request->validate([
+                'nom' => 'required',
+            'prenom' => 'required',
+            'telephone' => 'required',
+            'email' => 'required'
+            ]);
+    
+            $input = $request->all();
+    
+        
+            $ouvrier->update($input);
+    
+            return redirect()->route('ouvriers.index')
+                            ->with('success','Ouvrier updated successfully');
+        
     }
 
     /**
@@ -80,6 +112,9 @@ class OuvrierController extends Controller
      */
     public function destroy(Ouvrier $ouvrier)
     {
-        //
+        $ouvrier->delete();
+
+        return redirect()->route('ouvriers.index')
+                        ->with('success','Ouvrier deleted successfully');
     }
 }
