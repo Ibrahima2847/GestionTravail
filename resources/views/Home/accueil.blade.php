@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 
 <!DOCTYPE html>
 <html lang="en">
@@ -93,6 +94,9 @@
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
+=======
+@include('navbar.navbarAccueil')
+>>>>>>> c8852286940ce81b4e008fdc13a884f4b95bbc5f
 
   <div class="main-banner" style="background-image: url('./assets/img/banner-bg.jpg');">
     <div class="container">
