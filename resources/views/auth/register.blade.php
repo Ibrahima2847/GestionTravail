@@ -1,8 +1,10 @@
+<script>"{{asset('assets3/lib/bootstrap/js/bootstrap.js')}}"</script>
+<script src="./assets/js/init-alpine.js"></script>
+<link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/tailwind.output.css" />
+<script
+src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"defe></script>
 
-
-@extends('base')
-
-@section('content')
 <form method="POST" action="{{route('register')}}" id="form-register">
     @csrf
     <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
@@ -151,7 +153,6 @@
       </div>
     </div>
 </form>
-    @endsection
 
   </body>
 </html>
