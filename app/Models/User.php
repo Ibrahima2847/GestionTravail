@@ -45,4 +45,8 @@ class User extends Authenticatable
     public function profils(){
         return $this->belongsToMany(profil::class);
     }
+
+    public function ads(){
+        return $this->hasMany('App\Models\Annonce');
+    }
 }

@@ -1,9 +1,17 @@
 
+<<<<<<< HEAD
   <!-- ***** Header Area End ***** -->
+=======
+>>>>>>> 538319d616b505a587e08112a04ba136aab29c24
 @include('navbar.navbarAccueil')
 
   <div class="main-banner" style="background-image: url('./assets/img/banner-bg.jpg');">
     <div class="container">
+        @if (session()->has('success'))
+            <div class="alert alert-success">
+                {{session()->get('success')}}
+            </div>
+        @endif
       <div class="row">
         <div class="col-lg-12">
           <div class="top-text header-text">
@@ -565,7 +573,7 @@
   </footer>
 
 
-  <!-- Scripts --> 
+  <!-- Scripts -->
   <script src="../vendor/jquery/jquery.min.js"></script>
   <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="./assets/js/owl-carousel.js"></script>
