@@ -30,7 +30,7 @@ class HomeController extends Controller
         return view('Admin.admin');
     }
     public function newAnnonce(){
-        return view('Home.nouvelleAnnonce');
+        return view('ads.nouvelleAnnonce');
     }
 
 

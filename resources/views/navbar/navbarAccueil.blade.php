@@ -57,11 +57,11 @@ https://templatemo.com/tm-564-plot-listing
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li><a href="index.html" class="active">Accueil</a></li>
+              <li><a href="{{route('accueil')}}" class="active">Accueil</a></li>
               <li><a href="category.html">Offre d'Emploi</a></li>
-            <li class="dropdown"><a href="listing.html">Recruteur</a>
-              {{--  --}}
-            </li>
+              <li class="dropdown"><a href="listing.html">Recruteur</a></li>
+              <li><div class="main-white-button"><a href="{{route('nouvelleAnnonce')}}"><i class="fa fa-plus"></i> Add Your Listing</a></div></li>
+
             @guest
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -86,7 +86,6 @@ https://templatemo.com/tm-564-plot-listing
                         <li><a href="{{route('app_logout')}}">logout</a></li>
                     </ul>
                   </div>
-              <li><div class="main-white-button"><a href="{{route('nouvelleAnnonce')}}"><i class="fa fa-plus"></i> Add Your Listing</a></div></li>
               @endauth
             </ul>
             <a class='menu-trigger'>

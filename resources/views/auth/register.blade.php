@@ -5,12 +5,6 @@
 <script
 src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"defe></script>
 
-<<<<<<< HEAD
-@extends('base')
-
-@section('content')
-=======
->>>>>>> c8852286940ce81b4e008fdc13a884f4b95bbc5f
 <form method="POST" action="{{route('register')}}" id="form-register">
     @csrf
     <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
