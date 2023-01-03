@@ -14,9 +14,12 @@ class OuvrierController extends Controller
      */
     public function index()
     {    //dd($request->all());
+        $ou=Ouvrier::find(1);
+        $ou->delete();
+        $ouv=Ouvrier::all();
         $ouvriers = Ouvrier::latest()->paginate(5);
        
-        return view('ouvriers.index',compact('ouvriers'))
+        return view('ouvriers.index',compact('ouvriers','ouv'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
      
     }
