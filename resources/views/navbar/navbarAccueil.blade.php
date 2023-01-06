@@ -70,7 +70,8 @@
                     </a>
 
                     <ul class="dropdown-menu">
-                        <li><a href="{{route('app_logout')}}">Demba</a></li>
+                        <li><a href="{{route('app_ouvrier')}}">Gérer</a></li>
+                        <li><a href="{{route('app_logout')}}">Logout</a></li>
                     </ul>
                   </div>
               <li><div class="main-white-button"><a href="{{route('nouvelleAnnonce')}}"><i class="fa fa-plus"></i> Add Your Listing</a></div></li>

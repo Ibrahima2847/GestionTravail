@@ -16,9 +16,6 @@ class HomeController extends Controller
     if(Auth::id()) {
         if(Auth::user()->profil === 'admin'){
             return view('Admin.admin');
-        }
-        elseif(Auth::user()->profil === 'client'){
-            return view('Client.client');
         }else{
             return view('Home.accueil');
         }

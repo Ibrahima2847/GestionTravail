@@ -26,7 +26,7 @@ Route::get('/accueil', [HomeController::class,'accueil'])->name('accueil');
 
 Route::get('/home', [HomeController::class,'redirection'])->name('redirection');
 
-//Route::get('/ouvrier', [OuvrierController::class,'index'])->name('app_ouvrier');
+Route::get('/ouvrier', [OuvrierController::class,'index'])->name('app_ouvrier');
 
 Route::resource('ouvriers', OuvrierController::class);
 
