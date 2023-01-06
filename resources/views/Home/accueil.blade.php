@@ -1,4 +1,8 @@
 
+<<<<<<< HEAD
+  <!-- ***** Header Area End ***** -->
+=======
+>>>>>>> 538319d616b505a587e08112a04ba136aab29c24
 @include('navbar.navbarAccueil')
 
   <div class="main-banner" style="background-image: url('./assets/img/banniere.jpg');">
