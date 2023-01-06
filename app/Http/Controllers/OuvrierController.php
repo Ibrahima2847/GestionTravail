@@ -14,12 +14,12 @@ class OuvrierController extends Controller
      */
     public function index()
     {    //dd($request->all());
-        $ou=Ouvrier::find(1);
-        $ou->delete();
-        $ouv=Ouvrier::all();
+        //$ou=Ouvrier::find(1);
+        //$ou->delete();
+       // $ouv=Ouvrier::all();
         $ouvriers = Ouvrier::latest()->paginate(5);
        
-        return view('ouvriers.index',compact('ouvriers','ouv'))
+        return view('ouvriers.index',compact('ouvriers'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
      
     }
@@ -77,7 +77,7 @@ class OuvrierController extends Controller
      */
     public function edit(Ouvrier $ouvrier)
     {
-        return view('ouvriers.show',compact('ouvrier'));
+        return view('ouvriers.edit',compact('ouvrier'));
     }
 
     /**

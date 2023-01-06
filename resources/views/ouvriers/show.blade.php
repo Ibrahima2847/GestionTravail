@@ -7,7 +7,7 @@
                 <h2> Show Ouvrier</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('ouvriers.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('ouvriers.show') }}"> Back</a>
             </div>
         </div>
     </div>

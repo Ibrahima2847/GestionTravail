@@ -18,7 +18,7 @@ class HomeController extends Controller
             return view('Admin.admin');
         }
         elseif(Auth::user()->profil === 'client'){
-            return view('Home.accueil');
+            return view('Client.client');
         }else{
             return view('Home.accueil');
         }
