@@ -16,7 +16,7 @@ src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"defe>
         <img
           aria-hidden="true"
           class="object-cover w-full h-full dark:hidden"
-          src="./assets/img/login-office.jpeg"
+          src="./assets/img/mokupOrdi.jpg"
           alt="Office"
         />
         <img

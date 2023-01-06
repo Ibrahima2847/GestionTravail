@@ -1,7 +1,7 @@
 
 @include('navbar.navbarAccueil')
 
-  <div class="main-banner" style="background-image: url('./assets/img/banner-bg.jpg');">
+  <div class="main-banner" style="background-image: url('./assets/img/banniere.jpg');">
     <div class="container">
         @if (session()->has('success'))
             <div class="alert alert-success">
@@ -11,6 +11,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="top-text header-text">
+            <h2>Quelle que soit votre compétence elle sera la bienvenue !</h2>
             <h2>Rechercher un ouvrier</h2>
           </div>
         </div>
@@ -53,15 +54,6 @@
             </div>
           </form>
         </div>
-        <div class="col-lg-10 offset-lg-1">
-          <ul class="categories">
-            <li><a href="category.html"><span class="icon"><img src="./assets/img/search-icon-01.png" alt="Home"></span> Apartments</a></li>
-            <li><a href="listing.html"><span class="icon"><img src="./assets/img/search-icon-02.png" alt="Food"></span> Food &amp; Life</a></li>
-            <li><a href="#"><span class="icon"><img src="./assets/img/search-icon-03.png" alt="Vehicle"></span> Cars</a></li>
-            <li><a href="#"><span class="icon"><img src="./assets/img/search-icon-04.png" alt="Shopping"></span> Shopping</a></li>
-            <li><a href="#"><span class="icon"><img src="./assets/img/search-icon-05.png" alt="Travel"></span> Traveling</a></li>
-          </ul>
-        </div>
       </div>
     </div>
   </div>
@@ -72,8 +64,8 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="section-heading">
-            <h2>Popular Categories</h2>
-            <h6>Check Them Out</h6>
+            <h2>NOS SERVICES POUR UNE RECHERCHE D'EMPLOI RÉUSSIE</h2>
+            <h3>KayJob te propose une large gamme de services pour trouver un emploi au Sénégal.</h3>
           </div>
         </div>
         <div class="col-lg-12">
@@ -225,288 +217,23 @@
       </div>
     </div>
   </div>
-
-
-  <div class="recent-listing">
+  <div class="popular-categories">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="section-heading">
-            <h2>Recent Listing</h2>
-            <h6>Check Them Out</h6>
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <div class="owl-carousel owl-listing">
-            <div class="item">
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                      <a href="#"><img src="./assets/img/listing-01.jpg" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>1. First Apartment Unit</h4></a>
-                      <h6>by: Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(18) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="./assets/img/listing-icon-01.png" alt=""></div> $450 - $950 / month with taxes</span>
-                      <span class="details">Details: <em>2760 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="./assets/img/listing-icon-02.png" alt=""> 4 Bedrooms</li>
-                        <li><img src="./assets/img/listing-icon-03.png" alt=""> 4 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                      <a href="#"><img src="./assets/img/listing-02.jpg" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>2. Another House of Gaming</h4></a>
-                      <h6>by: Top Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(24) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="./assets/img/listing-icon-01.png" alt=""></div> $1,400 - $3,500 / month with taxes</span>
-                      <span class="details">Details: <em>3650 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="./assets/img/listing-icon-02.png" alt=""> 4 Bedrooms</li>
-                        <li><img src="./assets/img/listing-icon-03.png" alt=""> 3 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                      <a href="#"><img src="./assets/img/listing-03.jpg" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>3. Secret Place Hidden House</h4></a>
-                      <h6>by: Best Property</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(36) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="./assets/img/listing-icon-01.png" alt=""></div> $1,500 - $3,600 / month with taxes</span>
-                      <span class="details">Details: <em>5500 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="./assets/img/listing-icon-02.png" alt=""> 4 Bedrooms</li>
-                        <li><img src="./assets/img/listing-icon-03.png" alt=""> 3 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                      <a href="#"><img src="./assets/img/listing-04.jpg" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>4. Sunshine Fourth Apartment</h4></a>
-                      <h6>by: Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(24) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="./assets/img/listing-icon-01.png" alt=""></div> $3,600 / month with taxes</span>
-                      <span class="details">Details: <em>3660 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="./assets/img/listing-icon-02.png" alt=""> 5 Bedrooms</li>
-                        <li><img src="./assets/img/listing-icon-03.png" alt=""> 3 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                      <a href="#"><img src="./assets/img/listing-05.jpg" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>5. Best House Of the Town</h4></a>
-                      <h6>by: Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(32) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="./assets/img/listing-icon-01.png" alt=""></div> $5,600 / month with taxes</span>
-                      <span class="details">Details: <em>1750 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="./assets/img/listing-icon-02.png" alt=""> 6 Bedrooms</li>
-                        <li><img src="./assets/img/listing-icon-03.png" alt=""> 3 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                      <a href="#"><img src="./assets/img/listing-06.jpg" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>6. Amazing Pool Party Villa</h4></a>
-                      <h6>by: Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(40) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="./assets/img/listing-icon-01.png" alt=""></div> $3,850 / month with taxes</span>
-                      <span class="details">Details: <em>3660 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="./assets/img/listing-icon-02.png" alt=""> 4 Bedrooms</li>
-                        <li><img src="./assets/img/listing-icon-03.png" alt=""> 3 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                      <a href="#"><img src="./assets/img/listing-05.jpg" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>7. Sunny Apartment</h4></a>
-                      <h6>by: Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(24) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="./assets/img/listing-icon-01.png" alt=""></div> $5,450 / month with taxes</span>
-                      <span class="details">Details: <em>1640 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="./assets/img/listing-icon-02.png" alt=""> 8 Bedrooms</li>
-                        <li><img src="./assets/img/listing-icon-03.png" alt=""> 5 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                      <a href="#"><img src="./assets/img/listing-02.jpg" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>8. Third House of Gaming</h4></a>
-                      <h6>by: Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(15) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="./assets/img/listing-icon-01.png" alt=""></div> $5,520 / month with taxes</span>
-                      <span class="details">Details: <em>1660 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="./assets/img/listing-icon-02.png" alt=""> 5 Bedrooms</li>
-                        <li><img src="./assets/img/listing-icon-03.png" alt=""> 4 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                      <a href="#"><img src="./assets/img/listing-06.jpg" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>9. Relaxing BBQ Party Villa</h4></a>
-                      <h6>by: Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(20) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="./assets/img/listing-icon-01.png" alt=""></div> $4,760 / month with taxes</span>
-                      <span class="details">Details: <em>2880 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="./assets/img/listing-icon-02.png" alt=""> 6 Bedrooms</li>
-                        <li><img src="./assets/img/listing-icon-03.png" alt=""> 4 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="contact.html"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <h2>C'est quoi KayJob ?</h2>
+            <h3>KayJob est une plateforme basé au Sénégal qui permet au peuple sénégal de trouver des ouvriers qui offrent
+                des services de maniére temporaire mais également aux ouvriers d'avoir d'offrir plus facilement leur service
+                à travers notre plateforme.
+            </h3>
+            </p>
           </div>
         </div>
       </div>
     </div>
   </div>
+
 
 
   <footer>

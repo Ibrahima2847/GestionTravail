@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Fortify\PasswordValidationRules;
 use App\Http\Requests\AdStore;
 use App\Models\Annonce;
 use App\Models\User;
@@ -9,12 +10,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Routing\Controller;
-use Illuminate\Contracts\Auth\StatefulGuard;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Contracts\Auth\StatefulGuard;
+use Illuminate\Support\Facades\DB;
+use Laravel\Fortify\Contracts\CreatesNewUsers;
+use Laravel\Fortify\Contracts\RegisterResponse;
+use Laravel\Fortify\Contracts\RegisterViewResponse;
 
 class AdController extends Controller
 {
 
+    use PasswordValidationRules;
 
     /**
      * Display a listing of the resource.
@@ -23,15 +32,12 @@ class AdController extends Controller
      */
     public function index()
     {
-        //
+        //Recuperation des annonces et les affichées par ordre de création
+        $ads = DB::table('annonces')->orderBy('created_at', 'DESC')->paginate(5);
+        $name = DB::table('users');
+        return view('Home.offreDemploi', compact('ads','name'));
     }
 
-    protected $guard;
-
-    public function __construct(StatefulGuard $guard)
-    {
-        $this->guard = $guard;
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -52,25 +58,23 @@ class AdController extends Controller
     {
         $validated = $request->validated();
 
-        if(Auth::check()){
-            $request->validate([
-                'name' => 'required',
-                'email' => 'required|email|unique:users',
-                'password' => 'required|confirmed',
-                'password_confirmation' => 'required',
-            ]);
+        //  if(Auth::check()){
 
+        //     $request->validate([
+        //         'name' => 'required',
+        //         'email' => 'required|email|unique:users',
+        //         'password' => 'required|confirmed',
+        //         'password_confirmation' => 'required',
+        //     ]);
 
-            $user = User::created([
-                'name' => $request['name'],
-                'email' => $request['email'],
-                'password' => Hash::make($request['password']),
-            ]);
+        //     $user = User::created([
+        //         'name' => $request['name'],
+        //         'email' => $request['email'],
+        //         'password' => Hash::make($request['password']),
+        //     ]);
 
-            Auth::login($user);
-            return $this->authenticated($request, $user);
-
-        }
+        //     //$this->guard->login($user);
+        // }
 
         $ad = new Annonce();
 

@@ -44,6 +44,13 @@ figure, header, nav, section, article, aside, footer, figcaption {
   outline: 0;
 }
 
+/* Logo */
+img {
+    width : 150px;
+    height : 150px;
+    }
+
+
 /* clear fix */
 .grid:after {
   content: '';
@@ -248,7 +255,7 @@ header
 }
 
 .background-header .main-nav .nav li:hover a {
-  color: #8d99af!important;
+  color:#8d99af!important;
 }
 
 .background-header .nav li a.active {
@@ -276,19 +283,19 @@ header
 }
 
 .header-area .main-nav a.logo {
-  background-image: url(../images/white-logo.png);
+  background-image: url(../assets/img/logo.png);
   width: 166px;
   height: 58px;
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 2px;
 }
 
-.background-header .main-nav a.logo {
-  background-image: url(../images/black-logo.png);
+.background-header .main-nav a.logo  {
+  background-image: url(../assets/img/logo.png);
   width: 164px;
   height: 58px;
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 1px;
 }
 
 .background-header .main-nav .nav {
@@ -724,34 +731,10 @@ Banner Style
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  /* background-image: url(./img/banner-bg.jpg); */
   padding: 290px 0px 180px 0px;
   position: relative;
   overflow: hidden;
 }
-
-/* .main-nav .dropdown ul a {
-    padding: 10px 20px;
-    font-size: 14px;
-    text-transform: none;
-    color: #666666;
-  }
-
-  .main-nav .dropdown ul a {
-    font-size: 12px;
-  }
-
-  .main-nav .dropdown ul a:hover,
-  .main-nav .dropdown ul .active:hover,
-  .main-nav .dropdown ul li:hover>a {
-    color: #2dc997;
-  }
-
-  .main-nav .dropdown:hover>ul {
-    opacity: 1;
-    top: 100%;
-    visibility: visible;
-  } */
 
 .main-banner .top-text {
   text-align: center;
@@ -2085,6 +2068,7 @@ responsive
   .header-area .main-nav a.logo {
     background-image: url(../images/black-logo.png);
     float: left;
+    margin-top: auto;
   }
   .header-area .logo {
     margin-left: 0px;

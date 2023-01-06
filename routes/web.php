@@ -42,6 +42,9 @@ Route::middleware(['auth', 'profil:admin'])->group(function(){
     //
 });
 
+// Les routes pour les annonces !
+Route::get('/annonces', [AdController::class, 'index'])->name('ad.index');
+
 Route::get('/nouvelleAnnonce', [AdController::class,'create'])->name('nouvelleAnnonce');
 
 Route::post('/annonce/create', [AdController::class, 'store'])->name('ad.store');

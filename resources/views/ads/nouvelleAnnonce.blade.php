@@ -55,7 +55,7 @@
                             <span class="invalid-feedback">{{ $errors->first('image') }}</span>
                         @endif
                     </div>
-                    @guest
+                    {{-- @guest
                         <h1>Vos informations !</h1>
                         <div class="col-12">
                             <label for="name">Votre nom :</label>
@@ -89,7 +89,7 @@
                             @endif
                         </div>
 
-                    @endguest
+                    @endguest --}}
                     <div class="col-12">
                       <fieldset>
                         <button type="submit" id="form-submit" class="main-button "><i class="fa fa-paper-plane"></i> Publier</button>
