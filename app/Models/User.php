@@ -18,9 +18,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'prenom',
         'name',
         'email',
         'password',
+        'profil',
     ];
 
     /**
@@ -48,5 +50,9 @@ class User extends Authenticatable
 
     public function ads(){
         return $this->hasMany('App\Models\Annonce');
+    }
+
+    public function ouvriers(){
+        return $this->hasMany('App\Models\Ouvrier');
     }
 }

@@ -13,15 +13,8 @@ class OuvrierController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {    //dd($request->all());
-        //$ou=Ouvrier::find(1);
-        //$ou->delete();
-       // $ouv=Ouvrier::all();
-        $ouvriers = Ouvrier::latest()->paginate(5);
-       
-        return view('ouvriers.index',compact('ouvriers'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
-     
+    {
+        //
     }
 
     /**
@@ -31,8 +24,7 @@ class OuvrierController extends Controller
      */
     public function create()
     {
-
-        return view('ouvriers.create');
+        //
     }
 
     /**
@@ -43,81 +35,57 @@ class OuvrierController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nom' => 'required',
-            'prenom' => 'required',
-            'telephone' => 'required',
-            'email' => 'required|email',
-        ]);
 
-        //dd($request->all());
+            $ad = new Ouvrier();
 
-        $input = $request->all();
-        Ouvrier::create($input);
+            $ad->id_Ouvrier = auth()->user()->id;
+            $ad->save();
+            return redirect()->route('accueil');
 
-        return redirect()->route('ouvriers.index')
-                        ->with('success','Ouvrier created successfully.');
     }
+
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Ouvrier  $ouvrier
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Ouvrier $ouvrier)
-    { 
-       
-        return view('ouvriers.show',compact('ouvrier'));
+    public function show($id)
+    {
+        //
     }
+
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Ouvrier  $ouvrier
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ouvrier $ouvrier)
+    public function edit($id)
     {
-        return view('ouvriers.edit',compact('ouvrier'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Ouvrier  $ouvrier
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ouvrier $ouvrier)
+    public function update(Request $request, $id)
     {
-    
-            $request->validate([
-                'nom' => 'required',
-            'prenom' => 'required',
-            'telephone' => 'required',
-            'email' => 'required'
-            ]);
-    
-            $input = $request->all();
-    
-        
-            $ouvrier->update($input);
-    
-            return redirect()->route('ouvriers.index')
-                            ->with('success','Ouvrier updated successfully');
-        
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Ouvrier  $ouvrier
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ouvrier $ouvrier)
+    public function destroy($id)
     {
-        $ouvrier->delete();
-
-        return redirect()->route('ouvriers.index')
-                        ->with('success','Ouvrier deleted successfully');
+        //
     }
 }
