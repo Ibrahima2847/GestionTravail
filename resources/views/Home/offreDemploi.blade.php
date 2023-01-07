@@ -32,7 +32,7 @@
                     <div class="left-image">
                       <a href="#"><img src="./assets/img/{{$ad->image}}" alt=""></a>
                     </div>
-                    <div class="right-content align-self-center">
+                    <div class="right-content align-self-center h-32 md:h-auto md:w-1/2">
                       <a href="#"><h4>{{$ad->titre}}</h4></a>
                       {{-- <h6>{{$name->name}}</h6> --}}
                       <ul class="rate">

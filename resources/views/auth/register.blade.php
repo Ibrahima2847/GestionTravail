@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="./assets/css/tailwind.output.css" />
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defe></script>
 
-<form method="POST" action="{{ route('register') }}" id="form-register" x-data="{role_id:2}">
+<form method="POST" action="{{ route('register') }}" id="form-register" x-data="{role_id:1}">
     @csrf
     <div class="flex items-center min-h-screen p-16 bg-gray-50 dark:bg-gray-900">
         <div class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
@@ -61,23 +61,36 @@
                                 class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                                 name="profil" id="profil" x-model="role_id">
                                 <option value="client">Client</option>
-                                <option value="ouvrier">Ouvrier</option>
-                                <option value="chefAgence">Chef d'agence</option>
+                                <option value="ouvrier @selected('role_id == 1')">Ouvrier</option>
+                                <option value="chefAgence @selected('role_id == 0')">Chef d'agence</option>
                             </select>
                         </label>
-
+                        <div x-show="role_id">
                         <label class="block text-sm">
                             <span class="text-gray-700 dark:text-gray-400">Donner votre métier :</span>
                             <input
                                 class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                placeholder="ModouNdiaye@gmail.com" name='email' />
+                                placeholder="ModouNdiaye@gmail.com" name='email'  />
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </label>
-
+                        </div>
+                        <div x-show="role_id">
+                            <label class="block text-sm">
+                                <span class="text-gray-700 dark:text-gray-400">Donner le nom de votre agence :</span>
+                                <input
+                                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                    placeholder="ModouNdiaye@gmail.com" name='email'  />
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </label>
+                            </div>
                         <label class="block mt-4 text-sm">
                             <span class="text-gray-700 dark:text-gray-400">Mot de passe :</span>
                             <input

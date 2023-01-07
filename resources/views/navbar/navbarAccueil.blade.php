@@ -7,12 +7,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     {{-- <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     --}}
     <title>Accueil</title>
 
      <!-- Bootstrap core CSS -->
-    <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet"> 
+    <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{asset('assets/css/fontawesome.css')}}">
@@ -47,15 +47,8 @@
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li><a href="{{route('accueil')}}" class="active">Accueil</a></li>
-<<<<<<< HEAD
               <li><a href="{{route('ad.index')}}">Annonces</a></li>
               <li class="dropdown"><a href="listing.html">Ouvriers</a></li>
-=======
-              <li><a href="category.html">Offre d'Emploi</a></li>
-              <li class="dropdown"><a href="listing.html">Recruteur</a></li>
-              <li><div class="main-white-button"><a href="{{route('nouvelleAnnonce')}}"><i class="fa fa-plus"></i> Add Your Listing</a></div></li>
-              <li><a class="dropdown-item" href="{{route('app_logout')}}">logout</a></li>
->>>>>>> 0e7e370f8ebc7073b36014a28c53c63804713cb9
             @guest
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -64,7 +57,7 @@
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="{{route('app_logout')}}">Login</a></li>
                   <li><a class="dropdown-item" href="{{route('register')}}">Create account</a></li>
-            
+
                 </ul>
               </div>
             @endguest
@@ -76,15 +69,13 @@
                     </a>
 
                     <ul class="dropdown-menu">
-<<<<<<< HEAD
                         <li><a href="{{route('redirection')}}">Gérer</a></li>
                         <li><a href="{{route('app_logout')}}">Logout</a></li>
-=======
-                        <li><a href="{{route('app_logout')}}">Demba</a></li>
->>>>>>> 0e7e370f8ebc7073b36014a28c53c63804713cb9
+                        <li><a class="dropdown-item" href="{{route('app_logout')}}">logout</a></li>
                     </ul>
                   </div>
               @endauth
+              <li><div class="main-white-button"><a href="{{route('nouvelleAnnonce')}}"><i class="fa fa-plus"></i> Add Your Listing</a></div></li>
             </ul>
             <a class='menu-trigger'>
                 <span>Menu</span>
@@ -94,4 +85,4 @@
         </div>
       </div>
     </div>
-  </header> 
+  </header>
