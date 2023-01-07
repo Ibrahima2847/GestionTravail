@@ -1,9 +1,9 @@
 
-<<<<<<< HEAD
-  <!-- ***** Header Area End ***** -->
-=======
->>>>>>> 538319d616b505a587e08112a04ba136aab29c24
+ 
+
 @include('navbar.navbarAccueil')
+  <!-- ***** Header Area End ***** -->
+
 
   <div class="main-banner" style="background-image: url('./assets/img/banniere.jpg');">
     <div class="container">
@@ -299,14 +299,13 @@
     </div>
   </footer>
 
-
   <!-- Scripts -->
-  <script src="../vendor/jquery/jquery.min.js"></script>
-  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="./assets/js/owl-carousel.js"></script>
-  <script src="./assets/js/animation.js"></script>
-  <script src="./assets/js/imagesloaded.js"></script>
-  <script src="./assets/js/custom.js"></script>
+  <script src="{{asset('assets/vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{asset('assets/js/owl-carousel.js')}}"></script>
+  <script src="{{asset('assets/js/animation.js')}}"></script>
+  <script src="{{asset('assets/js/imagesloaded.js')}}"></script>
+  <script src="{{asset('assets/js/custom.js')}}"></script>
 
 </body>
 
