@@ -1,4 +1,4 @@
-@include('navbar.navbar')
+@include('navbar.navbarOuvrier')
 @extends('ouvriers.layout')
 
 @section('title', 'ouvrier')
@@ -13,7 +13,7 @@
     >
       Dashboard  Ouvrier
     </h2>
-    <!-- New Table -->
+    {{-- <!-- New Table -->
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
@@ -87,5 +87,5 @@
             @endforeach
           </table>
 
-{!! $ouvriers->links() !!}
+{!! $ouvriers->links() !!} --}}
 

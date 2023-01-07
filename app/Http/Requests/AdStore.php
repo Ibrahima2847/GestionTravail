@@ -25,6 +25,7 @@ class AdStore extends FormRequest
     {
         return [
             'titre' => ['required'],
+            'nombre' => ['required', 'gt:0'],
             'region' => ['required'],
             'departement' => ['required'],
             'image' => ['required'],

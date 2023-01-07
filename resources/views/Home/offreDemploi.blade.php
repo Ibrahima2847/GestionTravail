@@ -1,10 +1,10 @@
 @include('navbar.navbarAccueil')
-<div class="main-banner" style="background-image: url('./assets/img/banner-bg.jpg');">
+<div class="main-banner" style="background-image: url('./assets/img/afficheAnnonce.jpg');">
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
           <div class="top-text header-text">
-            <h2>Ajouter une annonce</h2>
+
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@
                         <li><i class="fa fa-star-o"></i></li>
                         <li>(18) Reviews</li>
                       </ul>
-                      <span class="price"><div class="icon"><img src="" alt=""></div> $450 - $950 / month with taxes</span>
+                      {{-- <span class="price"><div class="icon"><img src="" alt=""></div> $450 - $950 / month with taxes</span> --}}
                       <span class="details">Details: <em>{{$ad->message}}</em></span>
                       <ul class="info">
                         <li><img src="./assets/img/listing-icon-02.png" alt=""> {{$ad->region}} , {{$ad->departement}}</li>

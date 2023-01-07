@@ -34,8 +34,7 @@ class AdController extends Controller
     {
         //Recuperation des annonces et les affichées par ordre de création
         $ads = DB::table('annonces')->orderBy('created_at', 'DESC')->paginate(5);
-        $name = DB::table('users');
-        return view('Home.offreDemploi', compact('ads','name'));
+        return view('Home.offreDemploi', compact('ads'));
     }
 
     /**
@@ -58,27 +57,10 @@ class AdController extends Controller
     {
         $validated = $request->validated();
 
-        //  if(Auth::check()){
-
-        //     $request->validate([
-        //         'name' => 'required',
-        //         'email' => 'required|email|unique:users',
-        //         'password' => 'required|confirmed',
-        //         'password_confirmation' => 'required',
-        //     ]);
-
-        //     $user = User::created([
-        //         'name' => $request['name'],
-        //         'email' => $request['email'],
-        //         'password' => Hash::make($request['password']),
-        //     ]);
-
-        //     //$this->guard->login($user);
-        // }
-
         $ad = new Annonce();
 
         $ad->titre = $validated['titre'];
+        $ad->nombre = $validated['nombre'];
         $ad->region = $validated['region'];
         $ad->departement = $validated['departement'];
         $ad->image = $validated['image'];

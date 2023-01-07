@@ -48,8 +48,8 @@
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li><a href="{{route('accueil')}}" class="active">Accueil</a></li>
-              <li><a href="{{route('ad.index')}}">Offre d'Emploi</a></li>
-              <li class="dropdown"><a href="listing.html">Recruteur</a></li>
+              <li><a href="{{route('ad.index')}}">Annonces</a></li>
+              <li class="dropdown"><a href="listing.html">Ouvriers</a></li>
             @guest
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -70,7 +70,7 @@
                     </a>
 
                     <ul class="dropdown-menu">
-                        <li><a href="{{route('app_ouvrier')}}">Gérer</a></li>
+                        <li><a href="{{route('redirection')}}">Gérer</a></li>
                         <li><a href="{{route('app_logout')}}">Logout</a></li>
                     </ul>
                   </div>

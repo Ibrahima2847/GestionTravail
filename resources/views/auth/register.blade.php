@@ -6,14 +6,14 @@
 <link rel="stylesheet" href="./assets/css/tailwind.output.css" />
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defe></script>
 
-<form method="POST" action="{{ route('register') }}" id="form-register">
+<form method="POST" action="{{ route('register') }}" id="form-register" x-data="{role_id:2}">
     @csrf
-    <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
+    <div class="flex items-center min-h-screen p-16 bg-gray-50 dark:bg-gray-900">
         <div class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
             <div class="flex flex-col overflow-y-auto md:flex-row">
                 <div class="h-32 md:h-auto md:w-1/2">
                     <img aria-hidden="true" class="object-cover w-full h-full dark:hidden"
-                        src="./assets/img/create-account-office.jpeg" alt="Office" />
+                        src="./assets/img/register.jpg" alt="Office" />
                     <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block"
                         src="./assets/img/create-account-office-dark.jpeg" alt="Office" />
                 </div>
@@ -59,11 +59,23 @@
                             <span class="text-gray-700 dark:text-gray-400">Donner votre profil :</span>
                             <select
                                 class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                name="profil" id="profil">
+                                name="profil" id="profil" x-model="role_id">
                                 <option value="client">Client</option>
                                 <option value="ouvrier">Ouvrier</option>
                                 <option value="chefAgence">Chef d'agence</option>
                             </select>
+                        </label>
+
+                        <label class="block text-sm">
+                            <span class="text-gray-700 dark:text-gray-400">Donner votre métier :</span>
+                            <input
+                                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                placeholder="ModouNdiaye@gmail.com" name='email' />
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </label>
 
                         <label class="block mt-4 text-sm">
