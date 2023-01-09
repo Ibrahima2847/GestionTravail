@@ -12,14 +12,15 @@
     <title>Accueil</title>
 
      <!-- Bootstrap core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+     <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="./assets/css/fontawesome.css">
-    <link rel="stylesheet" href="./assets/css/templatemo-plot-listing.css">
-    <link rel="stylesheet" href="./assets/css/animated.css">
-    <link rel="stylesheet" href="./assets/css/owl.css">
-  </head>
+     <!-- Additional CSS Files -->
+     <link rel="stylesheet" href="{{asset('assets/css/fontawesome.css')}}">
+     <link rel="stylesheet" href="{{asset('assets/css/templatemo-plot-listing.css')}}">
+     <link rel="stylesheet" href="{{asset('assets/css/animated.css')}}">
+     <link rel="stylesheet" href="{{asset('assets/css/owl.css')}}">
+   </head>
+ 
 
 <body>
 

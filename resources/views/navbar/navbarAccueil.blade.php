@@ -47,7 +47,7 @@
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li><a href="{{route('accueil')}}" class="active">Accueil</a></li>
-              <li><a href="{{route('ad.index')}}">Annonces</a></li>
+             {{-- <li><a href="{{route('ad.index')}}">Annonces</a></li> --}}   
               <li class="dropdown"><a href="listing.html">Ouvriers</a></li>
             @guest
             <div class="dropdown">

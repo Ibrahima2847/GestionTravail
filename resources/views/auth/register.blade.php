@@ -60,9 +60,9 @@
                             <select
                                 class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                                 name="profil" id="profil" x-model="role_id" x-val="val">
-                                <option value="ouvrier">Ouvrier</option>
-                                <option value="client">Client</option>
-                                <option value="chefAgence @selected('val = 2')">Chef d'agence</option>
+                                <option value="ouvrier">ouvrier</option>
+                                <option value="client">client</option>
+                                <option value="chefAgence @selected('val = 2')">chef d'agence</option>
                             </select>
                         </label>
                         {{-- <div x-show="role_id == 1">

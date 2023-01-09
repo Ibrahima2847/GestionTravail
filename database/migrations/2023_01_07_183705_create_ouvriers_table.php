@@ -17,6 +17,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_Ouvrier');
             $table->foreign('id_Ouvrier')->references('id')->on('users')->onDelete('cascade');
+            $table->string('nom');
+            $table->string('telephone')->unique();
+            $table->string('email')->unique();
             $table->timestamps();
         });
     }

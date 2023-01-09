@@ -33,17 +33,14 @@ Route::resource('ouvriers', OuvrierController::class);
 Route::get('/logout', [LoginController::class, 'logout'])
         ->name('app_logout');
 
-// Route::get('/accueil', [HomeController::class,'accueil'])
-//         ->name('accueil');
+ Route::get('/update', [HomeController::class,'update'])
+        ->name('update');
 
 Route::middleware(['auth', 'profil:admin'])->group(function(){
     Route::get('/admin', [HomeController::class, 'admin'])
         ->name('app_admin');
     //
 });
-
-// Les routes pour les annonces !
-Route::get('/annonces', [AdController::class, 'index'])->name('ad.index');
 
 Route::get('/nouvelleAnnonce', [AdController::class,'create'])->name('nouvelleAnnonce');
 

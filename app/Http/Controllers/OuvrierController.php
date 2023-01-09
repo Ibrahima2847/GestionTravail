@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OuvrierStore;
 use App\Models\Ouvrier;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class OuvrierController extends Controller
      */
     public function index()
     {
-        //
+        // $ads = DB::table('annonces');
     }
 
     /**
@@ -33,14 +34,18 @@ class OuvrierController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OuvrierStore $request)
     {
 
-            $ad = new Ouvrier();
+            $validated = $request->validated();
+            dd($validated);
 
-            $ad->id_Ouvrier = auth()->user()->id;
-            $ad->save();
-            return redirect()->route('accueil');
+            // $ad = new Ouvrier();
+            // $ad->id_Ouvrier = auth()->user()->id;
+            // $ad->save();
+            // return redirect()->route('accueil');
+
+
 
     }
 
