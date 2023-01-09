@@ -38,7 +38,7 @@
                             <input
                                 class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                                 placeholder="Modou" name="prenom" />
-                            @error('name')
+                            @error('prenom')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -56,6 +56,7 @@
                             @enderror
                         </label>
                         <label class="block text-sm">
+<<<<<<< HEAD
                             <span class="text-gray-700 dark:text-gray-400">Donner votre profil :</span>
                             <select
                                 class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
@@ -68,29 +69,28 @@
                         {{-- <div x-show="role_id == 1">
                         <label class="block text-sm">
                             <span class="text-gray-700 dark:text-gray-400">Donner votre métier :</span>
+=======
+                            <span class="text-gray-700 dark:text-gray-400">Votre téléphone :</span>
+>>>>>>> 9372296a9f7400240fc9b5df4f20e81f7a795316
                             <input
                                 class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                placeholder="Votre métier" name='metier'  />
-                            @error('metier')
+                                placeholder="77 123 45 67" name="telephone" />
+                            @error('telephone')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </label>
-                        </div>
-                        <div x-show="val == 2">
-                            <label class="block text-sm">
-                                <span class="text-gray-700 dark:text-gray-400">Donner le nom de votre agence :</span>
-                                <input
-                                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                    placeholder="Nom de votre agence" name='agence'  />
-                                @error('agence')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </label>
-                            </div> --}}
+                        <label class="block text-sm">
+                            <span class="text-gray-700 dark:text-gray-400">Donner votre profil :</span>
+                            <select
+                                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                name="profil" id="profil" x-model="role_id" x-val="val">
+                                <option value="ouvrier">ouvrier</option>
+                                <option value="client">client</option>
+                                <option value="agent">agent</option>
+                            </select>
+                        </label>
                         <label class="block mt-4 text-sm">
                             <span class="text-gray-700 dark:text-gray-400">Mot de passe :</span>
                             <input

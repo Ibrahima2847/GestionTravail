@@ -2,11 +2,17 @@
 
 namespace App\Actions\Fortify;
 
+use App\Models\Agent;
+use App\Models\Client;
+use App\Models\Ouvrier;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
+
+use function PHPSTORM_META\registerArgumentsSet;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -23,6 +29,11 @@ class CreateNewUser implements CreatesNewUsers
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'prenom' => ['required', 'string', 'max:255'],
+            'telephone' => [
+                'required',
+                'integer',
+                Rule::unique(User::class),
+            ],
             'email' => [
                 'required',
                 'string',
@@ -33,12 +44,30 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
-        return User::create([
+        $user = User::create([
             'prenom' => $input['prenom'],
             'name' => $input['name'],
             'email' => $input['email'],
+            'telephone' => $input['telephone'],
             'profil' => $input['profil'],
             'password' => Hash::make($input['password']),
         ]);
+
+        if($user->profil === 'ouvrier'){
+            $ouvrier = Ouvrier::create([
+                'id_Ouvrier' => $user->id,
+            ]);
+
+        }elseif($user->profil === 'client'){
+            $client = Client::create([
+                'id_client' => $user->id,
+            ]);
+        }elseif($user->profil === 'agent'){
+            $chefAgence = Agent::create([
+                'id_chefAgence' => $user->id,
+            ]);
+        }
+        return $user;
     }
 }
+

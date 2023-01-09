@@ -26,8 +26,6 @@ Route::get('/accueil', [HomeController::class,'accueil'])->name('accueil');
 
 Route::get('/home', [HomeController::class,'redirection'])->name('redirection');
 
-Route::get('/ouvrier', [OuvrierController::class,'index'])->name('app_ouvrier');
-
 Route::resource('ouvriers', OuvrierController::class);
 
 Route::get('/logout', [LoginController::class, 'logout'])
@@ -42,6 +40,16 @@ Route::middleware(['auth', 'profil:admin'])->group(function(){
     //
 });
 
+<<<<<<< HEAD
+=======
+//Les routes pour les ouvriers
+Route::get('/ouvrier', [OuvrierController::class,'index'])->name('app_ouvrier');
+
+
+// Les routes pour les annonces !
+Route::get('/annonces', [AdController::class, 'index'])->name('ad.index');
+
+>>>>>>> 9372296a9f7400240fc9b5df4f20e81f7a795316
 Route::get('/nouvelleAnnonce', [AdController::class,'create'])->name('nouvelleAnnonce');
 
 Route::post('/annonce/create', [AdController::class, 'store'])->name('ad.store');

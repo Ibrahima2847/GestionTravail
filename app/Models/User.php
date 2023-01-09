@@ -25,6 +25,7 @@ class User extends Authenticatable
         'email',
         'password',
         'profil',
+        'telephone',
     ];
 
     /**
@@ -54,9 +55,16 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Annonce');
     }
 
-    public function ouvriers(){
-        if(Auth::user()->profil === 'ouvrier'){
-        return $this->hasMany(App\Models\Ouvrier::class);
-        }
+    public function ouvrier(){
+        return $this->hasMany('App\Models\Ouvrier');
     }
+
+    public function client(){
+        return $this->hasMany('App\Models\Client');
+    }
+
+    public function chefAgence(){
+        return $this->hasMany('App\Models\ChefAgence');
+    }
+
 }

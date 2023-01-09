@@ -47,8 +47,13 @@
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li><a href="{{route('accueil')}}" class="active">Accueil</a></li>
+<<<<<<< HEAD
              {{-- <li><a href="{{route('ad.index')}}">Annonces</a></li> --}}   
               <li class="dropdown"><a href="listing.html">Ouvriers</a></li>
+=======
+              <li><a href="{{route('ad.index')}}">Annonces</a></li>
+              <li class="dropdown"><a href="{{route('app_ouvrier')}}">Ouvriers</a></li>
+>>>>>>> 9372296a9f7400240fc9b5df4f20e81f7a795316
             @guest
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -65,7 +70,7 @@
               @auth
                 <div class="dropdown">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ auth()->user()->name }}
+                        {{ auth()->user()->prenom }} {{ auth()->user()->name }}
                     </a>
 
                     <ul class="dropdown-menu">

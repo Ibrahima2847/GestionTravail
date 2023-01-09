@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\OuvrierStore;
 use App\Models\Ouvrier;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OuvrierController extends Controller
 {
@@ -15,7 +16,10 @@ class OuvrierController extends Controller
      */
     public function index()
     {
-        // $ads = DB::table('annonces');
+       //Recuperation des ouvriers
+       $ouvriers = DB::table('ouvriers')
+                        ->join('users', 'users.id','=' ,'id_Ouvrier')->paginate(10);
+        return view('Home.ouvrier', compact('ouvriers'));
     }
 
     /**
@@ -36,6 +40,7 @@ class OuvrierController extends Controller
      */
     public function store(OuvrierStore $request)
     {
+<<<<<<< HEAD
 
             $validated = $request->validated();
             dd($validated);
@@ -47,6 +52,9 @@ class OuvrierController extends Controller
 
 
 
+=======
+        //
+>>>>>>> 9372296a9f7400240fc9b5df4f20e81f7a795316
     }
 
     /**
