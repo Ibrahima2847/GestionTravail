@@ -73,6 +73,9 @@
             <h3>KayJob te propose une large gamme de services pour trouver un emploi au Sénégal.</h3>
           </div>
         </div>
+          <div class="section-heading">
+            <h2>Quelques métiers</h2>
+          </div>
         <div class="col-lg-12">
           <div class="naccs">
             <div class="grid">
@@ -82,31 +85,31 @@
                     <div class="first-thumb active">
                       <div class="thumb">
                         <span class="icon"><img src="./assets/img/search-icon-01.png" alt=""></span>
-                        Apartments
+                        Plomberie
                       </div>
                     </div>
                     <div>
                       <div class="thumb">
                         <span class="icon"><img src="./assets/img/search-icon-02.png" alt=""></span>
-                        Food &amp; Life
+                        Maçonnerie
                       </div>
                     </div>
                     <div>
                       <div class="thumb">
                         <span class="icon"><img src="./assets/img/search-icon-03.png" alt=""></span>
-                        Cars
+                        Mécanique
                       </div>
                     </div>
                     <div>
                       <div class="thumb">
                         <span class="icon"><img src="./assets/img/search-icon-04.png" alt=""></span>
-                        Shopping
+                        Electricien
                       </div>
                     </div>
                     <div class="last-thumb">
                       <div class="thumb">
                         <span class="icon"><img src="./assets/img/search-icon-05.png" alt=""></span>
-                        Traveling
+                        Menuiserie
                       </div>
                     </div>
                   </div>
@@ -120,13 +123,12 @@
                             <div class="col-lg-5 align-self-center">
                               <div class="left-text">
                                 <h4>One Of The Most Trending Stuffs Right Now!</h4>
-                                <p>Plot Listing is a responsive Bootstrap 5 website template that included 4 different HTML pages. This template is provided by TemplateMo website. You can apply this layout for your static or dynamic CMS websites.</p>
-                                <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Discover More</a></div>
+                                <p>En construction neuve comme en rénovation, un réseau de plomberie sain est incontournable. Le domaine de la plomberie est vaste et regroupe d'innombrables activités. Ces dernières peuvent être du dépannage comme de la maintenance ou encore de l’installation. Les tarifs pratiqués par les professionnels sont libres mais des prix moyens sont toutefois observables.</p>
                               </div>
                             </div>
                             <div class="col-lg-7 align-self-center">
                               <div class="right-image">
-                                <img src="./assets/img/tabs-image-01.jpg" alt="">
+                                <img src="./assets/img/plomberie.jpg" alt="">
                               </div>
                             </div>
                           </div>
@@ -140,13 +142,12 @@
                             <div class="col-lg-5 align-self-center">
                               <div class="left-text">
                                 <h4>Food and Lifestyle category is here</h4>
-                                <p>You can feel free to download, edit and apply this template for your website. Please tell your friends about TemplateMo website.</p>
-                                <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Explore More</a></div>
+                                <p>Les travaux de maçonnerie concernent différentes étapes de la construction et de la rénovation. Effectués à l'intérieur ou à l'extérieur, ils demandent un grand savoir-faire qu'ils contribuent à solidifier la base d'une édification ou qu'ils améliorent l'esthétisme de l'ensemble.</p>
                               </div>
                             </div>
                             <div class="col-lg-7 align-self-center">
                               <div class="right-image">
-                                <img src="./assets/img/tabs-image-02.jpg" alt="Foods on the table">
+                                <img src="./assets/img/maconnerie.jpg" alt="Foods on the table">
                               </div>
                             </div>
                           </div>
@@ -180,13 +181,12 @@
                             <div class="col-lg-5 align-self-center">
                               <div class="left-text">
                                 <h4>Shopping List: Images from Unsplash</h4>
-                                <p>Image credits go to Unsplash website that provides free stock photos for anyone. Images used in this Plot Listing template are from Unsplash.</p>
-                                <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Discover More</a></div>
+                                <p>Pour distribuer l'électricité dans les bâtiments, l'électricien installateur pose des lignes de câbles auxquelles il raccorde les différents équipements électriques. Travaillant sur des chantiers de construction ou de rénovation, il coordonne ses activités avec celles des autres ouvriers. Après avoir étudié les plans et schémas qui concernant la pose des câbles, il repère les futurs emplacements des disjoncteurs, tableaux ou armoires électriques.</p>
                               </div>
                             </div>
                             <div class="col-lg-7 align-self-center">
                               <div class="right-image">
-                                <img src="./assets/img/tabs-image-04.jpg" alt="Shopping Girl">
+                                <img src="./assets/img/electricien.jpg" alt="Shopping Girl">
                               </div>
                             </div>
                           </div>
@@ -200,13 +200,12 @@
                             <div class="col-lg-5 align-self-center">
                               <div class="left-text">
                                 <h4>Information and Safety Tips for Traveling</h4>
-                                <p>You are allowed to use this template for your commercial websites. You are NOT allowed to redistribute this template ZIP file on any Free CSS collection websites.</p>
-                                <div class="main-white-button"><a rel="nofollow" href="https://templatemo.com/contact"><i class="fa fa-eye"></i> Read More</a></div>
+                                <p>Fabriquer des portes, des fenêtres, des parquets ou des bibliothèques, poser une cuisine ou des volets est le quotidien du menuisier. Dans son atelier, il conçoit, dessine, débite, monte, vernit ses créations, puis les installe sur les chantiers. Ce professionnel doit être habile et maîtriser les bases de la géométrie.</p>
                               </div>
                             </div>
                             <div class="col-lg-7 align-self-center">
                               <div class="right-image">
-                                <img src="./assets/img/tabs-image-05.jpg" alt="Traveling Beach">
+                                <img src="./assets/img/menuiserie.jpg" alt="Traveling Beach">
                               </div>
                             </div>
                           </div>
