@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Auth;
+
 
 class User extends Authenticatable
 {
@@ -52,7 +54,16 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Annonce');
     }
 
-    public function ouvriers(){
+    public function ouvrier(){
         return $this->hasMany('App\Models\Ouvrier');
     }
+
+    public function client(){
+        return $this->hasMany('App\Models\Client');
+    }
+
+    public function chefAgence(){
+        return $this->hasMany('App\Models\ChefAgence');
+    }
+
 }
