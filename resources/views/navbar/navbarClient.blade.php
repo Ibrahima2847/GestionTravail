@@ -630,6 +630,7 @@
                     </ul>
                   </template>
                 </li>
+                {{ auth()->user()->prenom }} {{ auth()->user()->name }}
                 <!-- Profile menu -->
                 <li class="relative">
                   <button

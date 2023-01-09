@@ -48,7 +48,7 @@
             <ul class="nav">
               <li><a href="{{route('accueil')}}" class="active">Accueil</a></li>
               <li><a href="{{route('ad.index')}}">Annonces</a></li>
-              <li class="dropdown"><a href="listing.html">Ouvriers</a></li>
+              <li class="dropdown"><a href="{{route('app_ouvrier')}}">Ouvriers</a></li>
             @guest
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -65,7 +65,7 @@
               @auth
                 <div class="dropdown">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ auth()->user()->name }}
+                        {{ auth()->user()->prenom }} {{ auth()->user()->name }}
                     </a>
 
                     <ul class="dropdown-menu">
