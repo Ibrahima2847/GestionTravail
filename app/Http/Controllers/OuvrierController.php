@@ -22,6 +22,18 @@ class OuvrierController extends Controller
         return view('Home.ouvrier', compact('ouvriers'));
     }
 
+    public function indexOuvrier(){
+        return view('DashboardOuvrier.index');
+    }
+
+    public function enCour(){
+        return view('DashboardOuvrier.enCour');
+    }
+
+    public function terminer(){
+        return view('DashboardOuvrier.terminer');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

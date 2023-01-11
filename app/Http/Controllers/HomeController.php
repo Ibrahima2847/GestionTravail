@@ -17,7 +17,7 @@ class HomeController extends Controller
         if(Auth::user()->profil === 'admin'){
             return view('Admin.admin');
         }elseif(Auth::user()->profil === 'ouvrier'){
-            return view('ouvriers.index');
+            return view('DashboardOuvrier.index');
         }elseif(Auth::user()->profil === 'client'){
             return view('Home.accueil');
         }elseif(Auth::user()->profil === 'chefAgence'){
@@ -43,6 +43,9 @@ class HomeController extends Controller
     public function changer(){
         return view('DashboardOuvrier.changer');
     }
+
+
+
 
 
 
