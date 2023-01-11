@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\OuvrierStore;
-use App\Models\Ouvrier;
+use App\Models\Client;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class OuvrierController extends Controller
+class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,18 +14,11 @@ class OuvrierController extends Controller
      */
     public function index()
     {
-       //Recuperation des ouvriers
-       $ouvriers = DB::table('ouvriers')
-                        ->join('users', 'users.id','=' ,'id_Ouvrier')->paginate(10);
-        return view('Home.ouvrier', compact('ouvriers'));
+        $clients = DB::table('cleints')
+        ->join('users', 'users.id','=' ,'id_client')->paginate(10);
+        return view('clients.index', compact('clients'));
     }
-    public function gestionIndex()
-    {
-       //Recuperation des ouvriers
-       $ouvriers = DB::table('ouvriers')
-                        ->join('users', 'users.id','=' ,'id_Ouvrier')->paginate(10);
-        return view('ouvriers.index', compact('ouvriers'));
-    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -36,8 +27,7 @@ class OuvrierController extends Controller
      */
     public function create()
     {
-         return view('ouvriers.create');
-
+        return view('clients.create');
     }
 
     /**
@@ -46,7 +36,7 @@ class OuvrierController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(OuvrierStore $request)
+    public function store(Request $request)
     {
         //
     }
@@ -54,10 +44,10 @@ class OuvrierController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Client $client)
     {
         //
     }
@@ -65,10 +55,10 @@ class OuvrierController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Client $client)
     {
         //
     }
@@ -77,10 +67,10 @@ class OuvrierController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Client $client)
     {
         //
     }
@@ -88,10 +78,10 @@ class OuvrierController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Client $client)
     {
         //
     }

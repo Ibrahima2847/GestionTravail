@@ -31,7 +31,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Nom:</strong>
-                    <input type="text" name="nom" value="{{ $ouvrier->nom }}" class="form-control" placeholder="Nom">
+                    <input type="text" name="nom" value="{{ $ouvrier->name }}" class="form-control" placeholder="Nom">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -47,8 +47,6 @@
                 </div>
             </div>
 
-
-
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Emmail:</strong>
@@ -56,8 +54,6 @@
 
                 </div>
             </div>
-
-
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
               <button type="submit" class="btn btn-primary">Submit</button>
