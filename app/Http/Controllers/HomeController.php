@@ -36,5 +36,14 @@ class HomeController extends Controller
         return view('ads.nouvelleAnnonce');
     }
 
+    public function metier(){
+        return view('DashboardOuvrier.metier');
+    }
+
+    public function changer(){
+        return view('DashboardOuvrier.changer');
+    }
+
+
 
 }

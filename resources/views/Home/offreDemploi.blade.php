@@ -16,8 +16,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="section-heading">
-            <h2>Recent Listing</h2>
-            <h6>Check Them Out</h6>
+            <h2>Les annonces réçentes</h2>
           </div>
         </div>
 
@@ -44,9 +43,9 @@
                         <li>(18) Reviews</li>
                       </ul>
                       {{-- <span class="price"><div class="icon"><img src="" alt=""></div> $450 - $950 / month with taxes</span> --}}
-                      <span class="details">Details: <em>{{$ad->message}}</em></span>
+                      <span class="details"><strong>Description : </strong><em>{{$ad->message}}</em></span>
                       <ul class="info">
-                        <li><img src="./assets/img/listing-icon-02.png" alt=""> {{$ad->region}} , {{$ad->departement}}</li>
+                        <li><img src="./assets/img/search-icon-05.png" alt=""> {{$ad->region}} , {{$ad->departement}}</li>
                         <small>{{ Carbon\Carbon::parse($ad->created_at)->diffForHumans() }}</small>
                       </ul>
                       <div class="main-white-button">

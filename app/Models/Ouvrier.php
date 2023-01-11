@@ -11,4 +11,8 @@ class Ouvrier extends Model
 
     protected $fillable = ['id_Ouvrier'];
     use HasFactory;
+
+    public function metier(){
+        return $this->hasOne('App\Models\Metier');
+    }
 }

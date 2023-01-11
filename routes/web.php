@@ -42,6 +42,8 @@ Route::middleware(['auth', 'profil:admin'])->group(function(){
 
 //Les routes pour les ouvriers
 Route::get('/ouvrier', [OuvrierController::class,'index'])->name('app_ouvrier');
+Route::get('/metier', [HomeController::class,'metier'])->name('metier');
+Route::get('/changerMotPasse', [HomeController::class,'changer'])->name('changer');
 
 
 // Les routes pour les annonces !
