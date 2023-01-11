@@ -42,7 +42,6 @@ Route::middleware(['auth', 'profil:admin'])->group(function(){
 });
 
 //Les routes pour les ouvriers
-
 Route::get('/ouvrier', [OuvrierController::class,'index'])->name('app_ouvrier');
 Route::get('/metier', [HomeController::class,'metier'])->name('metier');
 Route::get('/changerMotPasse', [HomeController::class,'changer'])->name('changer');
@@ -54,8 +53,13 @@ Route::get('/gestAnnonce', [OuvrierController::class,'gestAnnonce'])->name('gest
 
 Route::get('/gestionOuvrier', [OuvrierController::class,'gestionIndex'])->name('gest_ouvrier');
 
-//Routes pour les client
-Route::get('/gestionClient', [ClientController::class,'index'])->name('app_client');
+//Routes pour les clients
+Route::get('/gestionClient', [ClientController::class,'indexClient'])->name('indexClient');
+Route::get('/accepte', [ClientController::class,'accepte'])->name('accepte');
+Route::get('/refuse', [ClientController::class,'refuse'])->name('refuse');
+Route::get('/gestAnnoceCl', [ClientController::class,'gestAnnonce'])->name('gestAnnonce_client');
+Route::get('/changerMotPasse_client', [ClientController::class,'changer'])->name('changer_client');
+
 
 
 // Les routes pour les annonces !

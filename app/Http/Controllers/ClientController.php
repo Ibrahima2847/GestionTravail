@@ -20,6 +20,26 @@ class ClientController extends Controller
         return view('clients.index', compact('clients'));
     }
 
+    public function indexClient(){
+        return view('DashboardClient.index');
+    }
+
+    public function accepte(){
+        return view('DashboardClient.accepte');
+    }
+
+    public function refuse(){
+        return view('DashboardClient.refuse');
+    }
+
+    public function gestAnnonce(){
+        return view('DashboardClient.gerer');
+    }
+
+    public function changer(){
+        return view('DashboardClient.changer');
+    }
+
 
     /**
      * Show the form for creating a new resource.
