@@ -19,7 +19,7 @@ class HomeController extends Controller
         }elseif(Auth::user()->profil === 'ouvrier'){
             return view('DashboardOuvrier.index');
         }elseif(Auth::user()->profil === 'client'){
-            return view('Home.accueil');
+            return view('DashboardClient.index');
         }elseif(Auth::user()->profil === 'chefAgence'){
             return view('Home.accueil');
         }else{

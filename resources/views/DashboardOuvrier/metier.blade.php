@@ -3,7 +3,7 @@
 @section('title', 'ouvrier')
 
             <!-- General elements -->
-
+    <h1>Renseigner votre domaine de travail et vos compétences</h1>
             <div
               class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
             >

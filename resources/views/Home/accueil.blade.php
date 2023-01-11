@@ -84,31 +84,31 @@
                   <div class="menu">
                     <div class="first-thumb active">
                       <div class="thumb">
-                        <span class="icon"><img src="./assets/img/search-icon-01.png" alt=""></span>
+                        <span class="icon"><img src="" alt=""></span>
                         Plomberie
                       </div>
                     </div>
                     <div>
                       <div class="thumb">
-                        <span class="icon"><img src="./assets/img/search-icon-02.png" alt=""></span>
+                        <span class="icon"><img src="" alt=""></span>
                         Maçonnerie
                       </div>
                     </div>
                     <div>
                       <div class="thumb">
-                        <span class="icon"><img src="./assets/img/search-icon-03.png" alt=""></span>
+                        <span class="icon"><img src="" alt=""></span>
                         Mécanique
                       </div>
                     </div>
                     <div>
                       <div class="thumb">
-                        <span class="icon"><img src="./assets/img/search-icon-04.png" alt=""></span>
+                        <span class="icon"><img src="" alt=""></span>
                         Electricien
                       </div>
                     </div>
                     <div class="last-thumb">
                       <div class="thumb">
-                        <span class="icon"><img src="./assets/img/search-icon-05.png" alt=""></span>
+                        <span class="icon"><img src="" alt=""></span>
                         Menuiserie
                       </div>
                     </div>
@@ -122,7 +122,7 @@
                           <div class="row">
                             <div class="col-lg-5 align-self-center">
                               <div class="left-text">
-                                <h4>One Of The Most Trending Stuffs Right Now!</h4>
+                                {{-- <h4>One Of The Most Trending Stuffs Right Now!</h4> --}}
                                 <p>En construction neuve comme en rénovation, un réseau de plomberie sain est incontournable. Le domaine de la plomberie est vaste et regroupe d'innombrables activités. Ces dernières peuvent être du dépannage comme de la maintenance ou encore de l’installation. Les tarifs pratiqués par les professionnels sont libres mais des prix moyens sont toutefois observables.</p>
                               </div>
                             </div>
@@ -141,7 +141,7 @@
                           <div class="row">
                             <div class="col-lg-5 align-self-center">
                               <div class="left-text">
-                                <h4>Food and Lifestyle category is here</h4>
+                                {{-- <h4>Food and Lifestyle category is here</h4> --}}
                                 <p>Les travaux de maçonnerie concernent différentes étapes de la construction et de la rénovation. Effectués à l'intérieur ou à l'extérieur, ils demandent un grand savoir-faire qu'ils contribuent à solidifier la base d'une édification ou qu'ils améliorent l'esthétisme de l'ensemble.</p>
                               </div>
                             </div>
@@ -160,7 +160,7 @@
                           <div class="row">
                             <div class="col-lg-5 align-self-center">
                               <div class="left-text">
-                                <h4>Best car rentals for your trips!</h4>
+                                {{-- <h4>Best car rentals for your trips!</h4> --}}
                                 <p>Did you know? You can get the best free HTML templates on Too CSS blog. Visit the blog pages and explore fresh and latest website templates.</p>
                                 <div class="main-white-button"><a href="listing.html"><i class="fa fa-eye"></i> More Listing</a></div>
                               </div>
@@ -180,7 +180,7 @@
                           <div class="row">
                             <div class="col-lg-5 align-self-center">
                               <div class="left-text">
-                                <h4>Shopping List: Images from Unsplash</h4>
+                                {{-- <h4>Shopping List: Images from Unsplash</h4> --}}
                                 <p>Pour distribuer l'électricité dans les bâtiments, l'électricien installateur pose des lignes de câbles auxquelles il raccorde les différents équipements électriques. Travaillant sur des chantiers de construction ou de rénovation, il coordonne ses activités avec celles des autres ouvriers. Après avoir étudié les plans et schémas qui concernant la pose des câbles, il repère les futurs emplacements des disjoncteurs, tableaux ou armoires électriques.</p>
                               </div>
                             </div>
@@ -199,7 +199,7 @@
                           <div class="row">
                             <div class="col-lg-5 align-self-center">
                               <div class="left-text">
-                                <h4>Information and Safety Tips for Traveling</h4>
+                                {{-- <h4>Information and Safety Tips for Traveling</h4> --}}
                                 <p>Fabriquer des portes, des fenêtres, des parquets ou des bibliothèques, poser une cuisine ou des volets est le quotidien du menuisier. Dans son atelier, il conçoit, dessine, débite, monte, vernit ses créations, puis les installe sur les chantiers. Ce professionnel doit être habile et maîtriser les bases de la géométrie.</p>
                               </div>
                             </div>
