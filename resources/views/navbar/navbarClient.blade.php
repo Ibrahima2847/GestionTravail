@@ -40,7 +40,6 @@
               class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
               href="#"
             >
-            {{ auth()->user()->name }}
             </a>
             <ul class="mt-6">
               <li class="relative px-6 py-3">
@@ -175,7 +174,7 @@
                   >
                     <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
                   </svg>
-                  <span class="ml-4">Tables</span>
+                  <span class="ml-4">Gérer mes annonces</span>
                 </a>
               </li>
                   </ul>
