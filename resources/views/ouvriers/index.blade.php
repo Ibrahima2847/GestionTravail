@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 @include('navbar.navbarAdmin')
 @extends('ouvriers.layout')
 
@@ -89,6 +87,5 @@
             @endforeach
           </table>
 
-{!! $ouvriers->links() !!} 
+{!! $ouvriers->links() !!}
 
->>>>>>> c51d01f2d9fed6dd6598a7c3b13d342068d8cfdb

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ClientController extends Controller
 {
@@ -18,7 +19,7 @@ class ClientController extends Controller
         ->join('users', 'users.id','=' ,'id_client')->paginate(10);
         return view('clients.index', compact('clients'));
     }
-    
+
 
     /**
      * Show the form for creating a new resource.

@@ -41,6 +41,10 @@ class OuvrierController extends Controller
         return view('DashboardOuvrier.terminer');
     }
 
+    public function gestAnnonce(){
+        return view('DashboardOuvrier.gestAnnonce');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

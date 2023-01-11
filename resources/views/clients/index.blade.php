@@ -1,7 +1,6 @@
 @include('navbar.navbarAdmin')
-@extends('ouvriers.layout')
 
-@section('title', 'ouvrier')
+@section('title', 'client')
 
 @section("modou")
 
@@ -87,5 +86,5 @@
             @endforeach
           </table>
 
-{!! $ouvriers->links() !!} 
+{!! $ouvriers->links() !!}
 

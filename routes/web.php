@@ -44,29 +44,23 @@ Route::middleware(['auth', 'profil:admin'])->group(function(){
 //Les routes pour les ouvriers
 
 Route::get('/ouvrier', [OuvrierController::class,'index'])->name('app_ouvrier');
-<<<<<<< HEAD
 Route::get('/metier', [HomeController::class,'metier'])->name('metier');
 Route::get('/changerMotPasse', [HomeController::class,'changer'])->name('changer');
 Route::get('/indexOuvrier', [OuvrierController::class,'indexOuvrier'])->name('indexOuvrier');
 Route::get('/enCour', [OuvrierController::class,'enCour'])->name('enCour');
 Route::get('/terminer', [OuvrierController::class,'terminer'])->name('terminer');
+Route::get('/gestAnnonce', [OuvrierController::class,'gestAnnonce'])->name('gestAnnonce');
 
 
-
-
-=======
 Route::get('/gestionOuvrier', [OuvrierController::class,'gestionIndex'])->name('gest_ouvrier');
 
 //Routes pour les client
 Route::get('/gestionClient', [ClientController::class,'index'])->name('app_client');
->>>>>>> c51d01f2d9fed6dd6598a7c3b13d342068d8cfdb
 
 
 // Les routes pour les annonces !
 Route::get('/annonces', [AdController::class, 'index'])->name('ad.index');
-
 Route::get('/nouvelleAnnonce', [AdController::class,'create'])->name('nouvelleAnnonce');
-
 Route::post('/annonce/create', [AdController::class, 'store'])->name('ad.store');
 
 //php artisan make:controller ProductController --resource --model=Product;
