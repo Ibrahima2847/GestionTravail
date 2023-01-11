@@ -24,6 +24,7 @@ Route::get('/accueil', [HomeController::class,'accueil'])->name('accueil');
 
 Route::get('/accueil', [HomeController::class,'accueil'])->name('accueil');
 
+
 Route::get('/home', [HomeController::class,'redirection'])->name('redirection');
 
 Route::resource('ouvriers', OuvrierController::class);
@@ -31,8 +32,8 @@ Route::resource('ouvriers', OuvrierController::class);
 Route::get('/logout', [LoginController::class, 'logout'])
         ->name('app_logout');
 
-// Route::get('/accueil', [HomeController::class,'accueil'])
-//         ->name('accueil');
+ Route::get('/update', [HomeController::class,'update'])
+        ->name('update');
 
 Route::middleware(['auth', 'profil:admin'])->group(function(){
     Route::get('/admin', [HomeController::class, 'admin'])
@@ -41,7 +42,9 @@ Route::middleware(['auth', 'profil:admin'])->group(function(){
 });
 
 //Les routes pour les ouvriers
+
 Route::get('/ouvrier', [OuvrierController::class,'index'])->name('app_ouvrier');
+<<<<<<< HEAD
 Route::get('/metier', [HomeController::class,'metier'])->name('metier');
 Route::get('/changerMotPasse', [HomeController::class,'changer'])->name('changer');
 Route::get('/indexOuvrier', [OuvrierController::class,'indexOuvrier'])->name('indexOuvrier');
@@ -51,6 +54,12 @@ Route::get('/terminer', [OuvrierController::class,'terminer'])->name('terminer')
 
 
 
+=======
+Route::get('/gestionOuvrier', [OuvrierController::class,'gestionIndex'])->name('gest_ouvrier');
+
+//Routes pour les client
+Route::get('/gestionClient', [ClientController::class,'index'])->name('app_client');
+>>>>>>> c51d01f2d9fed6dd6598a7c3b13d342068d8cfdb
 
 
 // Les routes pour les annonces !

@@ -4,8 +4,6 @@
 
 @include('navbar.navbarAccueil')
   <!-- ***** Header Area End ***** -->
-
-
   <div class="main-banner" style="background-image: url('./assets/img/banniere.jpg');">
     <div class="container">
         @if (session()->has('success'))

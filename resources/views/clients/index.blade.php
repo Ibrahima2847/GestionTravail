@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 @include('navbar.navbarAdmin')
 @extends('ouvriers.layout')
 
@@ -19,7 +17,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('ouvriers.create') }}"> New Ouvrier </a>
+                <a class="btn btn-success" href="{{ route('clients.create') }}"> New Ouvrier </a>
             </div>
         </div>
     </div>
@@ -40,7 +38,7 @@
           </thead>
           <body  class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
 
-            @foreach ($ouvriers as $ouvrier)
+            @foreach ($clients as $client)
             <tr class="text-gray-700 dark:text-gray-400">
               <td class="px-4 py-3">
                 <div class="flex items-center text-sm">
@@ -56,27 +54,27 @@
                   </div>
 
                   <div>
-                    <p class="font-semibold">{{ $ouvrier->name }}</p>
+                    <p class="font-semibold">{{ $client->name }}</p>
                     <p class="text-xs text-gray-600 dark:text-gray-400">10x Developer</p>
                   </div>
 
                 </div>
               </td>
-              <td class="px-4 py-3 text-sm">{{ $ouvrier->prenom }} </td>
+              <td class="px-4 py-3 text-sm">{{ $client->prenom }} </td>
               <td class="px-4 py-3 text-xs">
                 <span
                   class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
                   {{ $ouvrier->telephone }}
                 </span>
               </td>
-              <td class="px-4 py-3 text-sm">{{ $ouvrier->email }}</td>
+              <td class="px-4 py-3 text-sm">{{ $client->email }}</td>
               </td>
               <td class="px-4 py-3 text-sm">
-                      <form action="{{ route('ouvriers.destroy',$ouvrier->id) }}" method="POST">
+                      <form action="{{ route('ouvriers.destroy',$client->id) }}" method="POST">
 
-                        <a class="btn btn-info" href="{{ route('ouvriers.show',$ouvrier->id) }}">Show</a>
+                        <a class="btn btn-info" href="{{ route('cleints.show',$client->id) }}">Show</a>
 
-                        <a class="btn btn-primary" href="{{ route('ouvriers.edit',$ouvrier->id) }}">Edit</a>
+                        <a class="btn btn-primary" href="{{ route('cleints.edit',$client->id) }}">Edit</a>
 
                         @csrf
                         @method('DELETE')
@@ -91,4 +89,3 @@
 
 {!! $ouvriers->links() !!} 
 
->>>>>>> c51d01f2d9fed6dd6598a7c3b13d342068d8cfdb

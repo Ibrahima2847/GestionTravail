@@ -21,6 +21,13 @@ class OuvrierController extends Controller
                         ->join('users', 'users.id','=' ,'id_Ouvrier')->paginate(10);
         return view('Home.ouvrier', compact('ouvriers'));
     }
+    public function gestionIndex()
+    {
+       //Recuperation des ouvriers
+       $ouvriers = DB::table('ouvriers')
+                        ->join('users', 'users.id','=' ,'id_Ouvrier')->paginate(10);
+        return view('ouvriers.index', compact('ouvriers'));
+    }
 
     public function indexOuvrier(){
         return view('DashboardOuvrier.index');
@@ -41,7 +48,8 @@ class OuvrierController extends Controller
      */
     public function create()
     {
-        //
+         return view('ouvriers.create');
+
     }
 
     /**
@@ -50,7 +58,7 @@ class OuvrierController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OuvrierStore $request)
     {
         //
     }

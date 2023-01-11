@@ -1,3 +1,4 @@
+@include('navbar.navbarAdmin')
 @extends('ouvriers.layout')
 
 @section('modou')
