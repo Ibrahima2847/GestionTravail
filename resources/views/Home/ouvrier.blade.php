@@ -45,7 +45,9 @@
                       {{-- <span class="price"><div class="icon"><img src="" alt=""></div> $450 - $950 / month with taxes</span> --}}
                       <span class="details"><strong>Email : </strong><em>{{$ouvrier->email}}</em></span>
                       <span class="details"><strong>Téléphone :</strong> <em>{{$ouvrier->telephone}}</em></span>
-                      <span class="details"><strong>Métier : </strong><em></em></span>
+                      <span class="details"><strong>Métier : </strong><em>{{$ouvrier->profession}}</em></span>
+                      <span class="details"><strong>Mes potentiels : </strong><em>{{$ouvrier->potentiel}}</em></span>
+
                       <ul class="info">
                         <small>Membre {{ Carbon\Carbon::parse($ouvrier->created_at)->diffForHumans() }}</small>
                       </ul>
@@ -73,6 +75,6 @@
     <script src="{{asset('assets/js/animation.js')}}"></script>
     <script src="{{asset('assets/js/imagesloaded.js')}}"></script>
     <script src="{{asset('assets/js/custom.js')}}"></script>
-  
+
 
 

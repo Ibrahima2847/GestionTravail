@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OuvrierStore;
+use App\Models\Metier;
 use App\Models\Ouvrier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,9 +19,13 @@ class OuvrierController extends Controller
     {
        //Recuperation des ouvriers
        $ouvriers = DB::table('ouvriers')
-                        ->join('users', 'users.id','=' ,'id_Ouvrier')->paginate(10);
+                        ->join('users', 'users.id','=' ,'id_Ouvrier')
+                        ->join('metiers', 'id_Ouvrier', '=', 'ouvrier_id')
+                        ->get();
+       //$ouvriers = Ouvrier::find(1)->metier;
         return view('Home.ouvrier', compact('ouvriers'));
     }
+
     public function gestionIndex()
     {
        //Recuperation des ouvriers
@@ -28,6 +33,7 @@ class OuvrierController extends Controller
                         ->join('users', 'users.id','=' ,'id_Ouvrier')->paginate(10);
         return view('ouvriers.index', compact('ouvriers'));
     }
+
 
     public function indexOuvrier(){
         return view('DashboardOuvrier.index');
@@ -64,7 +70,21 @@ class OuvrierController extends Controller
      */
     public function store(OuvrierStore $request)
     {
-        //
+
+        $validated = $request->validated();
+
+        $ouvier = new Metier();
+
+        $ouvier->profession = $validated['profession'];
+        $ouvier->cv = $validated['cv'];
+        $ouvier->diplome = $validated['diplome'];
+        $ouvier->potentiel = $validated['potentiel'];
+        $ouvier->photo = $validated['photo'];
+        $ouvier->ouvrier_id = auth()->user()->id;
+
+        $ouvier->save();
+
+        return redirect()->route('accueil')->with('success', 'Votre métier a été bien enregitré !');
     }
 
     /**

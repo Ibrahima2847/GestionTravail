@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Metier extends Model
 {
     use HasFactory;
+
+    public function ouvrier(){
+        return $this->belongsTo(Ouvrier::class);
+    }
 }

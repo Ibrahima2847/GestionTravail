@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Metier;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class OuvrierStore extends FormRequest
 {
@@ -24,7 +26,12 @@ class OuvrierStore extends FormRequest
     public function rules()
     {
         return [
-            //
+            'profession' => ['required'],
+            'diplome' => ['required'],
+            'cv' => ['required'],
+            'potentiel' => ['required'],
+            'photo' => ['required'],
+            'ouvrier_id' => [Rule::unique(Metier::class),],
         ];
     }
 }

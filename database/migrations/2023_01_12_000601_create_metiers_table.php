@@ -16,8 +16,11 @@ return new class extends Migration
         Schema::create('metiers', function (Blueprint $table) {
             $table->id();
             $table->string('profession');
+            $table->string('diplome');
+            $table->string('cv');
+            $table->string('potentiel');
             $table->unsignedBigInteger('ouvrier_id');
-            $table->foreign('ouvrier_id')->references('id')->on('ouvriers')->onDelete('cascade');
+            $table->foreign('ouvrier_id')->references('id');
             $table->timestamps();
         });
     }
