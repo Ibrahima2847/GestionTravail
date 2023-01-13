@@ -19,7 +19,11 @@
             <h2>Les ouvriers</h2>
           </div>
         </div>
-
+        @if (session()->has('success'))
+        <div class="alert alert-success">
+            {{session()->get('success')}}
+        </div>
+        @endif
         @foreach ($ouvriers as $ouvrier)
 
         <div class="col-lg-12">

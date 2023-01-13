@@ -6,13 +6,10 @@ use App\Models\Agent;
 use App\Models\Client;
 use App\Models\Ouvrier;
 use App\Models\User;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
-
-use function PHPSTORM_META\registerArgumentsSet;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -32,7 +29,7 @@ class CreateNewUser implements CreatesNewUsers
             'telephone' => [
                 'required',
                 'integer',
-                Rule::unique(User::class),
+                 Rule::unique(User::class),
             ],
             'email' => [
                 'required',

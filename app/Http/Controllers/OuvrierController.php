@@ -22,18 +22,25 @@ class OuvrierController extends Controller
                         ->join('users', 'users.id','=' ,'id_Ouvrier')
                         ->join('metiers', 'id_Ouvrier', '=', 'ouvrier_id')
                         ->get();
-       //$ouvriers = Ouvrier::find(1)->metier;
         return view('Home.ouvrier', compact('ouvriers'));
     }
 
     public function gestionIndex()
     {
        //Recuperation des ouvriers
-       $ouvriers = DB::table('ouvriers')
-                        ->join('users', 'users.id','=' ,'id_Ouvrier')->paginate(10);
-        return view('ouvriers.index', compact('ouvriers'));
+       $metiers = DB::table('metiers')->get();
+        return view('DashboardOuvrier.metier', compact('metiers'));
     }
 
+    public function gestionAnnonce()
+    {
+       //Recuperation des ouvriers
+       $gestAnnonces = DB::table('users')
+                        ->join('ouvriers', 'id_Ouvrier', '=', 'users.id')
+                        ->join('annonces', 'users.id','=' ,'user_id')
+                        ->get();
+        return view('DashboardOuvrier.gestAnnonce', compact('gestAnnonces'));
+    }
 
     public function indexOuvrier(){
         return view('DashboardOuvrier.index');
@@ -84,7 +91,7 @@ class OuvrierController extends Controller
 
         $ouvier->save();
 
-        return redirect()->route('accueil')->with('success', 'Votre métier a été bien enregitré !');
+        return redirect()->route('app_ouvrier')->with('success', 'Votre métier a été bien enregitré !');
     }
 
     /**

@@ -39,11 +39,11 @@ Route::get('/ouvrier', [OuvrierController::class,'index'])->name('app_ouvrier');
 Route::get('/indexOuvrier', [OuvrierController::class,'indexOuvrier'])->name('indexOuvrier');
 Route::get('/enCour', [OuvrierController::class,'enCour'])->name('enCour');
 Route::get('/terminer', [OuvrierController::class,'terminer'])->name('terminer');
-Route::get('/gestAnnonce', [OuvrierController::class,'gestAnnonce'])->name('gestAnnonce');
+// Route::get('/gestAnnonce', [OuvrierController::class,'gestAnnonce'])->name('gestAnnonce');
 Route::resource('ouvriers', OuvrierController::class);
 Route::get('/gestionOuvrier', [OuvrierController::class,'gestionIndex'])->name('gest_ouvrier');
 Route::post('/metier/create', [OuvrierController::class, 'store'])->name('ouvrier.store');
-
+Route::get('/metier/annonce', [OuvrierController::class, 'gestionAnnonce'])->name('ouvrier.annonce');
 
 //Routes pour les clients
 Route::get('/gestionClient', [gestionClientController::class,'indexClient'])->name('indexClient');

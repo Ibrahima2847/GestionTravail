@@ -3,7 +3,11 @@
 @section('title', 'ouvrier')
 
             <!-- General elements -->
+
     <h1>Renseigner votre domaine de travail et vos compétences</h1>
+    {{-- @foreach ($metiers as $metier)
+    @if (Auth::user()->id === $metier->ouvrier_id) --}}
+
     <form action="{{route('ouvrier.store')}}" method="POST">
         @csrf
             <div
@@ -14,9 +18,9 @@
                 <select
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                     name="profession" id="profession">
-                    <option value="1">Mecanicien</option>
-                    <option value="2">Plombier</option>
-                    <option value="3">Maçon</option>
+                    <option value="Mécanicien">Mecanicien</option>
+                    <option value="Plombier">Plombier</option>
+                    <option value="Maçon">Maçon</option>
                 </select>
             </label>
             </div>
@@ -80,4 +84,8 @@
             />
           </div>
     </form>
+    {{-- @else
+        Désolé !
+    @endif
+    @endforeach --}}
 
