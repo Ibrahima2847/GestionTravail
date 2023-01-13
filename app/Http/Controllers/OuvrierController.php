@@ -27,14 +27,14 @@ class OuvrierController extends Controller
 
     public function gestionIndex()
     {
-       //Recuperation des ouvriers
+       //Recuperation des metiers
        $metiers = DB::table('metiers')->get();
         return view('DashboardOuvrier.metier', compact('metiers'));
     }
 
     public function gestionAnnonce()
     {
-       //Recuperation des ouvriers
+       //Recuperation des annonces faites par un ouvrier
        $gestAnnonces = DB::table('users')
                         ->join('ouvriers', 'id_Ouvrier', '=', 'users.id')
                         ->join('annonces', 'users.id','=' ,'user_id')
@@ -54,9 +54,9 @@ class OuvrierController extends Controller
         return view('DashboardOuvrier.terminer');
     }
 
-    public function gestAnnonce(){
-        return view('DashboardOuvrier.gestAnnonce');
-    }
+    // public function gestAnnonce(){
+    //     return view('DashboardOuvrier.gestAnnonce');
+    // }
 
     /**
      * Show the form for creating a new resource.
