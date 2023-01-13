@@ -6,6 +6,8 @@ use App\Http\Controllers\gestionClientController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OuvrierController;
+use App\Http\Controllers\ClientsController;
+use App\Http\Controllers\AgentsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,14 +25,24 @@ Route::get('/apropos',[HomeController::class,'apropos'])->name('apropos');
 Route::get('/accueil', [HomeController::class,'accueil'])->name('accueil');
 Route::get('/home', [HomeController::class,'redirection'])->name('redirection');
 Route::get('/logout', [LoginController::class, 'logout'])->name('app_logout');
+
+Route::get('/accueil', [HomeController::class,'accueil'])->name('accueil');
+
+Route::get('/home', [HomeController::class,'redirection'])->name('redirection');
+
+Route::resource('ouvriers', OuvrierController::class);
+
+Route::get('/logout', [LoginController::class, 'logout'])->name('app_logout');
+
  Route::get('/update', [HomeController::class,'update'])->name('update');
 
 Route::middleware(['auth', 'profil:admin'])->group(function(){
     Route::get('/admin', [HomeController::class, 'admin'])
         ->name('app_admin');
-    //
 });
 
+//==================Les routes pour les ouvriers ===================================//
+Route::get('/ouvrier', [OuvrierController::class,'index'])->name('app_ouvrier');
 Route::get('/metier', [HomeController::class,'metier'])->name('metier');
 Route::get('/changerMotPasse', [HomeController::class,'changer'])->name('changer');
 
@@ -53,6 +65,23 @@ Route::get('/gestAnnoceCl', [gestionClientController::class,'gestAnnonce'])->nam
 Route::get('/changerMotPasse_client', [gestionClientController::class,'changer'])->name('changer_client');
 
 // Les routes pour les annonces !
+Route::get('/gestAnnonce', [OuvrierController::class,'gestAnnonce'])->name('gestAnnonce');
+Route::get('/gestionOuvrier', [OuvrierController::class,'gestionIndex'])->name('gest_ouvrier');
+Route::get('/create', [OuvrierController::class,'create'])->name('create');
+
+//============================Routes pour les clients =================================//
+Route::get('/gestionClient', [ClientsController::class, 'index'])->name('gest_client');
+Route::get('/create', [ClientsController::class,'create'])->name('create');
+Route::get('/store', [ClientController::class,'refuse'])->name('refuse');
+//Route::get('/gestAnnoceCl', [ClientController::class,'gestAnnonce'])->name('gestAnnonce_client');
+//Route::get('/changerMotPasse_client', [ClientController::class,'changer'])->name('changer_client');
+
+//================================Routes pour les agents==================================//
+Route::get('/gestionAgent', [AgentsController::class,'index'])->name('gest_agent');
+Route::get('/create', [AgentsController::class,'create'])->name('create');
+Route::get('/store', [AgentsController::class,'refuse'])->name('refuse');
+
+//===========================Les routes pour les annonces ========================//
 Route::get('/annonces', [AdController::class, 'index'])->name('ad.index');
 Route::get('/nouvelleAnnonce', [AdController::class,'create'])->name('nouvelleAnnonce');
 Route::post('/annonce/create', [AdController::class, 'store'])->name('ad.store');

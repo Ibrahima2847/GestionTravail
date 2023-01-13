@@ -113,7 +113,7 @@ class OuvrierController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('ouvriers.edit',compact('Ouvrier'));
     }
 
     /**
