@@ -1,11 +1,9 @@
 @include('navbar.navbarAdmin')
 
-
 <main class="h-full overflow-y-auto">
   <div class="container px-6 mx-auto grid">
     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-    </h2>
-    <!-- New Table -->
+     </h2>
     <a
     class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple"
     href="#"
@@ -20,7 +18,7 @@
           d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
         ></path>
       </svg>
-      <span>Dashboard   gestion Client</span>
+      <span>Dashboard   gestion Agent</span>
     </div>
     <span>View more &RightArrow;</span>
   </a>
@@ -137,10 +135,14 @@
   </div>
 
 
+
+
+
+    <!-- New Table -->
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('create') }}"> New Client </a>
+                <a class="btn btn-success" href="{{ route('create') }}"> New Agent </a>
             </div>
         </div>
     </div>
@@ -161,7 +163,7 @@
           </thead>
           <body  class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
 
-            @foreach ($clients as $client)
+            @foreach ($agents as $agent)
             <tr class="text-gray-700 dark:text-gray-400">
               <td class="px-4 py-3">
                 <div class="flex items-center text-sm">
@@ -177,20 +179,20 @@
                   </div>
 
                   <div>
-                    <p class="font-semibold">{{ $client->name }}</p>
+                    <p class="font-semibold">{{ $agent->name }}</p>
                     <p class="text-xs text-gray-600 dark:text-gray-400">10x Developer</p>
                   </div>
 
                 </div>
               </td>
-              <td class="px-4 py-3 text-sm">{{ $client->prenom }} </td>
+              <td class="px-4 py-3 text-sm">{{  $agent->prenom }} </td>
               <td class="px-4 py-3 text-xs">
                 <span
                   class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-                  {{ $client->telephone }}
+                  {{  $agent->telephone }}
                 </span>
               </td>
-              <td class="px-4 py-3 text-sm">{{ $client->email }}</td>
+              <td class="px-4 py-3 text-sm">{{ $agent->email }}</td>
               </td>
               <td class="px-4 py-3 text-sm">
                    {{--<form action="{{ route('clients.destroy',$client->id) }}" method="POST">
@@ -209,5 +211,5 @@
             @endforeach
           </table>
 
-{!! $clients->links() !!}
+{!!  $agents->links() !!}
 

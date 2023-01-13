@@ -36,6 +36,12 @@ class AdController extends Controller
         $ads = DB::table('annonces')->orderBy('created_at', 'DESC')->paginate(5);
         return view('Home.offreDemploi', compact('ads'));
     }
+    public function annonceIndex()
+    {
+        //Recuperation des annonces et les affichées par ordre de création
+        $ads = DB::table('annonces')->orderBy('created_at', 'DESC')->paginate(5);
+        return view('   annonce.index', compact('ads'));
+    }
 
     /**
      * Show the form for creating a new resource.
