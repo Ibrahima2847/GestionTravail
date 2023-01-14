@@ -25,16 +25,11 @@ Route::get('/apropos',[HomeController::class,'apropos'])->name('apropos');
 Route::get('/accueil', [HomeController::class,'accueil'])->name('accueil');
 Route::get('/home', [HomeController::class,'redirection'])->name('redirection');
 Route::get('/logout', [LoginController::class, 'logout'])->name('app_logout');
-
 Route::get('/accueil', [HomeController::class,'accueil'])->name('accueil');
-
 Route::get('/home', [HomeController::class,'redirection'])->name('redirection');
-
 Route::resource('ouvriers', OuvrierController::class);
-
 Route::get('/logout', [LoginController::class, 'logout'])->name('app_logout');
-
- Route::get('/update', [HomeController::class,'update'])->name('update');
+Route::get('/update', [HomeController::class,'update'])->name('update');
 
 Route::middleware(['auth', 'profil:admin'])->group(function(){
     Route::get('/admin', [HomeController::class, 'admin'])

@@ -6,6 +6,7 @@ use App\Http\Requests\OuvrierStore;
 use App\Models\Metier;
 use App\Models\Ouvrier;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class OuvrierController extends Controller
@@ -36,8 +37,8 @@ class OuvrierController extends Controller
     {
        //Recuperation des annonces faites par un ouvrier
        $gestAnnonces = DB::table('users')
-                        ->join('ouvriers', 'id_Ouvrier', '=', 'users.id')
                         ->join('annonces', 'users.id','=' ,'user_id')
+                        ->where('user_id','=',auth()->user()->id)
                         ->get();
         return view('DashboardOuvrier.gestAnnonce', compact('gestAnnonces'));
     }

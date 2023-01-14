@@ -1,4 +1,4 @@
-{{-- @include('navbar.navbarOuvrier') --}}
+@include('navbar.navbarOuvrier')
 
 <div class="container">
     <div class="row justify-content-center">

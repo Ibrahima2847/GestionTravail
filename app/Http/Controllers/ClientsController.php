@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Client;
+use Illuminate\Support\Facades\DB;
 
-<<<<<<<< HEAD:app/Http/Controllers/gestionClientController.php
+
+
 class gestionClientController extends Controller
-========
-class ClientsController extends Controller
->>>>>>>> f3b8b6c6154af2a442ef7fc09f5231e617c9159b:app/Http/Controllers/ClientsController.php
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,9 @@ class ClientsController extends Controller
      */
     public function index()
     {
-<<<<<<<< HEAD:app/Http/Controllers/gestionClientController.php
-        //
+        $clients = DB::table('clients')
+            ->join('users', 'users.id','=' ,'id_client')->paginate(10);
+        return view('clients.index', compact('clients'));
     }
 
     public function indexClient(){
@@ -41,12 +42,7 @@ class ClientsController extends Controller
         return view('DashboardClient.changer');
     }
 
-========
-    $clients = DB::table('clients')
-            ->join('users', 'users.id','=' ,'id_client')->paginate(10);
-        return view('clients.index', compact('clients'));
-    }
->>>>>>>> f3b8b6c6154af2a442ef7fc09f5231e617c9159b:app/Http/Controllers/ClientsController.php
+
     /**
      * Show the form for creating a new resource.
      *
