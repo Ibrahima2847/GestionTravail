@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -19,7 +20,11 @@ class HomeController extends Controller
         }elseif(Auth::user()->profil === 'ouvrier'){
             return view('DashboardOuvrier.index');
         }elseif(Auth::user()->profil === 'client'){
-            return view('DashboardClient.index');
+            $annonceClients = DB::table('users')
+            ->join('annonces', 'users.id','=' ,'user_id')
+            ->where('user_id','=',auth()->user()->id)
+            ->get();
+            return view('DashboardClient.index',compact('annonceClients'));
         }elseif(Auth::user()->profil === 'chefAgence'){
             return view('Home.accueil');
         }else{
@@ -37,7 +42,9 @@ class HomeController extends Controller
     }
 
     public function metier(){
-        return view('DashboardOuvrier.metier');
+     //Recuperation des metiers
+       $metiers = DB::table('metiers')->get();
+       return view('DashboardOuvrier.metier', compact('metiers'));
     }
 
     public function changer(){

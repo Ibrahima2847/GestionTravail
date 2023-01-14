@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AdController;
 use App\Http\Controllers\gestClient;
-use App\Http\Controllers\gestionClientController;
+use App\Http\Controllers\gestClientController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OuvrierController;
@@ -53,11 +53,11 @@ Route::post('/metier/create', [OuvrierController::class, 'store'])->name('ouvrie
 Route::get('/metier/annonce', [OuvrierController::class, 'gestionAnnonce'])->name('ouvrier.annonce');
 
 //Routes pour les clients
-Route::get('/gestionClient', [gestionClientController::class,'indexClient'])->name('indexClient');
-Route::get('/accepte', [gestionClientController::class,'accepte'])->name('accepte');
-Route::get('/refuse', [gestionClientController::class,'refuse'])->name('refuse');
-Route::get('/gestAnnoceCl', [gestionClientController::class,'gestAnnonce'])->name('gestAnnonce_client');
-Route::get('/changerMotPasse_client', [gestionClientController::class,'changer'])->name('changer_client');
+Route::get('/gestioClient', [gestClientController::class,'indexClient'])->name('indexClient');
+Route::get('/accepte', [gestClientController::class,'accepte'])->name('accepte');
+Route::get('/refuse', [gestClientController::class,'refuse'])->name('refuse');
+Route::get('/gestAnnoceCl', [gestClientController::class,'gestAnnonce'])->name('gestAnnonce_client');
+Route::get('/changerMotPasse_client', [gestClientController::class,'changer'])->name('changer_client');
 
 // Les routes pour les annonces !
 Route::get('/gestAnnonce', [OuvrierController::class,'gestAnnonce'])->name('gestAnnonce');

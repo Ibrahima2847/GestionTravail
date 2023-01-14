@@ -3,11 +3,9 @@
 @section('title', 'ouvrier')
 
             <!-- General elements -->
-
+            @foreach ($metiers as $metier)
+            @if (auth()->user()->id === $metier->ouvrier_id)
     <h1>Renseigner votre domaine de travail et vos compétences</h1>
-    {{-- @foreach ($metiers as $metier)
-    @if (Auth::user()->id === $metier->ouvrier_id) --}}
-
     <form action="{{route('ouvrier.store')}}" method="POST">
         @csrf
             <div
@@ -84,8 +82,10 @@
             />
           </div>
     </form>
-    {{-- @else
-        Désolé !
+    @else
+    <div class="alert alert-danger" role="alert">
+        Désolé mais vous ne pouvez pas avoir deux comptes !!!
+    </div>
     @endif
-    @endforeach --}}
+    @endforeach
 

@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Client;
 use Illuminate\Support\Facades\DB;
 
-class gestionClientController extends Controller
 
+class gestClientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,12 +16,16 @@ class gestionClientController extends Controller
     public function index()
     {
         $clients = DB::table('clients')
-         ->join('users', 'users.id','=' ,'id_client')->paginate(10);
-    return view('clients.index', compact('clients'));
+            ->join('users', 'users.id','=' ,'id_client')->paginate(10);
+        return view('clients.index', compact('clients'));
     }
 
     public function indexClient(){
-        return view('DashboardClient.index');
+        $annonceClients = DB::table('users')
+                        ->join('annonces', 'users.id','=' ,'user_id')
+                        ->where('user_id','=',auth()->user()->id)
+                        ->get();
+        return view('DashboardClient.index',compact('annonceClients'));
     }
 
     public function accepte(){
@@ -34,13 +37,16 @@ class gestionClientController extends Controller
     }
 
     public function gestAnnonce(){
-        return view('DashboardClient.gerer');
+        $annonceClients = DB::table('users')
+                        ->join('annonces', 'users.id','=' ,'user_id')
+                        ->where('user_id','=',auth()->user()->id)
+                        ->get();
+        return view('DashboardClient.gerer',compact('annonceClients'));
     }
 
     public function changer(){
         return view('DashboardClient.changer');
     }
-
 
     /**
      * Show the form for creating a new resource.
