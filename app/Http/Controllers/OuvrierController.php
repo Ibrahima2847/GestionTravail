@@ -26,12 +26,12 @@ class OuvrierController extends Controller
         return view('Home.ouvrier', compact('ouvriers'));
     }
 
-    public function gestionIndex()
-    {
-       //Recuperation des metiers
-       $metiers = DB::table('metiers')->get();
-        return view('DashboardOuvrier.metier', compact('metiers'));
-    }
+    // public function gestionIndex()
+    // {
+    //    //Recuperation des metiers
+    //    $metiers = DB::table('metiers')->get();
+    //     return view('DashboardOuvrier.metier', compact('metiers'));
+    // }
 
     public function gestionAnnonce()
     {

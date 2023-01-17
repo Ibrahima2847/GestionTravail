@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OuvrierController;
 use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\AgentsController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,7 +49,7 @@ Route::get('/enCour', [OuvrierController::class,'enCour'])->name('enCour');
 Route::get('/terminer', [OuvrierController::class,'terminer'])->name('terminer');
 // Route::get('/gestAnnonce', [OuvrierController::class,'gestAnnonce'])->name('gestAnnonce');
 Route::resource('ouvriers', OuvrierController::class);
-Route::get('/gestionOuvrier', [OuvrierController::class,'gestionIndex'])->name('gest_ouvrier');
+// Route::get('/gestionOuvrier', [OuvrierController::class,'gestionIndex'])->name('gest_ouvrier');
 Route::post('/metier/create', [OuvrierController::class, 'store'])->name('ouvrier.store');
 Route::get('/metier/annonce', [OuvrierController::class, 'gestionAnnonce'])->name('ouvrier.annonce');
 
@@ -83,4 +84,13 @@ Route::post('/annonce/create', [AdController::class, 'store'])->name('ad.store')
 
 //php artisan make:controller ProductController --resource --model=Product;
 // php artisan make:migration create_products_table --create=products;
+
+//======================= Routes pour Service ===============================
+
+Route::get('/materiel',[ServiceController::class,'materiel'])->name('materiel');
+Route::get('/devis',[ServiceController::class,'devis'])->name('devis');
+Route::get('/paiement',[ServiceController::class,'paiement'])->name('paiement');
+Route::get('/avis',[ServiceController::class,'avis'])->name('avis');
+
+
 
