@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OuvrierStore;
+use App\Models\Metier;
 use App\Models\Ouvrier;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class OuvrierController extends Controller
@@ -18,15 +20,27 @@ class OuvrierController extends Controller
     {
        //Recuperation des ouvriers
        $ouvriers = DB::table('ouvriers')
-                        ->join('users', 'users.id','=' ,'id_Ouvrier')->paginate(10);
+                        ->join('users', 'users.id','=','id_Ouvrier')
+                        ->join('metiers', 'id_Ouvrier','=', 'ouvrier_id')
+                        ->get();
         return view('Home.ouvrier', compact('ouvriers'));
     }
-    public function gestionIndex()
+
+    // public function gestionIndex()
+    // {
+    //    //Recuperation des metiers
+    //    $metiers = DB::table('metiers')->get();
+    //     return view('DashboardOuvrier.metier', compact('metiers'));
+    // }
+
+    public function gestionAnnonce()
     {
-       //Recuperation des ouvriers
-       $ouvriers = DB::table('ouvriers')
-                        ->join('users', 'users.id','=' ,'id_Ouvrier')->paginate(10);
-        return view('ouvriers.index', compact('ouvriers'));
+       //Recuperation des annonces faites par un ouvrier
+       $gestAnnonces = DB::table('users')
+                        ->join('annonces', 'users.id','=' ,'user_id')
+                        ->where('user_id','=',auth()->user()->id)
+                        ->get();
+        return view('DashboardOuvrier.gererAnnonce', compact('gestAnnonces'));
     }
 
     public function indexOuvrier(){
@@ -41,9 +55,9 @@ class OuvrierController extends Controller
         return view('DashboardOuvrier.terminer');
     }
 
-    public function gestAnnonce(){
-        return view('DashboardOuvrier.gestAnnonce');
-    }
+    // public function gestAnnonce(){
+    //     return view('DashboardOuvrier.gestAnnonce');
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -64,7 +78,21 @@ class OuvrierController extends Controller
      */
     public function store(OuvrierStore $request)
     {
-        //
+
+        $validated = $request->validated();
+
+        $ouvier = new Metier();
+
+        $ouvier->profession = $validated['profession'];
+        $ouvier->cv = $validated['cv'];
+        $ouvier->diplome = $validated['diplome'];
+        $ouvier->potentiel = $validated['potentiel'];
+        $ouvier->photo = $validated['photo'];
+        $ouvier->ouvrier_id = auth()->user()->id;
+
+        $ouvier->save();
+
+        return redirect()->route('app_ouvrier')->with('success', 'Votre métier a été bien enregitré !');
     }
 
     /**

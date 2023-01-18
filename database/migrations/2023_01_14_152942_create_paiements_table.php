@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('metiers', function (Blueprint $table) {
+        Schema::create('paiements', function (Blueprint $table) {
             $table->id();
-            $table->string('profession');
-            $table->unsignedBigInteger('ouvrier_id');
-            $table->foreign('ouvrier_id')->references('id')->on('ouvriers')->onDelete('cascade');
+            $table->string('montant');
+            $table->string('numReference');
+            $table->string('moyenPaiement');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('metiers');
+        Schema::dropIfExists('paiements');
     }
 };

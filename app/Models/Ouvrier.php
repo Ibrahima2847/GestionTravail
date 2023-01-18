@@ -13,6 +13,6 @@ class Ouvrier extends Model
     use HasFactory;
 
     public function metier(){
-        return $this->hasOne('App\Models\Metier');
+        return $this->hasOne(Metier::class);
     }
 }

@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
-
-class gestionClientController extends Controller
+class gestClientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +21,11 @@ class gestionClientController extends Controller
     }
 
     public function indexClient(){
-        return view('DashboardClient.index');
+        $annonceClients = DB::table('users')
+                        ->join('annonces', 'users.id','=' ,'user_id')
+                        ->where('user_id','=',auth()->user()->id)
+                        ->get();
+        return view('DashboardClient.index',compact('annonceClients'));
     }
 
     public function accepte(){
@@ -37,13 +37,16 @@ class gestionClientController extends Controller
     }
 
     public function gestAnnonce(){
-        return view('DashboardClient.gerer');
+        $annonceClients = DB::table('users')
+                        ->join('annonces', 'users.id','=' ,'user_id')
+                        ->where('user_id','=',auth()->user()->id)
+                        ->get();
+        return view('DashboardClient.gerer',compact('annonceClients'));
     }
 
     public function changer(){
         return view('DashboardClient.changer');
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -61,34 +64,10 @@ class gestionClientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-  
-    public function store(request $request)
+    public function store(Request $request)
     {
-        //dd($request);
-  
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'prenom' => ['required', 'string', 'max:255'],
-            'telephone' => ['required','integer', 'unique:users'],
-            'email' => ['required','string','email','max:255','unique:users'],
-            'password' => ['required','string','min:8']
-        ]);
-
-        $user = User::create([
-            'prenom' => $request->prenom,
-            'name' => $request->name,
-            'email' => $request->email,
-            'telephone' => $request->telephone,
-            'profil' => $request->profil,
-            'password' => Hash::make($request->password),
-        ]);
-        $chefAgence = Client::create([
-            'id_chefAgence' => $user->id,]);
-
-        return redirect()->route('agence_agent')
-                        ->with('success','Client created successfully.');
+        //
     }
-
 
     /**
      * Display the specified resource.
