@@ -20,8 +20,8 @@ class OuvrierController extends Controller
     {
        //Recuperation des ouvriers
        $ouvriers = DB::table('ouvriers')
-                        ->join('users', 'users.id','=' ,'id_Ouvrier')
-                        ->join('metiers', 'id_Ouvrier', '=', 'ouvrier_id')
+                        ->join('users', 'users.id','=','id_Ouvrier')
+                        ->join('metiers', 'id_Ouvrier','=', 'ouvrier_id')
                         ->get();
         return view('Home.ouvrier', compact('ouvriers'));
     }
@@ -40,7 +40,7 @@ class OuvrierController extends Controller
                         ->join('annonces', 'users.id','=' ,'user_id')
                         ->where('user_id','=',auth()->user()->id)
                         ->get();
-        return view('DashboardOuvrier.gestAnnonce', compact('gestAnnonces'));
+        return view('DashboardOuvrier.gererAnnonce', compact('gestAnnonces'));
     }
 
     public function indexOuvrier(){

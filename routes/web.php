@@ -51,7 +51,9 @@ Route::get('/terminer', [OuvrierController::class,'terminer'])->name('terminer')
 Route::resource('ouvriers', OuvrierController::class);
 // Route::get('/gestionOuvrier', [OuvrierController::class,'gestionIndex'])->name('gest_ouvrier');
 Route::post('/metier/create', [OuvrierController::class, 'store'])->name('ouvrier.store');
-Route::get('/metier/annonce', [OuvrierController::class, 'gestionAnnonce'])->name('ouvrier.annonce');
+// Route::get('/metier/annonce', [OuvrierController::class, 'gestionAnnonce'])->name('ouvrier.annonce');
+Route::get('/metier/annonces', [OuvrierController::class, 'gestionAnnonce'])->name('ouvrier.annonce');
+
 
 //Routes pour les clients
 Route::get('/gestioClient', [gestClientController::class,'indexClient'])->name('indexClient');
