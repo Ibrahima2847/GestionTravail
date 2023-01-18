@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
+use App\Models\Agence;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
-class ClientsController extends Controller
+class AgenceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class ClientsController extends Controller
     {
     $clients = DB::table('clients')
             ->join('users', 'users.id','=' ,'id_client')->paginate(10);
-        return view('clients.index', compact('clients'));
+        return view('agence.clients.index', compact('clients'));
     }
     /**
      * Show the form for creating a new resource.
@@ -28,7 +28,7 @@ class ClientsController extends Controller
      */
     public function create()
     {
-        return view('clients.create');
+        return view('Agence.clients.create');
     }
 
     /**
@@ -37,11 +37,10 @@ class ClientsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-  
+    
     public function store(request $request)
     {
         //dd($request);
-  
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'prenom' => ['required', 'string', 'max:255'],
@@ -69,10 +68,10 @@ class ClientsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Client  $client
+     * @param  \App\Models\Agence  $agence
      * @return \Illuminate\Http\Response
      */
-    public function show(Client $client)
+    public function show(Agence $agence)
     {
         //
     }
@@ -80,10 +79,10 @@ class ClientsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Client  $client
+     * @param  \App\Models\Agence  $agence
      * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
+    public function edit(Agence $agence)
     {
         //
     }
@@ -92,10 +91,10 @@ class ClientsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Client  $client
+     * @param  \App\Models\Agence  $agence
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, Agence $agence)
     {
         //
     }
@@ -103,10 +102,10 @@ class ClientsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Client  $client
+     * @param  \App\Models\Agence  $agence
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy(Agence $agence)
     {
         //
     }

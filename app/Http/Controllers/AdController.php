@@ -73,7 +73,7 @@ class AdController extends Controller
         $ad->user_id = auth()->user()->id;
         $ad->message = $validated['message'];
 
-        $ad->save();
+        $ad->save(); 
 
         return redirect()->route('accueil')->with('success', 'Votre annonce a été bien postéé !');
 

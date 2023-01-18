@@ -133,16 +133,11 @@
       </div>
     </div>
   </div>
-
-
-
-
-
     <!-- New Table -->
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('create') }}"> New Agent </a>
+                <a class="btn btn-success" href="{{ route('create_agent') }}"> New Agent </a>
             </div>
         </div>
     </div>

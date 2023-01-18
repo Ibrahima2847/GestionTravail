@@ -293,7 +293,7 @@
 			Design: <a rel="nofollow" href="https://templatemo.com" title="CSS Templates">TemplateMo</a></p>
           </div>
         </div>
-      </div>
+      </div>  
     </div>
   </footer>
 

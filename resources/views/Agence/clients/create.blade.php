@@ -1,4 +1,4 @@
-@include('navbar.navbarAdmin')
+@include('navbar.navbarAgence')
 @extends('ouvriers.layout')
 
 @section('modou')
@@ -6,10 +6,10 @@
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
 
-            <h2>Add New Client</h2>    
+            <h2>Add New Client ndoye gerant</h2>    
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('gest_client')}}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('agence_client')}}"> Back</a>
         </div>
     </div>
 </div>
@@ -25,7 +25,7 @@
     </div>
 @endif
 
-<form method="POST" action="{{ route('clients') }}" id="form-register" x-data="{role_id:1 , val:2}">
+<form method="POST" action="{{ route('agence') }}" id="form-register" x-data="{role_id:1 , val:2}">
     @csrf
     <div class="flex items-center min-h-screen p-16 bg-gray-50 dark:bg-gray-900">
         <div class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
