@@ -121,9 +121,9 @@ Route::post('/annonce/create', [AdController::class, 'store'])->name('ad.store')
 
 //======================= Routes pour Service ===============================
 Route::get('/materiel',[ServiceController::class,'materiel'])->name('materiel');
-Route::get('/devis',[ServiceController::class,'devis'])->name('devis');
+         Route::get('/devis',[ServiceController::class,'devis'])->name('devis');
 Route::get('/paiement',[ServiceController::class,'paiement'])->name('paiement');
-Route::get('/avis',[ServiceController::class,'avis'])->name('avis');
+            Route::get('/avis',[ServiceController::class,'avis'])->name('avis');
 
 
 
