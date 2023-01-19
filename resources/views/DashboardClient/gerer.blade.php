@@ -1,6 +1,5 @@
 @include('navbar.navbarClient')
 <main class="h-full overflow-y-auto">
-    @foreach ($annonceClients as $gestAnnonce)
       <div class="container px-6 mx-auto grid">
         <div class="w-full overflow-hidden rounded-lg shadow-xs">
           <div class="w-full overflow-x-auto">
@@ -19,6 +18,7 @@
               <tbody
                 class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
               >
+    @foreach ($annonceClients as $gestAnnonce)
                 <tr class="text-gray-700 dark:text-gray-400">
                   <td class="px-4 py-3">
                     <div class="flex items-center text-sm">
@@ -52,12 +52,12 @@
                     {{ Carbon\Carbon::parse($gestAnnonce->created_at)->diffForHumans() }}
                   </td>
                 </tr>
+  @endforeach
               </tbody>
             </table>
           </div>
         </div>
       </div>
-  @endforeach
     </main>
   </div>
 </div>

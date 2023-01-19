@@ -26,7 +26,7 @@
             <img
               aria-hidden="true"
               class="object-cover w-full h-full dark:hidden"
-              src="../assets/img/forgot-password-office.jpeg"
+              src="./assets/img/forgot-password-office.jpeg"
               alt="Office"
             />
             <img

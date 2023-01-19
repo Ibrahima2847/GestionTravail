@@ -27,7 +27,7 @@ Route::get('/accueil', [HomeController::class,'accueil'])->name('accueil');
 Route::get('/home', [HomeController::class,'redirection'])->name('redirection');
 Route::get('/logout', [LoginController::class, 'logout'])->name('app_logout');
 Route::get('/accueil', [HomeController::class,'accueil'])->name('accueil');
-Route::get('/home', [HomeController::class,'redirection'])->name('redirection');
+// Route::get('/home', [HomeController::class,'redirection'])->name('redirection');
 Route::resource('ouvriers', OuvrierController::class);
 Route::get('/logout', [LoginController::class, 'logout'])->name('app_logout');
 Route::get('/update', [HomeController::class,'update'])->name('update');
@@ -40,6 +40,7 @@ Route::middleware(['auth', 'profil:admin'])->group(function(){
 //==================Les routes pour les ouvriers ===================================//
 Route::get('/ouvrier', [OuvrierController::class,'index'])->name('app_ouvrier');
 Route::get('/metier', [HomeController::class,'metier'])->name('metier');
+Route::get('/ouvrier/gererAnnonce', [HomeController::class,'annonceOuvrier'])->name('ouvrierAnnonce');
 Route::get('/changerMotPasse', [HomeController::class,'changer'])->name('changer');
 
 //Les routes pour les ouvriers
@@ -58,7 +59,7 @@ Route::get('/metier/annonces', [OuvrierController::class, 'gestionAnnonce'])->na
 //Routes pour les clients
 Route::get('/gestioClient', [gestClientController::class,'indexClient'])->name('indexClient');
 Route::get('/accepte', [gestClientController::class,'accepte'])->name('accepte');
-Route::get('/refuse', [gestClientController::class,'refuse'])->name('refuse');
+Route::get('/refuse', [gestClientController::class,'refuse'])->name('refuse_client');
 Route::get('/gestAnnoceCl', [gestClientController::class,'gestAnnonce'])->name('gestAnnonce_client');
 Route::get('/changerMotPasse_client', [gestClientController::class,'changer'])->name('changer_client');
 
@@ -77,7 +78,7 @@ Route::get('/store', [ClientController::class,'refuse'])->name('refuse');
 //================================Routes pour les agents==================================//
 Route::get('/gestionAgent', [AgentsController::class,'index'])->name('gest_agent');
 Route::get('/create', [AgentsController::class,'create'])->name('create');
-Route::get('/store', [AgentsController::class,'refuse'])->name('refuse');
+Route::get('/store', [AgentsController::class,'refuse'])->name('refuse_agent');
 
 //===========================Les routes pour les annonces ========================//
 Route::get('/annonces', [AdController::class, 'index'])->name('ad.index');
