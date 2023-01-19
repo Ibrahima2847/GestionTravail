@@ -14,11 +14,11 @@ class AgentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexOn()
     {
        //Recuperation des ouvriers
        $agents = DB::table('agents')
-                        ->join('users', 'users.id','=' ,'id_chefAgence')->paginate(10);
+                        ->join('users', 'users.id','=' ,'id_ChefAgence')->paginate(10);
         return view('agents.index', compact('agents'));
     }
 
@@ -27,7 +27,7 @@ class AgentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createOn()
     {
         return view('agents.create');
     }
@@ -39,7 +39,7 @@ class AgentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-        public function store(request $request)
+        public function storeOn(request $request)
         {
             //dd($request);
       

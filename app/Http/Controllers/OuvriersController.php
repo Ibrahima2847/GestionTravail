@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
-use App\Models\Client;
 use App\Models\User;
+use App\Models\Ouvrier;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
-class ClientsController extends Controller
+class OuvriersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +16,13 @@ class ClientsController extends Controller
      */
     public function indexOn()
     {
-       //Recuperation des clients
-       $clients = DB::table('clients')
-                        ->join('users', 'users.id','=' ,'id_client')->paginate(10);
-        return view('clients.index', compact('clients'));
-    }
+        //Recuperation des ouvriers
+       $ouvriers = DB::table('ouvriers')
+       ->join('users', 'users.id','=' ,'id_ouvrier')->paginate(10);
+       return view('ouvriers.index', compact('ouvriers'));
+   }
+    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -28,7 +30,7 @@ class ClientsController extends Controller
      */
     public function createOn()
     {
-        return view('clients.create');
+        return view('ouvriers.create');
     }
 
     /**
@@ -39,7 +41,6 @@ class ClientsController extends Controller
      */
     public function storeOn(Request $request)
     {
-        
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'prenom' => ['required', 'string', 'max:255'],
@@ -56,20 +57,21 @@ class ClientsController extends Controller
             'profil' => $request->profil,
             'password' => Hash::make($request->password),
         ]);
-        $client = Client::create([
-            'id_client' => $user->id,]);
+        $chefAgence = Ouvrier::create([
+            'id_ouvrier' => $user->id,]);
 
-        return redirect()->route('gest_client')
-                        ->with('success','Client created successfully.');
+        return redirect()->route('gest_ouvrier')
+                        ->with('success','Ouvrier created successfully.');
     }
+    
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Client  $client
+     * @param  \App\Models\Ouvrier  $ouvrierOu
      * @return \Illuminate\Http\Response
      */
-    public function show(Client $client)
+    public function show(Ouvrier $ouvrier)
     {
         //
     }
@@ -77,10 +79,10 @@ class ClientsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Client  $client
+     * @param  \App\Models\Ouvrier  $ouvrierOu
      * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
+    public function edit(Ouvrier $ouvrier)
     {
         //
     }
@@ -89,10 +91,10 @@ class ClientsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ClientOu  $client
+     * @param  \App\Models\Ouvrier  $ouvrierOu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, Ouvrier $ouvrier)
     {
         //
     }
@@ -100,11 +102,11 @@ class ClientsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Client $client
+     * @param  \App\Models\Ouvrier  $ouvrierOu
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy(Ouvrier $ouvrier)
     {
-        // Les routes pour les annonces !
+        //
     }
 }

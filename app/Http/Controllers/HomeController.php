@@ -26,8 +26,6 @@ class HomeController extends Controller
             ->where('user_id','=',auth()->user()->id)
             ->get();
             return view('DashboardClient.index',compact('annonceClients'));
-        }elseif(Auth::user()->profil === 'agent'){
-            return view('Home.accueil');
         }else{
             return view('Home.accueil');
         }

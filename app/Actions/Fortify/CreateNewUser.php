@@ -56,7 +56,7 @@ class CreateNewUser implements CreatesNewUsers
 
         if($user->profil === 'ouvrier'){
             $ouvrier = Ouvrier::create([
-                'id_Ouvrier' => $user->id,
+                'id_ouvrier' => $user->id,
             ]);
 
         }elseif($user->profil === 'client'){
