@@ -73,7 +73,6 @@
                                 name="profil" id="profil" x-model="role_id" x-val="val">
                                 <option value="ouvrier">ouvrier</option>
                                 <option value="client">client</option>
-                                <option value="agent">agent</option>
                             </select>
                         </label>
                         <label class="block mt-4 text-sm">

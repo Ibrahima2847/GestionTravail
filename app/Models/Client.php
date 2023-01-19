@@ -9,6 +9,7 @@ class Client extends Model
 {
     protected $fillable = ['id_client'];
     use HasFactory;
+
     public function unserialize(){
         return $this->hasOne('App\Models\User');
     }

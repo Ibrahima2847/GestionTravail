@@ -29,7 +29,7 @@ class AdController extends Controller
     {
         //Recuperation des annonces et les affichées par ordre de création
         $ads = DB::table('annonces')->orderBy('created_at', 'DESC')->paginate(5);
-        return view('   annonce.index', compact('ads'));
+        return view('annonce.index', compact('ads'));
     }
 
     /**
