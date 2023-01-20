@@ -74,6 +74,7 @@ class AdController extends Controller
      * @param  \App\Models\Ad  $ad
      * @return \Illuminate\Http\Response
      */
+    
     public function show(Annonce $ad)
     {
         //
