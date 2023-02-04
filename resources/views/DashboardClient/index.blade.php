@@ -1,24 +1,5 @@
 @include('navbar.navbarClient')
 
-{{-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-    @foreach ($annonceClients as $gestAnnonce)
-    <div class="card mb-3" style="width: 100%;">
-        <img class="card-img-left" src="./assets/img/{{$gestAnnonce->image}}" alt="Card image cap">
-        <div class="card-body">
-          <h2 class="card-title">{{$gestAnnonce->titre}}</h2>
-          <p class="card-text">{{$gestAnnonce->message}}</p>
-          <small>{{$gestAnnonce->created_at}}</small>
-        </div>
-        <a href="#" class="btn btn-primary">Modifer</a>
-          <a href="#" class="btn btn-primary">Annuler</a>
-    </div>
-      @endforeach
-        </div>
-    </div>
-</div> --}}
-
         <main class="h-full overflow-y-auto">
           <div class="container px-6 mx-auto grid">
             <div class="w-full overflow-hidden rounded-lg shadow-xs">
@@ -29,8 +10,8 @@
                       class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
                     >
                       <th class="px-4 py-3">Titre</th>
-                      <th class="px-4 py-3">Message</th>
                       <th class="px-4 py-3">Date</th>
+                      <th class="px-4 py-3">Etat</th>
                       {{-- <th class="px-4 py-3">Date</th> --}}
                     </tr>
                   </thead>
@@ -65,10 +46,10 @@
                         </div>
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        {{$gestAnnonce->message}}
+                        {{ Carbon\Carbon::parse($gestAnnonce->created_at)->diffForHumans() }}
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        {{ Carbon\Carbon::parse($gestAnnonce->created_at)->diffForHumans() }}
+                        {{$gestAnnonce->statut}}
                       </td>
                     </tr>
       @endforeach

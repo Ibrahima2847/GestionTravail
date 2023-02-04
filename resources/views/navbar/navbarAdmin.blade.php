@@ -25,6 +25,8 @@
       ></script>
       <script src="./assets/js/charts-lines.js" defer></script>
       <script src="./assets/js/charts-pie.js" defer></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script src=" https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     </head>
     <body>
       <div

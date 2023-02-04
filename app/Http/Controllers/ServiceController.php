@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ServiceController extends Controller
 {
@@ -82,6 +83,21 @@ class ServiceController extends Controller
         //
     }
 
+    public function afficheMatos(){
+
+        // $words = $request->input('words');
+        // $metier =DB::table('metiers')
+        //             ->join('users', 'users.id' ,'=', 'ouvrier_id')
+        //             ->where('profession', 'LIKE', '%'.$words.'%')
+        //             ->get();
+
+        $matos = DB::table('devis')->get();
+        return response()->json($matos);
+
+        // return view('services.devis',compact('matos'));
+
+    }
+
     public function avis(){
         return view('services.avis');
     }
@@ -95,6 +111,7 @@ class ServiceController extends Controller
     }
 
     public function devis(){
-        return view('services.devis');
+        $devis = DB::table('services')->get();
+        return view('services.devis',compact('devis'));
     }
 }

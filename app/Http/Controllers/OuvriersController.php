@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\OuvrierStore;
 use App\Models\Metier;
 use App\Models\Ouvrier;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class OuvriersController extends Controller
 {
@@ -20,10 +22,10 @@ class OuvriersController extends Controller
     {
         //Recuperation des ouvriers
        $ouvriers = DB::table('ouvriers')
-       ->join('users', 'users.id','=' ,'id_ouvrier')->paginate(10);
+       ->join('users', 'users.id','=' ,'id_ouvrier');
        return view('ouvriers.index', compact('ouvriers'));
    }
-    
+
    public function index()
    {
       //Recuperation des ouvriers
@@ -85,7 +87,7 @@ class OuvriersController extends Controller
                         ->get();
         return view('DashboardOuvrier.gererAnnonce', compact('gestAnnonces'));
     }
-    public function store(Ouvrier $request)
+    public function store(OuvrierStore $request)
     {
 
         $validated = $request->validated();
@@ -103,6 +105,7 @@ class OuvriersController extends Controller
 
         return redirect()->route('app_ouvrier')->with('success', 'Votre métier a été bien enregitré !');
     }
+
     public function edit($id)
     {
         return view('ouvriers.edit',compact('Ouvrier'));
@@ -143,7 +146,7 @@ class OuvriersController extends Controller
     {
         //
     }
-  
+
     /**
      * Update the specified resource in storage.
      *

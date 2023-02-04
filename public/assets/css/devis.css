@@ -1,0 +1,48 @@
+.container {
+    padding: 30px;
+  }
+
+  .container-flex {
+    display: flex;
+  }
+
+  .content {
+    width: 70%;
+    padding-right: 30px;
+  }
+
+  .form {
+    width: 30%;
+    padding: 30px;
+    position: sticky;
+    top: 30px;
+    align-self: flex-start;
+    background-color: #efefef;
+  }
+
+  /* Styles moins importants */
+
+  body {
+    margin: 0;
+  }
+
+  h1, h2, h3 {
+    margin-top: 0;
+  }
+
+  .form-element {
+    margin-bottom: 15px;
+  }
+
+  .form-element input, .form-element textarea {
+    width: 100%;
+  }
+
+  header {
+    margin-bottom: 30px;
+  }
+
+  footer {
+    padding: 30px;
+    background-color: #efefef;
+  }

@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Actions\Fortify\PasswordValidationRules;
 use App\Http\Requests\AdStore;
+use App\Mail\AnnonceMarkdownMail;
 use App\Models\Annonce;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class AdController extends Controller
 {
@@ -22,15 +25,17 @@ class AdController extends Controller
     public function index()
     {
         //Recuperation des annonces et les affichées par ordre de création
-        $ads = DB::table('annonces')->orderBy('created_at', 'DESC')->paginate(5);
+        $ads = DB::table('annonces')
+                   ->where('statut', '=' ,'Publier')
+                   ->orderBy('created_at', 'DESC')->paginate((30));
         return view('Home.offreDemploi', compact('ads'));
     }
-    public function annonceIndex()
-    {
-        //Recuperation des annonces et les affichées par ordre de création
-        $ads = DB::table('annonces')->orderBy('created_at', 'DESC')->paginate(5);
-        return view('annonce.index', compact('ads'));
-    }
+    // public function annonceIndex()
+    // {
+    //     //Recuperation des annonces et les affichées par ordre de création
+    //     $ads = DB::table('annonces')->orderBy('created_at', 'DESC')->paginate(5);
+    //     return view('annonce.index', compact('ads'));
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -62,9 +67,13 @@ class AdController extends Controller
         $ad->user_id = auth()->user()->id;
         $ad->message = $validated['message'];
 
-        $ad->save(); 
+        $ad->save();
 
-        return redirect()->route('accueil')->with('success', 'Votre annonce a été bien postéé !');
+        // Mail::to(Auth::user()->email)->send(new AnnonceMarkdownMail());
+        // Mail::to(Auth::user()->email)->send(new AnnonceMarkdownMail());
+        // return redirect()->route('accueil')->with('success', 'Votre annonce a été bien postéé !');
+        // return redirect()->back();
+
 
     }
 
@@ -74,7 +83,7 @@ class AdController extends Controller
      * @param  \App\Models\Ad  $ad
      * @return \Illuminate\Http\Response
      */
-    
+
     public function show(Annonce $ad)
     {
         //

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('region');
             $table->string('departement');
             $table->string('image');
-            $table->string('message');
+            $table->text('message');
             $table->unsignedBigInteger('id_Localisation');
             $table->unsignedBigInteger('user_id');
             $table->foreign('id_Localisation')->references('id')->on('localisations');

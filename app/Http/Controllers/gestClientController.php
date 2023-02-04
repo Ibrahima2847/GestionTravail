@@ -29,11 +29,21 @@ class gestClientController extends Controller
     }
 
     public function accepte(){
-        return view('DashboardClient.accepte');
+        $annonces = DB::table('users')
+                        ->join('annonces', 'users.id','=' ,'user_id')
+                        ->where('user_id','=',auth()->user()->id)
+                        ->where('statut','=','publier')
+                        ->get();
+        return view('DashboardClient.accepte', compact('annonces'));
     }
 
     public function refuse(){
-        return view('DashboardClient.refuse');
+        $annonces = DB::table('users')
+                        ->join('annonces', 'users.id','=' ,'user_id')
+                        ->where('user_id','=',auth()->user()->id)
+                        ->where('statut','=','Non Publier')
+                        ->get();
+        return view('DashboardClient.refuse', compact('annonces'));
     }
 
     public function gestAnnonce(){

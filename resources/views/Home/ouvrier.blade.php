@@ -38,14 +38,14 @@
                     <div class="right-content align-self-center h-32 md:h-auto md:w-1/2">
                       <a href="#"><h4>{{$ouvrier->prenom}} {{$ouvrier->name}}</h4></a>
                       {{-- <h6>{{$name->name}}</h6> --}}
-                      <ul class="rate">
+                      {{-- <ul class="rate">
                         <li><i class="fa fa-star-o"></i></li>
                         <li><i class="fa fa-star-o"></i></li>
                         <li><i class="fa fa-star-o"></i></li>
                         <li><i class="fa fa-star-o"></i></li>
                         <li><i class="fa fa-star-o"></i></li>
                         <li>(18) Reviews</li>
-                      </ul>
+                      </ul> --}}
                       {{-- <span class="price"><div class="icon"><img src="" alt=""></div> $450 - $950 / month with taxes</span> --}}
                       <span class="details"><strong>Email : </strong><em>{{$ouvrier->email}}</em></span>
                       <span class="details"><strong>Téléphone :</strong> <em>{{$ouvrier->telephone}}</em></span>
@@ -55,9 +55,9 @@
                       <ul class="info">
                         <small>Membre {{ Carbon\Carbon::parse($ouvrier->created_at)->diffForHumans() }}</small>
                       </ul>
-                      <div class="main-white-button">
+                      {{-- <div class="main-white-button">
                         <a href="contact.html"><i class="fa fa-eye"></i>Contacter</a>
-                      </div>
+                      </div> --}}
                     </div>
                   </div>
                 </div>

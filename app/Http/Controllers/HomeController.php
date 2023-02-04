@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Repositories\{AdRepository, MessageRepository};
+
 
 class HomeController extends Controller
 {
+
     public function accueil()
     {
         return view('Home.accueil');
@@ -34,8 +37,6 @@ class HomeController extends Controller
         }
     }
 
-    
- 
 
     public function admin()
     {
@@ -49,12 +50,19 @@ class HomeController extends Controller
     public function metier()
     {
         //Recuperation des metiers
-        $metiers = DB::table('metiers')->get();
-        return view('DashboardOuvrier.metier', compact('metiers'));
+        $metiers = DB::table('metiers')->first();
+        return view('DashboardOuvrier.metier')->with('metier', $metiers);
     }
 
     public function changer()
     {
         return view('DashboardOuvrier.changer');
+    }
+
+    public function getRegion()
+    {
+        $regions = DB::table('regions')->get();
+        $departements = DB::table('departements')->get();
+        return response()->json(['regions' => $regions, 'departements' => $departements]);
     }
 }
