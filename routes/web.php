@@ -167,6 +167,9 @@ Route::post('/MiseEnRelation/{idAnnonce}{idOuvrier}', [AgenceController::class,'
 Route::get('/annonces', [AdController::class, 'index'])->name('ad.index');
 Route::get('/nouvelleAnnonce', [AdController::class,'create'])->name('nouvelleAnnonce');
 Route::post('/annonce/create', [AdController::class, 'store'])->name('ad.store');
+Route::get('/departments/{regionId}', [AdController::class,'getDep']);
+
+
 
 //======================= Routes pour Service ===============================
 Route::get('/materiel',[ServiceController::class,'materiel'])->name('materiel');

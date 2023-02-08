@@ -196,8 +196,8 @@ class AgenceController extends Controller
         $annonces=DB::table('ouvriers')
                     ->join('users', 'users.id', '=', 'id_Ouvrier')
                     ->join('metiers', 'ouvrier_id', '=', 'id_Ouvrier')
-                    ->join('annonces','users.id','=','user_id')
-                    ->where('annonces.nombre','=', 1)
+                    // ->join('annonces','users.id','=','user_id')
+                    // ->where('annonces.nombre','=', 1)
                     ->get();
         return view('Agence.relation',compact('annonces'))->with('ads',$ad);
     }
@@ -259,7 +259,7 @@ class AgenceController extends Controller
 
         $req2=DB::table('users')
         ->join('annonces', 'users.id', '=', 'user_id')
-        ->join('relations', 'annonces.id', '=', 'annonce_id')
+        ->join('relations', 'annonces.id', '=', 'relations.annonce_id')
         // ->join('annonces','users.id','=','user_id')
         ->where('annonces.nombre','=', 1)
         ->get();

@@ -41,17 +41,17 @@
                         <select id="regions" class="form-control {{ $errors->has('region') ? 'is-invalid' : '' }}"
                             placeholder="Donner votre région" name="region">
                             <option>------ Choisissez une région ------</option>
+                            @foreach(\App\Models\Region::all() as $region)
+                                <option value="{{ $region->id }}">{{ $region->nomRegion }}</option>
+                            @endforeach
                         </select>
-                        @if ($errors->has('region'))
-                            <span class="invalid-feedback">{{ $errors->first('region') }}</span>
-                        @endif
                     </div>
                     <div class="col-12">
                         <label for="titre"><strong>Département :</strong></label>
                         <select id="departments"
                             class="form-control {{ $errors->has('departement') ? 'is-invalid' : '' }}"
                             name="departement" placeholder="Donner votre département">
-                            <option>------ Choisissez un département ------</option>
+                            <option value="">------ Choisissez un département ------</option>
                         </select>
                         {{-- <input  type="text" > --}}
                         @if ($errors->has('departement'))
@@ -164,6 +164,30 @@
 <script src=" https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script> --}}
 
 <script>
+    $(document).ready(function() {
+        $('#regions').on('change', function() {
+            var regionId = $(this).val();
+            if (regionId) {
+                $.ajax({
+                    url: '/departments/' + regionId,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {
+                        $('#departments').empty();
+                        $('#departments').append('<option value="">Sélectionnez un département</option>');
+                        $.each(data, function(key, value) {
+                            $('#departments').append('<option value="'+ key +'">'+ value +'</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#departments').empty();
+            }
+        });
+    });
+</script>
+
+{{-- <script>
 
 import axios from 'axios';
 
@@ -194,7 +218,7 @@ import axios from 'axios';
         .catch(function(error) {
             console.log(error);
         });
-</script>
+</script> --}}
 
 
 

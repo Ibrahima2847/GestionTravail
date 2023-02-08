@@ -6,6 +6,8 @@ use App\Actions\Fortify\PasswordValidationRules;
 use App\Http\Requests\AdStore;
 use App\Mail\AnnonceMarkdownMail;
 use App\Models\Annonce;
+use App\Models\Departement;
+use App\Models\Region;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -44,7 +46,16 @@ class AdController extends Controller
      */
     public function create()
     {
+        // $regions = DB::table('regions')->get();
+        // $departements = DB::table('departements')->get();
+
         return view('ads.nouvelleAnnonce');
+    }
+
+    public function getDep($regionId)
+    {
+        $departments = Departement::where('region_id', $regionId)->get();
+        return response()->json($departments->pluck('nomDepartement', 'id'));
     }
 
     /**
@@ -67,7 +78,9 @@ class AdController extends Controller
         $ad->user_id = auth()->user()->id;
         $ad->message = $validated['message'];
 
-        $ad->save();
+        dd($ad->region);
+
+        // $ad->save();
 
         // Mail::to(Auth::user()->email)->send(new AnnonceMarkdownMail());
         // Mail::to(Auth::user()->email)->send(new AnnonceMarkdownMail());
@@ -122,4 +135,12 @@ class AdController extends Controller
     {
         //
     }
+
+    // public function getRegionDep(){
+    //     $regions = DB::table('regions')->get();
+    //     $departements = DB::table('departements')->get();
+
+    //     return view('ads.nouvelleAnnonce',compact('regions','departements'));
+
+    // }
 }

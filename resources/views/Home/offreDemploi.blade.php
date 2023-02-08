@@ -32,24 +32,11 @@
                     </div>
                     <div class="right-content align-self-center h-32 md:h-auto md:w-1/2">
                       <a href="#"><h4>{{$ad->titre}}</h4></a>
-                      {{-- <h6>{{$name->name}}</h6> --}}
-                      {{-- <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(18) Reviews</li>
-                      </ul> --}}
-                      {{-- <span class="price"><div class="icon"><img src="" alt=""></div> $450 - $950 / month with taxes</span> --}}
                       <span class="details"><strong>Description : </strong><em>{{$ad->message}}</em></span>
                       <ul class="info">
-                        <li><img src="./assets/img/search-icon-05.png" alt=""> {{$ad->region}} , {{$ad->departement}}</li>
+                        <li><img src="{{asset('assets/img/search-icon-05.png')}}" alt=""> {{$ad->region}} , {{$ad->departement}}</li>
                         <small>{{ Carbon\Carbon::parse($ad->created_at)->diffForHumans() }}</small>
                       </ul>
-                      {{-- <div class="main-white-button">
-                        <a href="contact.html"><i class="fa fa-eye"></i>Voir l'annonce</a>
-                      </div> --}}
                     </div>
                   </div>
                 </div>

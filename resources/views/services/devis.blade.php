@@ -265,10 +265,10 @@
             <div class="item">
                 <p></p>
                 <div class="name-item" id="fieldsContainer">
-                    <select id="field" name="field1">
+                    {{-- <select id="field" name="field1">
                         <option>------ Choisissez un matériel ------</option>
                     </select>
-                    <input type="text" placeholder="Prix du matériel" id="prix" />
+                    <input type="text" placeholder="Prix du matériel" id="prix" /> --}}
                 </div>
                 <input id="addFieldButton" type="button" value="Ajouter des champs" id="myButton" onclick="addFields()">
 
@@ -298,22 +298,25 @@ addFieldButton.addEventListener("click", function(){
             var jobs = response.data;
             var prix = response.data;
 
-            newField1.innerHTML =`
-            <select class='field' name="field1">
-                 <option>------ Choisissez un matériel ------</option>
-            </select>`;
-
             var select = document.getElementById('field');
             var input = document.getElementById('prix');
 
-            fieldsContainer.appendChild(newField1);
 
             select.innerHTML = '';
+
+            newField1.innerHTML =`
+            <select id='field' name="field1">
+                 <option>------ Choisissez un matériel ------</option>
+            </select>`;
+
+            fieldsContainer.appendChild(newField1);
+
 
             for (var i = 0; i < jobs.length; i++) {
                 select.innerHTML += '<option value="' + jobs[i].id + '">' + jobs[i].libelle + '</option>';
                 // matos.innerHTML += '<option value="' + jobs[i].id + '">' + jobs[i].libelle + '</option>';
             }
+
 
             for (var i = 0; i < jobs.length; i++) {
                 prix[i] = jobs[i].montant;

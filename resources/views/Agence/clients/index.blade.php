@@ -4,19 +4,19 @@
 <main class="h-full overflow-y-auto">
     <div class="container px-6 mx-auto grid">
         <h1
-        class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple"
-        href="#"
-      >
-        <div class="flex items-center">
-          <svg
-            class="w-5 h-5 mr-2"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-          </svg>
-          <h5>Tableau de Bord Agent</h5>
-        </div>
-      </h1>
+              class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple"
+              href="#"  style="background-color: #e21111"
+            >
+              <div class="flex items-center">
+                <svg
+                  class="w-5 h-5 mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                </svg>
+                <h5>Gestion des Clients</h5>
+              </div>
+            </h1>
         <!-- Cards -->
         <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
         </div>

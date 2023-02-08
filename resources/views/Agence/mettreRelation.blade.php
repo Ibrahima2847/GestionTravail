@@ -4,7 +4,7 @@
     <div class="container px-6 mx-auto grid">
         <h1
               class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple"
-              href="#"
+              href="#"  style="background-color: #e21111"
             >
               <div class="flex items-center">
                 <svg
@@ -13,7 +13,7 @@
                   viewBox="0 0 20 20"
                 >
                 </svg>
-                <h5>Tableau de Bord Agent</h5>
+                <h5>Mise en Relation</h5>
               </div>
             </h1>
         <div class="w-full overflow-hidden rounded-lg shadow-xs">

@@ -5,7 +5,7 @@
             <!-- CTA -->
             <h1
               class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple"
-              href="#"
+              href="#"  style="background-color: #e21111"
             >
               <div class="flex items-center">
                 <svg
@@ -138,7 +138,7 @@
             </div>
 
             <!-- Charts -->
-            <div class="grid gap-6 mb-8 md:grid-cols-2">
+            {{-- <div class="grid gap-6 mb-8 md:grid-cols-2">
               <div
                 class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
               >
@@ -195,7 +195,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>--}}
           </div>
         </main>
       </div>

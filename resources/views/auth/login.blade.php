@@ -1,4 +1,4 @@
-<script>"{{asset('assets3/lib/bootstrap/js/bootstrap.js')}}"</script>
+{{-- <script>"{{asset('assets3/lib/bootstrap/js/bootstrap.js')}}"</script>
 <script src="./assets/js/init-alpine.js"></script>
 <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./assets/css/tailwind.output.css" />
@@ -117,4 +117,57 @@ src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"defe>
   </div>
 </div>
 </form>
+ --}}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Connexion</title>
+	<link rel="stylesheet" type="text/css" href="./assets/css/styleLogin.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<img class="wave" src="./assets/img/wave3.jpg">
+	<div class="container">
+		<div class="img">
+			<img src="./assets/img/woker2.svg">
+		</div>
+		<div class="login-content">
+			<form action="{{route('login')}}" method="POST">
+                @csrf
+                <div class="img2">
+				<img src="./assets/img/logo.png">
+                </div>
+				<h3 class="title">Content de vous revoir</h3>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>Email</h5>
+           		   		<input type="text" class="input" name="email">
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i">
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Mot de passe</h5>
+           		    	<input type="password" class="input" name="password">
+            	   </div>
+            	</div>
+            	{{-- <a href="#">Forgot Password?</a> --}}
+            	<input type="submit" class="btn" value="Se connecter" style="background-color: #e21111">
+            	<a href="{{route('register')}}" class="btn" style="background-color: #e21111">Créer un compte</a>
+
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="./assets/js/main.js"></script>
+</body>
+</html>
 

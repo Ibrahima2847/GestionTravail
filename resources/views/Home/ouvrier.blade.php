@@ -1,4 +1,5 @@
 @include('navbar.navbarAccueil')
+
 <div class="main-banner" style="background-image: url('./assets/img/afficheAnnonce.jpg');">
     <div class="container">
       <div class="row">

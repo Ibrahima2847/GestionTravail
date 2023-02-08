@@ -1,4 +1,4 @@
-<script>
+{{-- <script>
     "{{ asset('assets3/lib/bootstrap/js/bootstrap.js') }}"
 </script>
 <script src="./assets/js/init-alpine.js"></script>
@@ -128,6 +128,115 @@
     </div>
 </form>
 
+</body>
+
+</html> --}}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Connexion</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/styleLogin.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <img class="wave" src="./assets/img/wave3.jpg">
+    <div class="container">
+        <div class="img">
+            <img src="./assets/img/ouvriers.svg">
+        </div>
+        <div class="login-content">
+            <form action="{{ route('register') }}" method="POST">
+                @csrf
+                <div class="img2">
+                    <img src="./assets/img/logo.png">
+                </div>
+                <h1 class="title">S'inscrire</h1>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Nom</h5>
+                        <input type="text" class="input" name="name">
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            {{ $message }}
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Prénom</h5>
+                        <input type="text" class="input" name="prenom">
+                    </div>
+                </div>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Email</h5>
+                        <input type="text" class="input" name="email">
+                    </div>
+                </div>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Téléphone</h5>
+                        <input type="text" class="input" name="telephone">
+                    </div>
+                </div>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <select class="form-select" aria-label="Default select example">
+                            <option value="ouvrier">Ouvrier</option>
+                            <option value="client">Client</option>
+                          </select>
+                    </div>
+                </div>
+                <div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Mot de passe</h5>
+                        <input type="password" class="input" name="password">
+                    </div>
+                </div>
+                <div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="div">
+                        <h5>confirmation du mot de passe</h5>
+                        <input type="password" class="input" name="password_confirmation">
+                    </div>
+                </div>
+                {{-- <a href="#">Forgot Password?</a> --}}
+                <button type="submit" class="btn btn-primary btn-sm" style="background-color: #e21111">S'inscrire</button>
+                {{-- <input type="submit" class="btn" value="S'inscrire" style="background-color: #e21111"> --}}
+                {{-- <a href="{{ route('register') }}" class="btn" style="background-color: #e21111">Créer un compte</a> --}}
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="./assets/js/main.js"></script>
 </body>
 
 </html>
