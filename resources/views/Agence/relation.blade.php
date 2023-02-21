@@ -279,12 +279,6 @@
             <div class="colums">
                 <div class="item">
                     <div class="input-group">
-                        {{-- <select class="form-control">
-                            <option selected>Choisir le région...</option>
-                        </select>
-                        <select class="form-control">
-                            <option selected>Choisir le département...</option>
-                        </select> --}}
                         <input type="text" class="form-control" name="words" placeholder="Rechercher un métier">
                         <button type="submit" class="btn btn-primary">Rechercher</button>
 
@@ -295,11 +289,8 @@
                                 <tr>
                                     <th>Nom</th>
                                     <th>Prénom</th>
-                                    {{-- <th>Email</th> --}}
-                                    {{-- <th>Image</th> --}}
                                     <th>Téléphone</th>
                                     <th>Profession</th>
-                                    {{-- <th>Potentiel</th> --}}
                                     <th>Mettre en relation</th>
                                 </tr>
                             </thead>
@@ -309,21 +300,14 @@
                                         <tr>
                                             <td>{{ $data->name }}</td>
                                             <td>{{ $data->prenom }}</td>
-                                            {{-- <td>{{$data->email}}</td> --}}
-                                            {{-- <td>
-                                            <a href="{{ route('voirImage') }}"><img
-                                                    src="./assets/img/{{ $datas->image }}" alt=""></a>
-                                        </td> - --}}
                                             <td>{{ $data->telephone }}</td>
                                             <td>{{ $data->profession }}</td>
-                                            {{-- <td>{{ $data->potentiel }}</td> --}}
                                             <td>
                                                 <form action="{{ route('miseRelation', [$ads->id, $data->id]) }}"
                                                     method="POST">
                                                     @csrf
                                                     <input type="submit" value="Relation" name="" id="">
                                                 </form>
-                                                {{-- <a href="{{ route('etablit', $data->id, $ads->id) }}" class="btn">Mettre enrelation</a> --}}
                                             </td>
                                         </tr>
                                     @endforeach
@@ -332,9 +316,6 @@
                         </table>
                     </div>
                 </div>
-                {{-- <div class="btn-block">
-                    <button type="submit" href="/">Submit</button>
-                </div> --}}
             </div>
         </form>
     </div>
@@ -342,121 +323,3 @@
 
 </html>
 
-{{-- <script>
-    const form = document.querySelector('form');
-
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const query = this.words.value;
-
-        axios.post('/rechercher', {
-                words: query,
-            })
-            .then(function(response) {
-                 console.log(response);
-                const jobs = response.data;
-                const results = document.querySelector('#results');
-                // console.log(results);
-                results.innerHTML = '';
-
-                for (let i = 0; i < jobs.length; i++) {
-                    let textBox = document.createElement('div')
-                    let item = document.createElement('div')
-                    let colums = document.createElement('div')
-                    let table = document.createElement('table')
-
-                    textBox.classList.add('testbox')
-                    item.classList.add('item')
-                    colums.classList.add('colums')
-                    table.classList.add('table')
-
-                    let thead = document.createElement('thead')
-                    let tr = document.createElement('tr')
-                    let th = document.createElement('th')
-                    let tbody = document.createElement('tbody')
-                    let td = document.createElement('td')
-                    let tr2 = document.createElement('tr')
-
-                    const nom =  document.createTextNode('Nom')
-                    const prenom =  document.createTextNode('Prénom')
-                    const telephone =  document.createTextNode('Téléphone')
-                    const profession =  document.createTextNode('Profession')
-                    const relation =  document.createTextNode('Mettre en Relation')
-
-                    th.appendChild(nom)
-                    th.appendChild(prenom)
-                    th.appendChild(telephone)
-                    th.appendChild(profession)
-                    th.appendChild(relation)
-
-                    tr.appendChild(th)
-                    thead.appendChild(tr)
-                    table.appendChild(thead)
-
-                    let nomOuv = document.createElement('td')
-                    let prenomOuv = document.createElement('td')
-                    let telOuv = document.createElement('td')
-                    let professionOuv = document.createElement('td')
-                    let bouton = document.createElement('td')
-
-                    nomOuv.innerHTML = jobs[i].name
-                    prenomOuv.innerHTML = jobs[i].prenom
-                    telOuv.innerHTML = jobs[i].telephone
-                    professionOuv.innerHTML = jobs[i].profession
-                    bouton.innerHTML = "";
-
-                    td.appendChild(nomOuv)
-                    td.appendChild(prenomOuv)
-                    td.appendChild(telOuv)
-                    td.appendChild(professionOuv)
-                    td.appendChild(bouton)
-
-                    tr2.appendChild(td)
-                    tbody.appendChild(tr2)
-                    table.appendChild(tbody)
-
-                    // let nom = document.createElement('td')
-                    // nom.innerHTML = jobs[i].name
-                    item.appendChild(table)
-                    colums.appendChild(item)
-                    textBox.appendChild(colums)
-                    results.appendChild(textBox)
-                }
-            })
-            .catch(function(error) {
-                console.error(error);
-            });
-    }); --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-    {{-- // function search(event) {
-    //     event.preventDefault();
-    //     const words = document.querySelector('#words').value;
-
-    //     const url = document.querySelector('#formSearch').getAttribute('action')
-
-    //     axios.post(`${url}`, {
-    //             words: words,
-    //         })
-    //         .then(function(response) {
-    //             // console.log(response)
-    //             const metier = response.data
-    //             let results = document.querySelector('#results')
-    //             results.innerHTML = ''
-    //         })
-    //         .catch(function(error) {
-    //             console.log(error);
-    //         });
-    // }
-</script> --}}

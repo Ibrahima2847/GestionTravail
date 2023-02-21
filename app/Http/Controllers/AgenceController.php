@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Agence;
 use App\Models\Annonce;
 use App\Models\Client;
+use App\Models\Devis;
 use App\Models\Metier;
 use App\Models\Ouvrier;
 use App\Models\Service;
@@ -73,19 +74,32 @@ class AgenceController extends Controller
             'profil' => $request->profil,
             'password' => Hash::make($request->password),
         ]);
-        $chefAgence = Client::create([
-            'id_chefAgence' => $user->id,
+        $client = Client::create([
+            'id_client' => $user->id,
         ]);
 
-        return redirect()->route('agence_agent')
-            ->with('success', 'Client created successfully.');
+        return back()->with('success', 'Client créer avec succes');
     }
 
     public function gererToutAnnonces()
     {
+        $region = DB::table('agences')
+                        ->join('regions','regions.id','=','region_id')
+                        ->get();
+
+        foreach($region as $reg){
+
         $annonces = DB::table('annonces')
-                    ->where('statut','=','en cour')
+                    // ->join('regions','regions.id','=','annonces.region_id')
+                    // ->join('agences','regions.id','=','agences.region_id')
+                    // ->join('agents','agents.agence_id','=','agences.id')
+                    // ->where('regions.id','=',$reg->id)
+                    // ->where('statut','=','en cour')
                     ->get();
+        }
+        // dd($annonces);
+
+
         return view('Agence.annonceAgent', compact('annonces'));
     }
 
@@ -139,30 +153,29 @@ class AgenceController extends Controller
         $data=Annonce::find($id);
         $data->statut = 'Publier';
         $data->save();
+        return back()->with('success', 'Annonce publié avec succes');
 
-        return redirect()->back();
 
     }
 
     public function nonPublier($id) {
         $data=Annonce::find($id);
+
         $data->statut = 'Non Publier';
         $data->save();
 
-        return redirect()->back();
+        return back()->with('success', 'Annonce non publié avec succes');
+
 
     }
 
     public function travailTerminer($id) {
-        $data=Annonce::find($id);
-        $data->statut = 'terminer';
+        $data=Relation::find($id);
+        $data->etat = 'terminer';
         $data->save();
 
-        // $dispo=Ouvrier::find($idOuv);
-        // $dispo->disponibilite = 'disponible';
-        // $dispo->save();
+        return back()->with('success', 'Travail terminé avec succes');
 
-        return redirect()->back();
     }
 
     public function annonceTerminer(){
@@ -174,19 +187,16 @@ class AgenceController extends Controller
         $data->statut = 'annuler';
         $data->save();
 
-        // $dispo=Ouvrier::find($idOuv);
-        // $dispo->disponibilite = 'disponible';
-        // $dispo->save();
+        return back()->with('success', 'Annulation réussi');
 
-        return redirect()->back();
     }
 
     public function voir($id) {
         $data=Annonce::find($id);
         $client = DB::table('users')
                     ->join('annonces','users.id','=','user_id')
-                    ->where('users.id','=',$id)
-                    ->first();
+                    ->where('annonces.id','=',$id)
+                    ->get();
         return view('Agence.show',compact('client'))->with('datas',$data);
     }
 
@@ -196,8 +206,6 @@ class AgenceController extends Controller
         $annonces=DB::table('ouvriers')
                     ->join('users', 'users.id', '=', 'id_Ouvrier')
                     ->join('metiers', 'ouvrier_id', '=', 'id_Ouvrier')
-                    // ->join('annonces','users.id','=','user_id')
-                    // ->where('annonces.nombre','=', 1)
                     ->get();
         return view('Agence.relation',compact('annonces'))->with('ads',$ad);
     }
@@ -213,25 +221,9 @@ class AgenceController extends Controller
                     ->where('profession', 'LIKE', '%'.$words.'%')
                     ->get();
 
-        // $metier =DB::table('metiers')
-        //             ->join('users', 'users.id' ,'=', 'ouvrier_id')
-
-        //             ->get();
-
-            // $req2=DB::table('users')
-            //         ->join('annonces', 'users.id', '=', 'user_id')
-            //         ->join('relations', 'annonces.id', '=', 'annonce_id')
-            //         ->get();
-
             return view('Agence.recherche',compact('annonces'))->with('ads',$ad);
 
     }
-
-    // public function voirImage($id) {
-
-    //     $data=Annonce::find($id);
-    //     return view('Agence.image')->with('datas',$data);
-    // }
 
 // Mettre en relation l'ouvrier choisi avec l'annonce
     public function miseRelation($idAnnonce,$idOuvrier){
@@ -241,7 +233,7 @@ class AgenceController extends Controller
 
         $relation = new Relation();
 
-        $relation->ouvrier_id = $ouvrier->id;
+        $relation->ouvrier_id = $ouvrier->id_Ouvrier;
         $relation->annonce_id = $annonce->id;
 
         $relation->save();
@@ -260,44 +252,56 @@ class AgenceController extends Controller
         $req2=DB::table('users')
         ->join('annonces', 'users.id', '=', 'user_id')
         ->join('relations', 'annonces.id', '=', 'relations.annonce_id')
-        // ->join('annonces','users.id','=','user_id')
         ->where('annonces.nombre','=', 1)
         ->get();
+
+        $service = new Service();
+        $service->relation_id = $relation->id;
+        $service->save();
+
+
 
         return view('Agence.miseRelation',compact('req2'));
     }
 
     public function relationEnCour(){
-        // $annonce = Annonce::find($id);
+
         $relation = DB::table('users')
                         ->join('annonces','users.id','=','user_id')
-                        ->join('relations','annonces.id','=','relations.annonce_id')
-                        ->join('ouvriers','ouvriers.id','=','ouvrier_id')
-                        ->where('annonces.statut','=','en relation')
-                        // ->orWhere('ouvriers.id','=','ouvrier_id')
+                        ->join('relations','relations.annonce_id','=','annonces.id')
+                        ->where('statut','=','en relation')
+                        ->where('etat','=','en cour')
                         ->get();
-        $ouvrier = DB::table('ouvriers')
-                        ->join('users','users.id','=','id_Ouvrier')
-                        ->join('relations','ouvriers.id','=','ouvrier_id')
-                        ->where('ouvriers.disponibilite','=','indisponible')
-                        ->get();
-                        // ->where()
-        return view('Agence.relationEncour',compact('relation','ouvrier'));
+
+        return view('Agence.relationEncour',compact('relation'));
     }
 
     public function gererMetier(){
+
+        $region = DB::table('agences')
+                        ->join('regions','regions.id','=','region_id')
+                        ->get();
+
+        foreach($region as $reg){
+
         $metier = DB::table('users')
                     ->join('ouvriers','users.id','=','id_Ouvrier')
                     ->join('metiers','id_Ouvrier','=','ouvrier_id')
+                    ->join('regions','regions.NomRegion','=','region')
                     ->where('etat','=','en cour')
+                    ->where('regions.id','=',$reg->id)
                     ->get();
-        return view('Agence.gererMetier',compact('metier'));
+        }
+
+        return view('Admin.gererMetier',compact('metier'));
     }
 
     public function accepterMetier($id){
         $data=Metier::find($id);
         $data->etat = 'accepter';
         $data->save();
+
+        return back()->with('success', 'Demande de métier accepté');
     }
 
     public function refuserMetier($id){
@@ -305,28 +309,8 @@ class AgenceController extends Controller
         $data->etat = 'refuser';
         $data->save();
 
-        return redirect()->back();
+        return back()->with('error', 'Demande de métier refusé');
+
     }
 
-    // public function etablit($idOuvrier,$idAnnonce){
-
-    //     $ouvrier = Ouvrier::find($idOuvrier);
-    //     $annonce = Annonce::find($idAnnonce);
-
-    //     return view('Agence.miseRelation')->with('ouvriers','annonces',$ouvrier,$annonce);
-
-
-    // //     $relation = new Relation();
-
-    // //    // $annonce->ouvriers()->attach($ouvrier);
-
-
-    // //     $relation->ouvrier_id = $ouvrier;
-    // //     $relation->annonce_id = $annonce;
-
-    // //     $relation->save();
-
-
-    //     // $annonce->ouvriers()->attach($ouvrier);
-    // }
 }

@@ -90,7 +90,7 @@
   <!-- Basic Page Needs
   ================================================== -->
   <meta charset="utf-8">
-  <title>Small Apps | Bootstrap App Landing Template</title>
+  <title>KayJob | Accuiel</title>
 
   <!-- Mobile Specific Metas
   ================================================== -->

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Annonce extends Model
 {
     use HasFactory;
-    protected $fillable = ['annonce_id'];
+    protected $fillable = ['annonce_id','statut'];
 
 
     public function user(){

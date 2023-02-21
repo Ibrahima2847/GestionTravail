@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\OuvrierStore;
 use App\Models\Metier;
 use App\Models\Ouvrier;
+use App\Models\Region;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,8 +22,20 @@ class OuvriersController extends Controller
     public function indexOn()
     {
         //Recuperation des ouvriers
+       $region = DB::table('agences')
+                    ->join('regions','regions.id','=','region_id')
+                    ->get();
+
+       foreach($region as $reg){
+
        $ouvriers = DB::table('ouvriers')
-       ->join('users', 'users.id','=' ,'id_ouvrier');
+                    ->join('users', 'users.id','=' ,'id_Ouvrier')
+                    ->join('metiers', 'id_Ouvrier','=', 'ouvrier_id')
+                    ->join('regions','regions.nomRegion','=','region')
+                    ->where('regions.id','=',$reg->id)
+                    ->get();
+        }
+
        return view('ouvriers.index', compact('ouvriers'));
    }
 
@@ -72,10 +85,10 @@ class OuvriersController extends Controller
             'password' => Hash::make($request->password),
         ]);
         $ouvriers = Ouvrier::create([
-            'id_ouvrier' => $user->id,]);
+            'id_ouvrier' => $user->id,
+        ]);
 
-        return redirect()->route('gest_ouvrier')
-                        ->with('success','Ouvrier created successfully.');
+        return back()->with('success','Ouvrier créé avec succes');
     }
     //=======================IBOU=============================
     public function gestionAnnonce()
@@ -100,10 +113,11 @@ class OuvriersController extends Controller
         $ouvier->potentiel = $validated['potentiel'];
         $ouvier->photo = $validated['photo'];
         $ouvier->ouvrier_id = auth()->user()->id;
+        $ouvier->region = $validated['region'];
 
         $ouvier->save();
 
-        return redirect()->route('app_ouvrier')->with('success', 'Votre métier a été bien enregitré !');
+        return back()->with('success', 'Votre métier a été bien enregitré !');
     }
 
     public function edit($id)
@@ -115,7 +129,22 @@ class OuvriersController extends Controller
     }
 
     public function enCour(){
-        return view('DashboardOuvrier.enCour');
+        $requete=DB::table('clients')
+        ->join('users', 'users.id', '=', 'id_client')
+        ->join('annonces', 'users.id', '=', 'user_id')
+        ->join('relations', 'annonces.id', '=', 'relations.annonce_id')
+        ->join('ouvriers', 'ouvriers.id_Ouvrier', '=', 'ouvrier_id')
+        ->where('ouvrier_id','=',auth()->user()->id)
+        ->where('statut','=','en relation')
+        ->get();
+
+        $requete2=DB::table('users')
+        ->join('annonces', 'users.id', '=', 'user_id')
+        ->join('relations', 'annonces.id', '=', 'relations.annonce_id')
+        ->join('ouvriers', 'ouvriers.id_Ouvrier', '=', 'ouvrier_id')
+        ->where('ouvrier_id','=',auth()->user()->id)
+        ->get();
+        return view('DashboardOuvrier.enCour',compact('requete','requete2'));
     }
 
     public function terminer(){
@@ -125,6 +154,32 @@ class OuvriersController extends Controller
         return view('DashboardOuvrier.gestAnnonce');
     }
 
+    public function disponibilite(){
+        // $ouvrier = Ouvrier::find($id);
+        return view('DashboardOuvrier.disponibilite');
+    }
+
+    public function dispo($id){
+        $user = User::find($id);
+
+        $ouvrier = Ouvrier::where('id_Ouvrier', $user->id)->first();
+
+        $ouvrier->disponibilite = "disponible";
+        $ouvrier->save();
+
+        return back()->with('success', 'Vous étes actuellement disponible');
+    }
+
+    public function indispo($id){
+        $user = User::find($id);
+
+        $ouvrier = Ouvrier::where('id_Ouvrier', $user->id)->first();
+
+        $ouvrier->disponibilite = "indisponible";
+        $ouvrier->save();
+
+        return back()->with('error', 'Vous étes actuellement indisponible');
+    }
     /**
      * Display the specified resource.
      *

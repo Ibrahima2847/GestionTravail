@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -24,7 +24,6 @@
                     <th>Titre</th>
                     <th>Région</th>
                     <th>Departement</th>
-                    {{-- <th>Image</th> --}}
                     <th>Message</th>
                     <th>Nombre d'Ouvrier</th>
                 </tr>
@@ -39,9 +38,6 @@
                   <td>{{$datas->titre}}</td>
                   <td>{{$datas->region}}</td>
                   <td>{{$datas->departement}}</td>
-                  {{-- <td>
-                     <a href="{{route('voirImage')}}"><img src="./assets/img/{{$datas->image}}" alt=""></a>
-                  </td> --}}
                   <td>{{$datas->message}}</td>
                   <td>{{$datas->nombre}}</td>
                 </tr>
@@ -54,15 +50,99 @@
   </div>
 </html>
 
-{{-- <script>
-    let popup = document.getElementById("popup");
+ --}}
 
-    function onpenPopup(){
-        popup.classList.add("open-popup");
-    }
+ @include('navbar.navbarAgence')
 
-    function closePopup(){
-        popup.classList.remove("open-popup");
-    }
+ <section class="text-center text-lg-start">
+    <style>
+      .cascading-right {
+        margin-right: 0%;
+        /* margin-top: -100px; */
+      }
 
-  </script> --}}
+      @media (max-width: 991.98px) {
+        .cascading-right {
+          margin-right: 0;
+        }
+      }
+    </style>
+
+    <!-- Jumbotron -->
+    <div class="container py-4">
+      <div class="row g-0 align-items-center">
+        <div class="col-lg- mb-5 mb-lg-0">
+          <div class="card cascading-right" style="
+              background: hsla(0, 0%, 100%, 0.55);
+              backdrop-filter: blur(30px);
+              ">
+            <div class="card-body p-5 shadow-5 text-center">
+              <h2 class="fw-bold mb-5">Détails de l'annonces</h2>
+              <form action="" method="POST">
+                <!-- 2 column grid layout with text inputs for the first and last names -->
+                <div class="row">
+                  <div class="col-md- mb-4">
+                    <div class="form-outline">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                    <th>Téléphone</th>
+                                    <th>Titre</th>
+                                    <th>Région</th>
+                                    <th>Departement</th>
+                                    <th>Message</th>
+                                    <th>Nombre d'Ouvrier</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (is_array($client) || is_object($client))
+                                @foreach ($client as $clients)
+                                <tr>
+                                  <td>{{$clients->name}}</td>
+                                  <td>{{$clients->prenom}}</td>
+                                  <td>{{$clients->telephone}}</td>
+                                  <td>{{$datas->titre}}</td>
+                                  <td>{{$datas->region}}</td>
+                                  <td>{{$datas->departement}}</td>
+                                  <td>{{$datas->message}}</td>
+                                  <td>{{$datas->nombre}}</td>
+                                </tr>
+                                @endforeach
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                  </div>
+                  <a  href="{{route('gererToutAnnonce')}}" class="btn btn-primary btn-block mb-4">
+                    D'accord
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        {{-- <div class="col-lg-6 mb-5 mb-lg-0">
+          <img src="{{ asset('./assets/img/details.svg')}}" class="w-100 rounded-4 shadow-4"
+            alt="" />
+        </div> --}}
+      </div>
+    </div>
+    <!-- Jumbotron -->
+  </section>
+  <!-- Section: Design Block -->
+
+{{-- @if (session()->has('success'))
+<script>
+  toastr.warning("{!! session()->get('success') !!}");
+</script>
+@endif
+
+@if (session()->has('success'))
+<script>
+  toastr.error("{!! session()->get('success') !!}");
+</script>
+@endif --}}
+

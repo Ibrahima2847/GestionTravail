@@ -1,4 +1,4 @@
-@include('navbar.navbarAgence')
+@include('navbar.navbarChefAgence')
 
 <main class="h-full overflow-y-auto">
     <div class="container px-6 mx-auto grid">
@@ -97,3 +97,15 @@
 </body>
 
 </html>
+
+@if (session()->has('success'))
+<script>
+  toastr.success("{!! session()->get('success') !!}");
+</script>
+@endif
+
+@if (session()->has('error'))
+<script>
+  toastr.error("{!! session()->get('success') !!}");
+</script>
+@endif

@@ -7,9 +7,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AgentsController;
 use App\Http\Controllers\AgenceController;
+use App\Http\Controllers\ChefAgnceController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\gestClientController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\PaiementController;
+use App\Models\Paiement;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +30,31 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[HomeController::class,'accueil'])->name('accueil');
 Route::get('/apropos',[HomeController::class,'apropos'])->name('apropos');
 Route::get('/accueil', [HomeController::class,'accueil'])->name('accueil');
+Route::get('/gestion/chefAgence', [HomeController::class,'gestChefAgence'])->name('gestChefAgence');
+Route::get('/gestion/Agence', [HomeController::class,'gestAgence'])->name('gestAgence');
+Route::get('/chefAgence/affectation', [HomeController::class,'affectation'])->name('affectation');
+Route::post('/chefAgence/create', [HomeController::class,'createChefAgence'])->name('create.chefAgence');
+Route::post('/Agence/create', [HomeController::class,'createAgence'])->name('create.Agence');
+Route::get('/Agence/listeAgence/{id}', [HomeController::class,'toutAgence'])->name('toutAgence');
+Route::post('/Affectation/{id}{idAgence}', [HomeController::class,'affecter'])->name('affecter');
+
+Route::post('/AffecterAgent/{id}', [ChefAgnceController::class,'affecterAgent'])->name('affecterAgent');
+Route::get('/agent/affectation', [ChefAgnceController::class,'getAgent'])->name('getAgent');
+
+
+// Route::get('/relation/{id}', [AgenceController::class,'relation'])->name('relation');
+
+Route::post('/agent/create', [ChefAgnceController::class,'createAgent'])->name('create.agent');
+Route::get('/ajouter/agent', [ChefAgnceController::class,'gestAgent'])->name('gestAgent');
+Route::get('/gestion/agent', [ChefAgnceController::class,'toutAgent'])->name('toutAgent');
+
+
+
+
+
+
+
+
 
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('app_logout');
@@ -54,11 +82,17 @@ Route::resource('ouvriers', OuvriersController::class);
 Route::get('/ouvrier', [OuvriersController::class,'index'])->name('app_ouvrier');
 Route::get('/gestionOuvrier', [OuvriersController::class,'indexOn'])->name('gest_ouvrier');
 Route::get('/createOuvrier', [OuvriersController::class,'createOn'])->name('create_ouvrier');
-Route::get('/store', [OuvriersController::class,'storeOn'])->name('ouvriers');
+Route::post('/ajouter/Ouvrier', [OuvriersController::class,'storeOn'])->name('ouvriers');
 Route::get('/gestAnnonce', [OuvriersController::class,'gestAnnonce'])->name('gestAnnonce');
 Route::post('/metierCreate', [OuvriersController::class, 'store'])->name('ouvrier.store');
 Route::get('/enCour', [OuvriersController::class,'enCour'])->name('enCour');
 Route::get('/terminer', [OuvriersController::class,'terminer'])->name('terminer');
+Route::get('/disponibilite', [OuvriersController::class,'disponibilite'])->name('disponibilite');
+Route::get('/disponible/{id}', [OuvriersController::class,'dispo'])->name('dispo');
+Route::get('/indisponible/{id}', [OuvriersController::class,'indispo'])->name('indispo');
+
+
+
 //Route::get('/indexOuvrier', [OuvriersController::class,'indexOuvrier'])->name('indexOuvrier');
 //Les routes pour les annonces !
 //Route::get('/gestAnnonce', [OuvriersController::class,'gestAnnonce'])->name('gestAnnonce');
@@ -167,17 +201,22 @@ Route::post('/MiseEnRelation/{idAnnonce}{idOuvrier}', [AgenceController::class,'
 Route::get('/annonces', [AdController::class, 'index'])->name('ad.index');
 Route::get('/nouvelleAnnonce', [AdController::class,'create'])->name('nouvelleAnnonce');
 Route::post('/annonce/create', [AdController::class, 'store'])->name('ad.store');
-Route::get('/departments/{regionId}', [AdController::class,'getDep']);
+Route::get('/departments/{regionName}', [AdController::class,'getDep']);
 
 
 
 //======================= Routes pour Service ===============================
 Route::get('/materiel',[ServiceController::class,'materiel'])->name('materiel');
-Route::get('/devis',[ServiceController::class,'devis'])->name('devis');
+Route::post('/devis',[ServiceController::class,'devis'])->name('devis');
 Route::get('/afficheMatos',[ServiceController::class,'afficheMatos'])->name('afficheMatos');
-
 Route::get('/paiement',[ServiceController::class,'paiement'])->name('paiement');
-Route::get('/avis',[ServiceController::class,'avis'])->name('avis');
+Route::get('/faireAvis',[ServiceController::class,'getAvis'])->name('getAvis');
+Route::post('/avis',[ServiceController::class,'avis'])->name('avis');
+
+Route::post('/facturation',[PaiementController::class,'paiement'])->name('payer');
+
+Route::post('/enregistrer/materiel',[ServiceController::class,'ajoutDevis'])->name('ajoutDevis');
+Route::post('/enregistrer/devis',[ServiceController::class,'getDevis'])->name('getDevis');
 
 //============================ Route pour les Emails =============================
 Route::get('/email',[EmailController::class,'bar'])->name('email');

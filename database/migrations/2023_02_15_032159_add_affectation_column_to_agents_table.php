@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('devis', function (Blueprint $table) {
-            $table->id();
-            $table->string('montant');
-            $table->string('libelle');
-            $table->timestamps();
+        Schema::table('agents', function (Blueprint $table) {
+            $table->string('affectation')->default('non');
         });
     }
 
@@ -28,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('devis');
+        Schema::table('agents', function (Blueprint $table) {
+            //
+        });
     }
 };

@@ -1,13 +1,9 @@
-@include('navbar.navbarAgence')
+{{-- @include('navbar.navbarAgence')
 @extends('ouvriers.layout')
 
 @section('modou')
 <div class="row">
     <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-
-            <h2>Add New Client ndoye gerant</h2>    
-        </div>
         <div class="pull-right">
             <a class="btn btn-primary" href="{{ route('agence_client')}}"> Back</a>
         </div>
@@ -30,7 +26,7 @@
     <div class="flex items-center min-h-screen p-16 bg-gray-50 dark:bg-gray-900">
         <div class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
             <div class="flex flex-col overflow-y-auto md:flex-row">
-                
+
                 <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
                     <div class="w-full">
                         <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
@@ -133,4 +129,105 @@
         </div>
     </div>
 </form>
-@endsection
+@endsection --}}
+
+@include('navbar.navbarAgence')
+<div class="row">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-right">
+            <a class="btn btn-primary" href="{{ route('agence_client')}}">Retour</a>
+        </div>
+    </div>
+</div>
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> IL y'a queleques erreurs dans les champs<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+<section class="vh-100" style="background-color: #eee;">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-12 col-xl-11">
+          <div class="card text-black" style="border-radius: 25px;">
+            <div class="card-body p-md-5">
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Ajouter un Client</p>
+
+                  <form class="mx-1 mx-md-4" action="{{ route('agence') }}" method="POST">
+                    @csrf
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="text" id="form3Example1c" class="form-control" placeholder="Nom" name="name"/>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="text" id="form3Example3c" class="form-control" placeholder="Prénom" name="prenom"/>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="email" id="form3Example4c" class="form-control" placeholder="Email" name="email"/>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="text" id="form3Example4cd" class="form-control" placeholder="Téléphone" name="telephone"/>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <div class="form-outline flex-fill mb-0">
+                          <input type="hidden" id="form3Example4cd" class="form-control" value="passer123" name="password" />
+                        </div>
+                      </div>
+
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <div class="form-outline flex-fill mb-0">
+                          <input type="hidden" id="form3Example4cd" class="form-control" value="client"  name="profil"/>
+                        </div>
+                      </div>
+                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                      <button type="submit" class="btn btn-primary btn-lg" style="background-color: #e21111">Ajouter</button>
+                    </div>
+
+                  </form>
+
+                </div>
+                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                  <img src="{{ asset('./assets/img/addChefAg.svg')}}"
+                    class="img-fluid" alt="Sample image">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  @if (session()->has('success'))
+  <script>
+    toastr.success("{!! session()->get('success') !!}");
+  </script>
+  @endif
+
+

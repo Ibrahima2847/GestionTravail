@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\Fortify\PasswordValidationRules;
 use App\Http\Requests\AdStore;
 use App\Mail\AnnonceMarkdownMail;
+use App\Models\Agence;
 use App\Models\Annonce;
 use App\Models\Departement;
 use App\Models\Region;
@@ -46,16 +47,23 @@ class AdController extends Controller
      */
     public function create()
     {
-        // $regions = DB::table('regions')->get();
-        // $departements = DB::table('departements')->get();
-
-        return view('ads.nouvelleAnnonce');
+        $reg = DB::table('regions')->get();
+        return view('ads.nouvelleAnnonce',compact('reg'));
     }
 
-    public function getDep($regionId)
+    public function getDep($regionName)
     {
-        $departments = Departement::where('region_id', $regionId)->get();
-        return response()->json($departments->pluck('nomDepartement', 'id'));
+        $region = Region::where('nomRegion', $regionName)->first();
+
+        $departments = DB::table('regions')
+                            ->join('departements','regions.id','=','region_id')
+                            ->select('departements.*')
+                            ->where('region_id','=',$region->id)
+                            ->get();
+
+        $departmentNames = $departments->pluck('nomDepartement')->toArray();
+
+        return $departmentNames;
     }
 
     /**
@@ -78,13 +86,15 @@ class AdController extends Controller
         $ad->user_id = auth()->user()->id;
         $ad->message = $validated['message'];
 
-        dd($ad->region);
+        $region = Region::where('nomRegion','=',$ad->region)->first();
 
-        // $ad->save();
+        $ad->region_id = $region->id;
+
+        $ad->save();
 
         // Mail::to(Auth::user()->email)->send(new AnnonceMarkdownMail());
         // Mail::to(Auth::user()->email)->send(new AnnonceMarkdownMail());
-        // return redirect()->route('accueil')->with('success', 'Votre annonce a été bien postéé !');
+         return back()->with('success', 'Votre annonce a été bien postéé !');
         // return redirect()->back();
 
 

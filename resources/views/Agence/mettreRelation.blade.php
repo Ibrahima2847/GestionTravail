@@ -56,11 +56,7 @@
                                         <a class="btn btn-warning btn btn-primary btn-sm"
                                             href="{{ route('relation', $ad->id) }}"><i class="fa fa-handshake"
                                                 aria-hidden="true"></i>
-                                        </a>
-
-                                        <a class="btn btn-info btn btn-primary btn-sm"
-                                            href="{{ route('relation', $ad->id) }}"><i class="fa fa-eye" aria-hidden="true"></i>
-                                        </a>
+                                    </a>
                                     </td>
                                 </div>
             </div>

@@ -12,12 +12,15 @@
                       <th class="px-4 py-3">Titre</th>
                       <th class="px-4 py-3">Date</th>
                       <th class="px-4 py-3">Etat</th>
+                      <th class="px-4 py-3">Paiement</th>
                       {{-- <th class="px-4 py-3">Date</th> --}}
                     </tr>
                   </thead>
                   <tbody
                     class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
                   >
+                  <form action="{{route('payer')}}" method="POST">
+                    @csrf
         @foreach ($annonceClients as $gestAnnonce)
                     <tr class="text-gray-700 dark:text-gray-400">
                       <td class="px-4 py-3">
@@ -51,8 +54,14 @@
                       <td class="px-4 py-3 text-sm">
                         {{$gestAnnonce->statut}}
                       </td>
+                      <td class="px-4 py-3 text-sm">
+                        {{-- <a href="{{route('payer')}}" class="btn btn-success">Payer</button> --}}
+                        <button type="submit" class="btn btn-success">Payer</button>
+                        <button type="button" class="btn btn-danger">Annuler</button>
+                      </td>
                     </tr>
       @endforeach
+    </form>
                   </tbody>
                 </table>
               </div>

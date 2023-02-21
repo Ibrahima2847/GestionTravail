@@ -3,6 +3,8 @@
 namespace App\Actions\Fortify;
 
 use App\Models\Agent;
+use App\Models\Chef;
+use App\Models\ChefAgence;
 use App\Models\Client;
 use App\Models\Ouvrier;
 use App\Models\User;
@@ -66,6 +68,10 @@ class CreateNewUser implements CreatesNewUsers
         }elseif($user->profil === 'agent'){
             $chefAgence = Agent::create([
                 'id_chefAgence' => $user->id,
+            ]);
+        }elseif($user->profil === 'chefAgent'){
+            $chefAgence = Chef::create([
+                'chefAgence_id' => $user->id,
             ]);
         }
         return $user;

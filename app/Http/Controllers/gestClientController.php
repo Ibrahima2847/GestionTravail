@@ -21,10 +21,17 @@ class gestClientController extends Controller
     }
 
     public function indexClient(){
+
         $annonceClients = DB::table('users')
                         ->join('annonces', 'users.id','=' ,'user_id')
+                        ->join('relations','annonces.id','=','relations.annonce_id')
+                        ->join('services','relations.id','=','relation_id')
                         ->where('user_id','=',auth()->user()->id)
+                        ->where('paiement_id','=',NULL)
+                        ->where('statut','=','en relation')
+                        ->where('etat','=','en cour')
                         ->get();
+
         return view('DashboardClient.index',compact('annonceClients'));
     }
 
@@ -32,7 +39,6 @@ class gestClientController extends Controller
         $annonces = DB::table('users')
                         ->join('annonces', 'users.id','=' ,'user_id')
                         ->where('user_id','=',auth()->user()->id)
-                        ->where('statut','=','publier')
                         ->get();
         return view('DashboardClient.accepte', compact('annonces'));
     }
@@ -40,8 +46,11 @@ class gestClientController extends Controller
     public function refuse(){
         $annonces = DB::table('users')
                         ->join('annonces', 'users.id','=' ,'user_id')
+                        ->join('relations','annonces.id','=','relations.annonce_id')
+                        ->join('services','relations.id','=','relation_id')
                         ->where('user_id','=',auth()->user()->id)
-                        ->where('statut','=','Non Publier')
+                        ->where('avis_id','=',NULL)
+                        ->where('etat','=','terminer')
                         ->get();
         return view('DashboardClient.refuse', compact('annonces'));
     }

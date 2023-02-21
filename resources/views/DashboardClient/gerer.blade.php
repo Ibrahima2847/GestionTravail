@@ -9,10 +9,8 @@
                   class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
                 >
                   <th class="px-4 py-3">Titre</th>
-                  <th class="px-4 py-3">Message</th>
                   <th class="px-4 py-3">Date</th>
                   <th class="px-4 py-3">Action</th>
-                  {{-- <th class="px-4 py-3">Date</th> --}}
                 </tr>
               </thead>
               <tbody
@@ -22,7 +20,6 @@
                 <tr class="text-gray-700 dark:text-gray-400">
                   <td class="px-4 py-3">
                     <div class="flex items-center text-sm">
-                      <!-- Avatar with inset shadow -->
                       <div
                         class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
                       >
@@ -46,10 +43,11 @@
                     </div>
                   </td>
                   <td class="px-4 py-3 text-sm">
-                    {{$gestAnnonce->message}}
+                    {{ Carbon\Carbon::parse($gestAnnonce->created_at)->diffForHumans() }}
                   </td>
                   <td class="px-4 py-3 text-sm">
-                    {{ Carbon\Carbon::parse($gestAnnonce->created_at)->diffForHumans() }}
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></i></button>
                   </td>
                 </tr>
   @endforeach

@@ -47,41 +47,20 @@
 
                         @foreach ($clients as $client)
                             <tr class="text-gray-700 dark:text-gray-400">
-                                <td class="px-4 py-3">
-                                    <div class="flex items-center text-sm">
-                                        <!-- Avatar with inset shadow -->
-                                        <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                            <img class="object-cover w-full h-full rounded-full"
-                                                src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
-                                                alt=""loading="lazy" />
-                                            <div class="absolute inset-0 rounded-full shadow-inner"aria-hidden="true">
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <p class="font-semibold">{{ $client->name }}</p>
-                                        </div>
-                                    </div>
-                                </td>
+                                <td class="px-4 py-3 text-sm">{{ $client->name }}</td>
                                 <td class="px-4 py-3 text-sm">{{ $client->prenom }} </td>
                                 <td class="px-4 py-3 text-xs">{{ $client->telephone }}</td>
                                 <td class="px-4 py-3 text-sm">{{ $client->email }}</td>
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                    {{-- <form action="{{ route('clients.destroy',$client->id) }}" method="POST">
-                      <a class="btn btn-info" href="{{ route('cleints.show',$client->id) }}">Show</a>
-
-                        <a class="btn btn-primary" href="{{ route('cleints.edit',$client->id) }}">Edit</a>
---}}
                                     @csrf
                                     @method('DELETE')
 
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></i></button>
                                     </form>
 
                                 </td>
                             </tr>
                         @endforeach
                 </table>
-
-                {!! $clients->links() !!}

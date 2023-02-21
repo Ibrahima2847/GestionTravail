@@ -342,12 +342,6 @@
             <div class="colums">
                 <div class="item">
                     <div class="input-group">
-                        <select class="form-control">
-                            <option selected>Choisir le région...</option>
-                        </select>
-                        <select class="form-control">
-                            <option selected>Choisir le département...</option>
-                        </select>
                         <input type="text" class="form-control" name="words">
                         <button type="submit" class="btn btn-primary">Rechercher</button>
 
@@ -358,11 +352,8 @@
                                 <tr>
                                     <th>Nom</th>
                                     <th>Prénom</th>
-                                    {{-- <th>Email</th> --}}
-                                    {{-- <th>Image</th> --}}
                                     <th>Téléphone</th>
                                     <th>Profession</th>
-                                    {{-- <th>Potentiel</th> --}}
                                     <th>Mettre en relation</th>
                                 </tr>
                             </thead>
@@ -372,21 +363,14 @@
                                         <tr>
                                             <td>{{ $data->name }}</td>
                                             <td>{{ $data->prenom }}</td>
-                                            {{-- <td>{{$data->email}}</td> --}}
-                                            {{-- <td>
-                                            <a href="{{ route('voirImage') }}"><img
-                                                    src="./assets/img/{{ $datas->image }}" alt=""></a>
-                                        </td> - --}}
                                             <td>{{ $data->telephone }}</td>
                                             <td>{{ $data->profession }}</td>
-                                            {{-- <td>{{ $data->potentiel }}</td> --}}
-                                            <td>
+                                        </tr>
         </form>
         <form action="{{ route('miseRelation', [$ads->id, $data->id]) }}" method="POST">
             @csrf
             <input type="submit" value="Relation" name="" id="">
         </form>
-        {{-- <a href="{{ route('etablit', $data->id, $ads->id) }}" class="btn">Mettre enrelation</a> --}}
         </td>
         </tr>
         @endforeach
@@ -395,9 +379,6 @@
         </table>
     </div>
     </div>
-    {{-- <div class="btn-block">
-                    <button type="submit" href="/">Submit</button>
-                </div> --}}
     </div>
     </div>
 </body>

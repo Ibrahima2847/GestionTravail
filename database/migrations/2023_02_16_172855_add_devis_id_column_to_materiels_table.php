@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('avis', function (Blueprint $table) {
-            $table->id();
-            $table->string('note');
-            $table->timestamps();
+        Schema::table('materiels', function (Blueprint $table) {
+            $table->unsignedBigInteger('devis_id');
+            $table->foreign('devis_id')->references('id')->on('devis');
         });
     }
 
@@ -27,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('avis');
+        Schema::table('materiels', function (Blueprint $table) {
+            //
+        });
     }
 };

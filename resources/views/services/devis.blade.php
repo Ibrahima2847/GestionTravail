@@ -258,28 +258,24 @@
 
 <body>
     <div class="testbox">
-        <form action="/">
+        <form action="{{route('ajoutDevis')}}" method="POST">
+            @csrf
             <div class="banner">
                 <h1>Faire le Devis</h1>
             </div>
             <div class="item">
                 <p></p>
                 <div class="name-item" id="fieldsContainer">
-                    {{-- <select id="field" name="field1">
-                        <option>------ Choisissez un matériel ------</option>
-                    </select>
-                    <input type="text" placeholder="Prix du matériel" id="prix" /> --}}
                 </div>
                 <input id="addFieldButton" type="button" value="Ajouter des champs" id="myButton" onclick="addFields()">
 
             </div>
             <div class="btn-block">
-                <button  type="submit" href="/">Soumettre</button>
+                <button  type="submit">Soumettre</button>
             </div>
         </form>
     </div>
 </body>
-
 </html>
 
 <script>
@@ -290,85 +286,22 @@ var addFieldButton = document.getElementById("addFieldButton");
 var fieldCount = 1;
 addFieldButton.addEventListener("click", function(){
   fieldCount++;
-  var newField1 = document.createElement("select");
-//   newField1.className.add('matos')
-
-  axios.get('/afficheMatos')
-        .then(function (response) {
-            var jobs = response.data;
-            var prix = response.data;
-
-            var select = document.getElementById('field');
-            var input = document.getElementById('prix');
-
-
-            select.innerHTML = '';
-
-            newField1.innerHTML =`
-            <select id='field' name="field1">
-                 <option>------ Choisissez un matériel ------</option>
-            </select>`;
-
-            fieldsContainer.appendChild(newField1);
-
-
-            for (var i = 0; i < jobs.length; i++) {
-                select.innerHTML += '<option value="' + jobs[i].id + '">' + jobs[i].libelle + '</option>';
-                // matos.innerHTML += '<option value="' + jobs[i].id + '">' + jobs[i].libelle + '</option>';
-            }
-
-
-            for (var i = 0; i < jobs.length; i++) {
-                prix[i] = jobs[i].montant;
-            }
-
-             select.addEventListener('change', function() {
-                input.value = prix[this.value];
-            });
-
-        })
-        .catch(function (error) {
-            console.error(error);
-        });
-
-
-    // <option value="Ciment">Ciment</option>
-    // <option value="Interupteur">Interupteur</option>
-    // <option value="Clou">Clou</option>
-
+  var newField1 = document.createElement("input");
+        newField1.type = "text";
+        newField1.placeholder = "Nom du matériel";
+        newField1.name = "materiel[]";
+        newField1.className = "materiel";
 
   fieldsContainer.appendChild(newField1);
   fieldCount++;
 
   var newField2 = document.createElement("input");
-        newField2.type = "text";
+        newField2.type = "number";
         newField2.placeholder = "Prix du matériel";
-        newField2.name = "prix";
-        newField2.className = "myField";
+        newField2.name = "prix[]";
+        newField2.className = "prix";
   fieldsContainer.appendChild(newField2);
 });
 
 </script>
 
-
-{{-- <script>
-    function addFields() {
-        // créer un nouvel élément de saisie de texte
-        var newField1 = document.createElement("select");
-        newField1.type = "text";
-        newField1.placeholder = "Nom du matériel";
-        newField1.name = "nom";
-        newField1.className = "myField";
-
-        var newField2 = document.createElement("input");
-        newField2.type = "text";
-        newField2.placeholder = "Prix du matériel";
-        newField2.name = "prix";
-        newField2.className = "myField";
-
-        // ajouter les nouveaux champs à la fin du formulaire
-        var container = document.getElementById("fieldsContainer");
-        container.appendChild(newField1);
-        container.appendChild(newField2);
-    }
-</script> --}}

@@ -1,31 +1,36 @@
 
-  <!DOCTYPE html>
-  <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Admin</title>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-      />
-      <link rel="stylesheet" href="./assets/css/tailwind.output.css" />
-      <script
-        src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
-        defer
-      ></script>
-      <script src="./assets/js/init-alpine.js"></script>
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
-      />
-      <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
-        defer
-      ></script>
-      <script src="./assets/js/charts-lines.js" defer></script>
-      <script src="./assets/js/charts-pie.js" defer></script>
-    </head>
+<!DOCTYPE html>
+<html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agent</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{asset('./assets/css/tailwind.output.css')}}" />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <script src="{{ asset('./assets/js/init-alpine.js')}}"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+      defer
+    ></script>
+    <script src="{{ asset('./assets/js/charts-lines.js')}}" defer></script>
+    <script src="{{ asset('./assets/js/charts-pie.js')}}" defer></script>
+  <link href="{{ asset('./assets/css/poppup.css')}}" rel="stylesheet" />
+  </head>
     <body>
       <div
         class="flex h-screen bg-gray-50 dark:bg-gray-900"
@@ -35,160 +40,47 @@
         <aside
           class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0"
         >
-          <div class="py-4 text-gray-500 dark:text-gray-400">
+          <div class="py-4 text-gray-500 dark:text-gray-400" style="background-color: #585858; height:100%; ">
             <a
               class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
               href="#"
             >
-            {{ auth()->user()->name }}
             </a>
-            <ul class="mt-6">
-              <li class="relative px-6 py-3">
-                <span
-                  class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                  aria-hidden="true"
-                ></span>
-                <a
-                  class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                  href="{{route('app_ouvrier')}}"
-                >
-                  <svg
-                    class="w-5 h-5"
-                    aria-hidden="true"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                    ></path>
-                  </svg>
-                  <span class="ml-4">Dashboard </span>
-                </a>
-              </li>
-            </ul>
-            <ul>
-              <li class="relative px-6 py-3">
-                <a
-                    class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                        {{-- @if(Request::route()->getName() == 'app_ouvrier') active @endif"--}} href="{{route('ouvriers.index')}}">
-                  <svg
-                    class="w-5 h-5"
-                    aria-hidden="true"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
-                    ></path>
-                  </svg>
-                  <span class="ml-4">Mes Annonces</span>
-                </a>
-              </li>
-              <li class="relative px-6 py-3">
-                <a
-                  class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                  href="#"
-                >
-                  <svg
-                    class="w-5 h-5"
-                    aria-hidden="true"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                    ></path>
-                  </svg>
-                  <span class="ml-4">Annonces acceptés</span>
-                </a>
-              </li>
-              <li class="relative px-6 py-3">
-                <a
-                  class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                  href="buttons.html"
-                >
-                  <svg
-                    class="w-5 h-5"
-                    aria-hidden="true"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
-                    ></path>
-                  </svg>
-                  <span class="ml-4">Annonces refusés</span>
-                </a>
-              </li>
-              <li class="relative px-6 py-3">
-                <a
-                  class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                  href="modals.html"
-                >
-                  <svg
-                    class="w-5 h-5"
-                    aria-hidden="true"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-                    ></path>
-                  </svg>
-                  <span class="ml-4">Changer de mot de passe</span>
-                </a>
-              </li>
-              <li class="relative px-6 py-3">
-                <a
-                  class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                  href="tables.html"
-                >
-                  <svg
-                    class="w-5 h-5"
-                    aria-hidden="true"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
-                  </svg>
-                  <span class="ml-4">Tables</span>
-                </a>
-              </li>
-                  </ul>
-                </template>
-              </li>
-            </ul>
-            <div class="px-6 my-6">
-              <a
-                class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-              href="{{route('accueil')}}">
-                Accueil
-            </a>
+            <div class="d-flex flex-column flex-shrink-0 text-white" style=" margin-left:2%; margin-top:1px; margin-bottom:1px">
+                <img src="{{ asset('./assets/img/logo2.png')}}" class="align-items-center me-md-auto text-white text-decoration-none" alt="">
             </div>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li>
+                  <a class=" nav-link text-white" {{'home' == request()->path() ? 'active' : ''}} aria-current="page" href="{{route('redirection')}}">
+                      <svg class="bi me-2" width="16" height="11"><use xlink:href="#speedometer2"/></svg>
+                    <span class="ml-4" style="font-size: 20px">Dashboard Chef Agent</span>
+                  </a>
+                </li>
+                <li>
+                    <a class=" nav-link text-white"  {{'enCour' == request()->path() ? 'active' : ''}} aria-current="page" href="{{route('gestAgent')}}">
+                        <svg class="bi me-2" width="16" height="11"><use xlink:href="#speedometer2"/></svg>
+                      <span class="ml-4" style="font-size: 20px">Ajouetr un agents</span>
+                    </a>
+                </li>
+                <li>
+                    <a class=" nav-link text-white"  {{'enCour' == request()->path() ? 'active' : ''}} aria-current="page" href="{{route('toutAgent')}}">
+                        <svg class="bi me-2" width="16" height="11"><use xlink:href="#speedometer2"/></svg>
+                      <span class="ml-4" style="font-size: 20px">Gestion des agents</span>
+                    </a>
+                </li>
+                <li>
+                    <a class=" nav-link text-white"  {{'enCour' == request()->path() ? 'active' : ''}} aria-current="page" href="{{route('gererMetier')}}">
+                        <svg class="bi me-2" width="16" height="11"><use xlink:href="#speedometer2"/></svg>
+                      <span class="ml-4" style="font-size: 20px">Gestion des métiers</span>
+                    </a>
+                </li>
+                <li>
+                    <a class=" nav-link text-white"  {{'enCour' == request()->path() ? 'active' : ''}} aria-current="page" href="{{route('getAgent')}}">
+                        <svg class="bi me-2" width="16" height="11"><use xlink:href="#speedometer2"/></svg>
+                      <span class="ml-4" style="font-size: 20px">Affectation</span>
+                    </a>
+                </li>
+              </ul>
           </div>
         </aside>
         <!-- Mobile sidebar -->
@@ -630,7 +522,7 @@
                     </ul>
                   </template>
                 </li>
-                {{ auth()->user()->prenom }} {{ auth()->user()->name }}
+                {{ auth()->user()->email }}
                 <!-- Profile menu -->
                 <li class="relative">
                   <button

@@ -40,7 +40,7 @@
         <aside
           class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0"
         >
-          <div class="py-4 text-gray-500 dark:text-gray-400" style="background-color: #585858; ">
+          <div class="py-4 text-gray-500 dark:text-gray-400" style="background-color: #585858; height:100%;">
             <a
               class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
               href="#"
@@ -57,13 +57,13 @@
               <li class="{{'home' == request()->path() ? 'active' : ''}}">
                 <a class=" nav-link text-white" aria-current="page" href="{{route('redirection')}}">
                     <svg class="bi me-2" width="16" height="11"><use xlink:href="#speedometer2"/></svg>
-                  <span class="ml-4" style="font-size: 20px">Dashboard Agence</span>
+                  <span class="ml-4" style="font-size: 20px">Dashboard Agent</span>
                 </a>
               </li>
             </ul>
             <ul class="nav nav-pills flex-column mb-auto">
               <li>
-                <a class=" nav-link text-white" href="#">
+                <a class=" nav-link text-white" href="{{route('gest_ouvrier')}}">
                        <svg class="bi me-2" width="16" height="11"><use xlink:href="#speedometer2"/></svg>
                   <span class="ml-4" style="font-size: 20px">Gestion Ouvriers</span>
                 </a>
@@ -92,12 +92,12 @@
                   <span class="ml-4" style="font-size: 20px">Relation en cour</span>
                 </a>
               </li>
-              <li>
+              {{-- <li>
                 <a href="{{route('gererMetier')}}" class=" nav-link text-white">
                     <svg class="bi me-2" width="16" height="11"><use xlink:href="#speedometer2"/></svg>
                   <span class="ml-4" style="font-size: 20px">Gestion des métiers</span>
                 </a>
-              </li>
+              </li> --}}
             </ul>
             {{-- <div class="px-6 my-6">
               <a

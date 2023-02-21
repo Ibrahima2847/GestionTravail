@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Avis;
+use App\Models\Devis;
+use App\Models\Materiel;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -98,8 +102,30 @@ class ServiceController extends Controller
 
     }
 
-    public function avis(){
+    public function getAvis(){
         return view('services.avis');
+    }
+
+    public function avis(Request $request){
+    $annonceClients = DB::table('users')
+        ->join('annonces', 'users.id','=' ,'user_id')
+        ->where('user_id','=',auth()->user()->id)
+        ->join('relations','annonces.id','=','relations.annonce_id')
+        ->join('services','relations.id','=','relation_id')
+        ->where('avis_id','=',NULL)
+        ->where('statut','=','terminer')
+        ->latest('services.created_at')->first();
+
+        $avis = new Avis();
+        $avis->description = $request['description'];
+        $avis->note = $request['note'];
+        $avis->save();
+
+        $service = Service::find($annonceClients->id);
+        $service->avis_id = $avis->id;
+        $service->save();
+
+        return view('DashboardClient.accepte')->with('success','Merci de nous avoir fait confiance');
     }
 
     public function materiel(){
@@ -111,7 +137,47 @@ class ServiceController extends Controller
     }
 
     public function devis(){
-        $devis = DB::table('services')->get();
+
+        $devis = new Devis();
+        $devis->save();
+
         return view('services.devis',compact('devis'));
+    }
+
+    public function ajoutDevis(Request $request){
+
+        $devis = DB::table('devis')->latest('created_at')->first();
+
+       $materiels = $request->input('materiel');
+       $prix = $request->input('prix');
+
+    for ($i = 0; $i < count($materiels); $i++) {
+
+        $materiel = new Materiel();
+
+        $materiel->description = $materiels[$i];
+        $materiel->montant = $prix[$i];
+        $materiel->devis_id = $devis->id;
+        $materiel->save();
+    }
+
+        $relation = DB::table('annonces')
+                    ->join('relations','annonces.id','=','annonce_id')
+                    ->join('ouvriers','id_Ouvrier','=','ouvrier_id')
+                    ->join('services','relations.id','=','relation_id')
+                    ->latest('services.created_at')->first();
+
+        $service = Service::find($relation->id);
+        $service->devis_id = $devis->id;
+        $service->save();
+
+       return view('DashboardOuvrier.index');
+
+    }
+
+    public function devisService(){
+        $devis = DB::table('devis')
+                ->join('materiels','devis.id','=','devis_id')
+                ->get();
     }
 }

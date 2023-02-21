@@ -205,7 +205,7 @@
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="div">
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" name="profil">
                             <option value="ouvrier">Ouvrier</option>
                             <option value="client">Client</option>
                           </select>

@@ -11,6 +11,7 @@
                             <th class="px-4 py-3">Titre</th>
                             <th class="px-4 py-3">Date</th>
                             <th class="px-4 py-3">Etat</th>
+                            <th class="px-4 py-3">Avis</th>
                             {{-- <th class="px-4 py-3">Date</th> --}}
                         </tr>
                     </thead>
@@ -40,6 +41,9 @@
                                 </td>
                                 <td class="px-4 py-3 text-sm">
                                     {{ $gestAnnonce->statut }}
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    <a href="{{route('getAvis')}}" class="btn btn-success">Avis</a>
                                 </td>
                             </tr>
                         @endforeach

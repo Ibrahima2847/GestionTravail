@@ -31,6 +31,7 @@ class OuvrierStore extends FormRequest
             'cv' => ['required'],
             'potentiel' => ['required'],
             'photo' => ['required'],
+            'region' => ['required'],
             'ouvrier_id' => [Rule::unique(Metier::class),],
         ];
     }
