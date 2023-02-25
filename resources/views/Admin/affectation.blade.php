@@ -7,7 +7,7 @@
             <div class="flex items-center">
                 <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                 </svg>
-                <h5>Les relations en cour</h5>
+                <h5>Affectation</h5>
             </div>
         </h1>
         <div class="w-full overflow-hidden rounded-lg shadow-xs">

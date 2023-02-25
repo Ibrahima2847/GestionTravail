@@ -48,8 +48,8 @@
                         <li>(18) Reviews</li>
                       </ul> --}}
                       {{-- <span class="price"><div class="icon"><img src="" alt=""></div> $450 - $950 / month with taxes</span> --}}
-                      <span class="details"><strong>Email : </strong><em>{{$ouvrier->email}}</em></span>
-                      <span class="details"><strong>Téléphone :</strong> <em>{{$ouvrier->telephone}}</em></span>
+                      <span class="details"><strong>Email : </strong><em>****************@gmail.com</em></span>
+                      <span class="details"><strong>Téléphone :</strong> <em>7* *** ** **</em></span>
                       <span class="details"><strong>Métier : </strong><em>{{$ouvrier->profession}}</em></span>
                       <span class="details"><strong>Mes potentiels : </strong><em>{{$ouvrier->potentiel}}</em></span>
 

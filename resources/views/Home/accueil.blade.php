@@ -283,7 +283,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 =            Hero Section            =
 =====================================-->
 <section class="section gradient-banner">
-	<div class="shapes-container">
+	<div class="shapes-container" style="background-color: #585858">
 		<div class="shape" data-aos="fade-down-left" data-aos-duration="1500" data-aos-delay="100"></div>
 		<div class="shape" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100"></div>
 		<div class="shape" data-aos="fade-up-right" data-aos-duration="1000" data-aos-delay="200"></div>
@@ -305,7 +305,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 		<div class="row align-items-center">
 			<div class="col-md-6 order-2 order-md-1 text-center text-md-left">
 				<h1 class="text-white font-weight-bold mb-4">Quelle que soit votre compétence elle sera la bienvenue !</h1>
-				<p class="text-white mb-5">KayJob te propose une large gamme de services pour trouver un emploi au Sénégal.</p>
+				<p class="text-white mb-5">JobLegii te propose une large gamme de services pour trouver un emploi au Sénégal.</p>
 			</div>
 			<div class="col-md-6 text-center order-1 order-md-2">
 				<img class="img-fluid" src="./asssets/images/ingenier.svg" alt="screenshot">
@@ -320,18 +320,18 @@ FACEBOOK: https://www.facebook.com/themefisher
 		<div class="rounded shadow p-5 bg-white">
 			<div class="row">
 				<div class="col-lg-4 col-md-6 mt-5 mt-md-0 text-center">
-					<i class="ti-paint-bucket text-primary h1"></i>
-					<h3 class="mt-4 text-capitalize h5 ">Rapidité</h3>
+					<i class="ti-truck text-danger h1"></i>
+					<h3 class="mt-4 text-capitalize h5" style="color: #e21111">Rapidité</h3>
 					<p class="regular text-muted"></p>
 				</div>
 				<div class="col-lg-4 col-md-6 mt-5 mt-md-0 text-center">
-					<i class="ti-shine text-primary h1"></i>
-					<h3 class="mt-4 text-capitalize h5 ">Fiabilité</h3>
+					<i class="ti-shine text-danger h1"></i>
+					<h3 class="mt-4 text-capitalize h5" style="color: #e21111">Fiabilité</h3>
 					<p class="regular text-muted"></p>
 				</div>
 				<div class="col-lg-4 col-md-12 mt-5 mt-lg-0 text-center">
-					<i class="ti-thought text-primary h1"></i>
-					<h3 class="mt-4 text-capitalize h5 ">Confiance</h3>
+					<i class="ti-thought text-danger h1"></i>
+					<h3 class="mt-4 text-capitalize h5" style="color: #e21111">Confiance</h3>
 					<p class="regular text-muted"></p>
 					</p>
 				</div>
@@ -355,7 +355,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 			<div class="col-lg-6 mr-auto align-self-center">
 				<div class="feature-content">
 					<!-- Feature Title -->
-					<h2>La rapidité au cœur de notre service <a
+					<h2 style="color: #e21111">La rapidité au cœur de notre service <a
 							href="https://themefisher.com/products/small-apps-free-app-landing-page-template/"></a></h2>
 					<!-- Feature Description -->
 					<p class="desc">Notre entreprise est fière de fournir un service rapide et efficace à tous nos clients. Nous comprenons l'importance de la rapidité dans le monde d'aujourd'hui, et c'est pourquoi nous mettons tout en œuvre pour terminer les travaux le plus rapidement possible sans sacrifier la qualité.
@@ -373,10 +373,10 @@ FACEBOOK: https://www.facebook.com/themefisher
 			<div class="col-lg-6 ml-auto align-self-center">
 				<div class="feature-content">
 					<!-- Feature Title -->
-					<h2>La fiabilité, garantie de qualité <a
+					<h2 style="color: #e21111">La fiabilité, garantie de qualité <a
 							href="https://themefisher.com/products/small-apps-free-app-landing-page-template/"></a></h2>
 					<!-- Feature Description -->
-					<p>Chez [KayJob], nous sommes fiers de fournir un service fiable et fiable à tous nos clients. Nous comprenons l'importance de la confiance dans les relations d'affaires, et c'est pourquoi nous nous efforçons de fournir un travail de qualité supérieure à chaque fois.
+					<p>Chez [JobLegii], nous sommes fiers de fournir un service fiable et fiable à tous nos clients. Nous comprenons l'importance de la confiance dans les relations d'affaires, et c'est pourquoi nous nous efforçons de fournir un travail de qualité supérieure à chaque fois.
                         Notre équipe expérimentée utilise des méthodes éprouvées pour garantir que chaque projet est terminé avec précision et dans les délais impartis. Nous nous engageons à maintenir les plus hauts standards de qualité pour assurer la satisfaction de nos clients à chaque étape du processus.
                         Nous croyons que la fiabilité est la clé de la durabilité de nos relations d'affaires, et nous travaillons sans relâche pour maintenir notre réputation de fiabilité. Contactez-nous aujourd'hui pour découvrir comment nous pouvons vous aider à atteindre vos objectifs de manière fiable et fiable.</p>
 				</div>
@@ -409,7 +409,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 			<div class="col-lg-6 mr-auto align-self-center">
 				<div class="feature-content">
 					<!-- Feature Title -->
-					<h2>Fonder notre relation sur la confiance<a
+					<h2 style="color: #e21111">Fonder notre relation sur la confiance<a
 							href="https://themefisher.com/products/small-apps-free-app-landing-page-template/"></a></h2>
 					<!-- Feature Description -->
 					<p class="desc">La confiance est au cœur de tout ce que nous faisons chez [nom de l'entreprise]. Nous comprenons que les clients ont besoin de savoir qu'ils peuvent compter sur nous pour fournir un travail de qualité à chaque fois.
@@ -429,15 +429,15 @@ FACEBOOK: https://www.facebook.com/themefisher
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="section-title">
-					<h2>C'est quoi KayJob ?</h2>
+					<h2 style="color: #e21111">C'est quoi JobLegii ?</h2>
 					<p style="width: 100%;"><a href="https://themefisher.com/products/small-apps-free-app-landing-page-template/"></a>
-                        Chez KayJob, nous sommes fiers d'être le leader du marché des métiers temporaires au Sénégal. Nous comprenons les défis liés à la gestion de la main-d'œuvre pour les entreprises de toutes tailles et nous nous efforçons de fournir une solution rapide et efficace pour répondre à leurs besoins.
+                        Chez JobLegii, nous sommes fiers d'être le leader du marché des métiers temporaires au Sénégal. Nous comprenons les défis liés à la gestion de la main-d'œuvre pour les entreprises de toutes tailles et nous nous efforçons de fournir une solution rapide et efficace pour répondre à leurs besoins.
                         Notre équipe dévouée et expérimentée a une connaissance approfondie des différents secteurs d'activité au Sénégal et nous travaillons en étroite collaboration avec nos clients pour comprendre leurs besoins et leurs attentes. Nous utilisons les dernières technologies pour garantir une correspondance rapide et précise avec les candidats les plus qualifiés pour chaque projet.
                         Nous croyons que les métiers temporaires peuvent jouer un rôle important dans la croissance économique du Sénégal en permettant aux entreprises de s'adapter rapidement aux fluctuations de la demande. Nous nous engageons à fournir un service de qualité supérieure pour aider les entreprises à atteindre leurs objectifs et à réussir.</p>
 				</div>
 			</div>
 		</div>
-        <h1 align="center">Les métiers que nous prennont en charge !</h1>
+        <h1 align="center" style="color: #e21111">Les métiers que nous prennont en charge !</h1>
 		<div class="row no-gutters">
 			<div class="col-lg-6 align-self-center">
 				<!-- Feature Image -->
@@ -556,15 +556,6 @@ FACEBOOK: https://www.facebook.com/themefisher
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="content-block">
-					<!-- Heading -->
-					<h2>Watch Our Promo Video</h2>
-					<!-- Promotional Speech -->
-					<p>Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat, accumsan id imperdiet et,
-						porttitor at sem. Vivamus </p>
-					<!-- Popup Video -->
-					<a data-fancybox href="https://www.youtube.com/watch?v=jrkvirglgaQ">
-						<i class="ti-control-play video"></i>
-					</a>
 				</div>
 			</div>
 		</div>
@@ -584,14 +575,6 @@ FACEBOOK: https://www.facebook.com/themefisher
 					<!-- Testimonial 01 -->
 					<div class="item">
 						<div class="block shadow">
-							<!-- Speech -->
-							<p>
-								Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Donec sollicitudin molestie malesuada.
-								Donec sollicitudin molestie malesuada. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor
-								sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi,
-								pretium ut lacinia in, elementum id enim.
-							</p>
-							<!-- Person Thumb -->
 							<div class="image">
 								<img src="./asssets/images/testimonial/feature-testimonial-thumb.jpg" alt="image">
 							</div>
@@ -603,12 +586,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 					<div class="item">
 						<div class="block shadow">
 							<!-- Speech -->
-							<p>
-								Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Donec sollicitudin molestie malesuada.
-								Donec sollicitudin molestie malesuada. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor
-								sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi,
-								pretium ut lacinia in, elementum id enim.
-							</p>
+
 							<!-- Person Thumb -->
 							<div class="image">
 								<img src="./asssets/images/testimonial/feature-testimonial-thumb.jpg" alt="image">
@@ -620,14 +598,6 @@ FACEBOOK: https://www.facebook.com/themefisher
 					<!-- Testimonial 01 -->
 					<div class="item">
 						<div class="block shadow">
-							<!-- Speech -->
-							<p>
-								Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Donec sollicitudin molestie malesuada.
-								Donec sollicitudin molestie malesuada. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor
-								sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi,
-								pretium ut lacinia in, elementum id enim.
-							</p>
-							<!-- Person Thumb -->
 							<div class="image">
 								<img src="./asssets/images/testimonial/feature-testimonial-thumb.jpg" alt="image">
 							</div>
@@ -638,14 +608,6 @@ FACEBOOK: https://www.facebook.com/themefisher
 					<!-- Testimonial 01 -->
 					<div class="item">
 						<div class="block shadow">
-							<!-- Speech -->
-							<p>
-								Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Donec sollicitudin molestie malesuada.
-								Donec sollicitudin molestie malesuada. Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor
-								sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi,
-								pretium ut lacinia in, elementum id enim.
-							</p>
-							<!-- Person Thumb -->
 							<div class="image">
 								<img src="./asssets/images/testimonial/feature-testimonial-thumb.jpg" alt="image">
 							</div>
@@ -660,33 +622,16 @@ FACEBOOK: https://www.facebook.com/themefisher
 </section>
 <!--====  End of Testimonial  ====-->
 
-<section class="call-to-action-app section bg-blue">
+<section class="call-to-action-app section bg-blue" style="background-color: #e21111">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<h2>It's time to change your mind</h2>
-				<p>Download over 2 million humans .Get <a href="https://themefisher.com/products/small-apps-free-app-landing-page-template/">Small Apps</a> free forever!
-					<br>We say you won’t look back.</p>
-				<ul class="list-inline">
-					<li class="list-inline-item">
-						<a href="" class="btn btn-rounded-icon">
-							<i class="ti-apple"></i>
-							Iphone
-						</a>
-					</li>
-					<li class="list-inline-item">
-						<a href="" class="btn btn-rounded-icon">
-							<i class="ti-android"></i>
-							Android
-						</a>
-					</li>
-					<li class="list-inline-item">
-						<a href="" class="btn btn-rounded-icon">
-							<i class="ti-microsoft-alt"></i>
-							Windows
-						</a>
-					</li>
-				</ul>
+				<h2>Lançez-vous et trouver du travail</h2>
+				<p>Faites-nous confiance et profitez de notre expertise avec nos agents qualifiés</a>
+					<br>Les contacts des agents :
+                    <br>Agence Dakar : 78 536 36 78
+                    <br>Agence Thies : 76 357 87 90
+                    <br>Agence Fatick :78 098 34 36</p>
 			</div>
 		</div>
 	</div>
@@ -701,19 +646,7 @@ FACEBOOK: https://www.facebook.com/themefisher
       <div class="row">
         <div class="col-lg-4 col-md-12 m-md-auto align-self-center">
           <div class="block">
-            <a href="index.html"><img src="./asssets/images/logo-alt.png" alt="footer-logo"></a>
-            <!-- Social Site Icons -->
-            <ul class="social-icon list-inline">
-              <li class="list-inline-item">
-                <a href="https://www.facebook.com/themefisher"><i class="ti-facebook"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://twitter.com/themefisher"><i class="ti-twitter"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://www.instagram.com/themefisher/"><i class="ti-instagram"></i></a>
-              </li>
-            </ul>
+            <a href="/"><img src="./assets/img/logo4.png" alt="footer-logo"></a>
           </div>
         </div>
         <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
@@ -770,7 +703,7 @@ FACEBOOK: https://www.facebook.com/themefisher
     </div>
   </div>
   <div class="text-center bg-dark py-4">
-    <small class="text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear())</script>. Designed &amp; Developed by <a href="https://themefisher.com/">Themefisher</a></small class="text-secondary">
+    <small class="text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear())</script>. Designed &amp; Developed by Ibrahima SECK & Ousseynou Ndoye <a href="https://themefisher.com/">Themefisher</a></small class="text-secondary">
   </div>
 
 	<div class="text-center bg-dark py-1">
@@ -780,7 +713,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 
 
   <!-- To Top -->
-  <div class="scroll-top-to">
+  <div class="scroll-top-to" style="background-color: #e21111">
     <i class="ti-angle-up"></i>
   </div>
 

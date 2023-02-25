@@ -4,7 +4,7 @@
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Admin</title>
+      <title>JobLegii | Admin</title>
       <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
@@ -19,6 +19,8 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
       />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
@@ -32,6 +34,7 @@
       <script src="{{asset('assets/js/charts-pie.js')}}" defer></script>
       <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
       <script src=" https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="{{asset('asssets/images/fav-icon3.png')}}" />
     </head>
     <body>
       <div
@@ -61,13 +64,25 @@
                 <li>
                     <a class=" nav-link text-white"  {{'enCour' == request()->path() ? 'active' : ''}} aria-current="page" href="{{route('gestChefAgence')}}">
                         <svg class="bi me-2" width="16" height="11"><use xlink:href="#speedometer2"/></svg>
-                      <span class="ml-4" style="font-size: 20px">Gestion chef agence</span>
+                      <span class="ml-4" style="font-size: 20px">Ajouter chef agence</span>
+                    </a>
+                </li>
+                <li>
+                    <a class=" nav-link text-white"  {{'enCour' == request()->path() ? 'active' : ''}} aria-current="page" href="{{route('listeChef')}}">
+                        <svg class="bi me-2" width="16" height="11"><use xlink:href="#speedometer2"/></svg>
+                      <span class="ml-4" style="font-size: 20px">Liste chef agence</span>
                     </a>
                 </li>
                 <li>
                     <a class=" nav-link text-white"  {{'enCour' == request()->path() ? 'active' : ''}} aria-current="page" href="{{route('gestAgence')}}">
                         <svg class="bi me-2" width="16" height="11"><use xlink:href="#speedometer2"/></svg>
-                      <span class="ml-4" style="font-size: 20px">Gestion agence</span>
+                      <span class="ml-4" style="font-size: 20px">Ajouter agence</span>
+                    </a>
+                </li>
+                <li>
+                    <a class=" nav-link text-white"  {{'enCour' == request()->path() ? 'active' : ''}} aria-current="page" href="{{route('listeAgence')}}">
+                        <svg class="bi me-2" width="16" height="11"><use xlink:href="#speedometer2"/></svg>
+                      <span class="ml-4" style="font-size: 20px">Liste agence</span>
                     </a>
                 </li>
                 <li>

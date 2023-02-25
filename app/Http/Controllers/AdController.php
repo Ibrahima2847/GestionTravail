@@ -92,8 +92,7 @@ class AdController extends Controller
 
         $ad->save();
 
-        // Mail::to(Auth::user()->email)->send(new AnnonceMarkdownMail());
-        // Mail::to(Auth::user()->email)->send(new AnnonceMarkdownMail());
+        Mail::to(Auth::user()->email)->send(new AnnonceMarkdownMail());
          return back()->with('success', 'Votre annonce a été bien postéé !');
         // return redirect()->back();
 

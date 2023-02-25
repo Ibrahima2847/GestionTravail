@@ -49,3 +49,25 @@
 </body>
 
 </html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js">
+// Récupération des données depuis l'API en utilisant une requête AJAX
+$.ajax({
+    url: '/pdf',
+    success: function(data) {
+        // Génération du contenu PDF à partir des données récupérées
+        var content = 'Liste des données :\n\n';
+        data.forEach(function(item) {
+            content += item.nom + ' ' + item.prenom + '\n';
+        });
+
+        // Génération du fichier PDF à partir du contenu
+        var doc = new jsPDF();
+        doc.text(content, 10, 10);
+
+        // Affichage ou téléchargement du fichier PDF généré
+        doc.save('liste_des_donnees.pdf');
+    }
+});
+
+</script>

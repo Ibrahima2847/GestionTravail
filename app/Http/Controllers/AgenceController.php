@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AnnonceMarkdownMail;
+use App\Mail\ClientMarkdownMail;
+use App\Mail\OuvrierMarkdownMail;
 use App\Models\Agence;
 use App\Models\Annonce;
 use App\Models\Client;
@@ -13,7 +16,9 @@ use App\Models\Relation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AgenceController extends Controller
 {
@@ -93,12 +98,11 @@ class AgenceController extends Controller
                     // ->join('regions','regions.id','=','annonces.region_id')
                     // ->join('agences','regions.id','=','agences.region_id')
                     // ->join('agents','agents.agence_id','=','agences.id')
-                    // ->where('regions.id','=',$reg->id)
-                    // ->where('statut','=','en cour')
+                    // ->where('annonces.region_id','=',$reg->region_id)
+                    ->where('statut','=','en cour')
                     ->get();
         }
         // dd($annonces);
-
 
         return view('Agence.annonceAgent', compact('annonces'));
     }
@@ -171,8 +175,14 @@ class AgenceController extends Controller
 
     public function travailTerminer($id) {
         $data=Relation::find($id);
+        $ouvrier = Ouvrier::where('id_Ouvrier','=',$data->ouvrier_id)
+                        ->first();
+
         $data->etat = 'terminer';
         $data->save();
+
+        $ouvrier->disponibilite = 'disponible';
+        $ouvrier->save();
 
         return back()->with('success', 'Travail terminé avec succes');
 
@@ -206,6 +216,7 @@ class AgenceController extends Controller
         $annonces=DB::table('ouvriers')
                     ->join('users', 'users.id', '=', 'id_Ouvrier')
                     ->join('metiers', 'ouvrier_id', '=', 'id_Ouvrier')
+                    ->where('disponibilite','=','disponible')
                     ->get();
         return view('Agence.relation',compact('annonces'))->with('ads',$ad);
     }
@@ -215,8 +226,8 @@ class AgenceController extends Controller
         $ad=Annonce::find($id);
         $words = $request->input('words');
 
-        $annonces=DB::table('ouvriers')
-                    ->join('users', 'users.id', '=', 'id_Ouvrier')
+        $annonces=DB::table('users')
+                    ->join('ouvriers', 'users.id', '=', 'id_Ouvrier')
                     ->join('metiers', 'ouvrier_id', '=', 'id_Ouvrier')
                     ->where('profession', 'LIKE', '%'.$words.'%')
                     ->get();
@@ -227,9 +238,18 @@ class AgenceController extends Controller
 
 // Mettre en relation l'ouvrier choisi avec l'annonce
     public function miseRelation($idAnnonce,$idOuvrier){
-
-        $ouvrier=Ouvrier::find($idOuvrier);
+        $ouvrier = Ouvrier::find($idOuvrier);
         $annonce=Annonce::find($idAnnonce);
+
+        $ouvrier1 = Ouvrier::join('users','users.id','=','id_Ouvrier')
+                            ->where('id_Ouvrier','=',$ouvrier->id_Ouvrier)
+                            ->first();
+
+        $client = Client::join('users','users.id','=','id_client')
+                            ->join('annonces','users.id','=','user_id')
+                            ->where('annonces.id','=',$annonce->id)
+                            ->first();
+
 
         $relation = new Relation();
 
@@ -259,7 +279,8 @@ class AgenceController extends Controller
         $service->relation_id = $relation->id;
         $service->save();
 
-
+        Mail::to($ouvrier1->email)->send(new OuvrierMarkdownMail());
+        Mail::to($client->email)->send(new ClientMarkdownMail());
 
         return view('Agence.miseRelation',compact('req2'));
     }

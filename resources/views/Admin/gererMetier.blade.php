@@ -61,20 +61,71 @@
                                 <td class="px-4 py-3 text-sm">{{ $ad->profession }}</td>
                             </tr>
                             <tr class="text-gray-700 dark:text-gray-400">
-                                <td class="px-4 py-3 text-sm"><strong>Diplome</strong></td>
-                                <td class="px-4 py-3 text-sm">{{ $ad->diplome }}</td>
-                            </tr>
-                            <tr class="text-gray-700 dark:text-gray-400">
-                                <td class="px-4 py-3 text-sm"><strong>Curriculum Vitae</strong></td>
-                                <td class="px-4 py-3 text-sm">{{ $ad->cv }}</td>
-                            </tr>
-                            <tr class="text-gray-700 dark:text-gray-400">
                                 <td class="px-4 py-3 text-sm"><strong>Potentiels</strong></td>
                                 <td class="px-4 py-3 text-sm">{{ $ad->potentiel }}</td>
                             </tr>
                             <tr class="text-gray-700 dark:text-gray-400">
+                                <td class="px-4 py-3 text-sm"><strong>Diplome</strong></td>
+                                <td class="px-4 py-3 text-sm">
+                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#diplome-modal">Afficher l'image</a>
+                                    <div class="modal fade" id="diplome-modal" tabindex="-1" role="dialog" aria-labelledby="diplome-modal-label" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="diplome-modal-label">Diplome</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img src="{{ asset('assets/img/' . $ad->diplome) }}" alt="Image">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="text-gray-700 dark:text-gray-400">
+                                <td class="px-4 py-3 text-sm"><strong>Curriculum Vitae</strong></td>
+                                <td class="px-4 py-3 text-sm">
+                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#cv-modal">Afficher l'image</a>
+                                    <div class="modal fade" id="cv-modal" tabindex="-1" role="dialog" aria-labelledby="cv-modal-label" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="cv-modal-label">CV</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img src="{{ asset('assets/img/' . $ad->cv) }}" alt="Image">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="text-gray-700 dark:text-gray-400">
                                 <td class="px-4 py-3 text-sm"><strong>Photo</strong></td>
-                                <td class="px-4 py-3 text-sm">{{ $ad->photo }}</td>
+                                <td class="px-4 py-3 text-sm">
+                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#photo-modal">Afficher l'image</a>
+                                    <div class="modal fade" id="photo-modal" tabindex="-1" role="dialog" aria-labelledby="photo-modal-label" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="photo-modal-label">Photo</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img src="{{ asset('assets/img/' . $ad->photo) }}" alt="Image">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
 
                             <tr class="text-gray-700 dark:text-gray-400">

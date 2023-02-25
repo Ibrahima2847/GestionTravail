@@ -13,7 +13,7 @@
                   viewBox="0 0 20 20"
                 >
                 </svg>
-                <h5>Les relations en cour</h5>
+                <h5>Les travaux en cour</h5>
               </div>
             </h1>
         <div class="w-full overflow-hidden rounded-lg shadow-xs">
@@ -63,26 +63,46 @@
                     <tr
                         class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                         <th class="px-4 py-3">Annonce</th>
-                        <th class="px-4 py-3">Faire le devis</th>
+                        <th class="px-4 py-3">Action</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                    @foreach ($requete2 as $ouv)
-                <form action="{{route('devis')}}" method="POST">
+                    @foreach ($requete as $ouv)
+                {{-- <form action="{{route('devis')}}" method="POST"> --}}
                     @csrf
                              <tr class="text-gray-700 dark:text-gray-400">
                                 <td class="px-4 py-3 text-sm">{{ $ouv->titre }}</td>
                                 <td class="px-4 py-3 text-sm">
-                                    <button type="submit" class="btn btn-success btn btn-primary btn-sm">Faire le devis</button>
+                                    {{-- <button type="submit" class="btn btn-success btn btn-primary btn-sm">Faire le devis</button> --}}
                                     <a class="btn btn-danger btn btn-primary btn-sm"
-                                        href="#">Annuler</a>
+                                        href="#">Résilier</a>
                                 </td>
 
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td class="px-4 py-3 text-sm">{{ $ouv->message }}</td>
                             </tr>
                             <tr class="text-gray-700 dark:text-gray-400">
-                                <td class="px-4 py-3 text-sm">{{ $ouv->image }}</td>
+                                <td class="px-4 py-3 text-sm">
+                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#image-modal">Afficher l'image</a>
+                                    <div class="modal fade" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="image-modal-label" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="image-modal-label">Image</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img src="./assets/img/{{$ouv->image}}" alt="Image">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                {{-- <div id="image-container" style="display:none;">
+                                    <img src="./assets/img/{{$ouv->image}}" alt="Image">
+                                </div> --}}
                             </tr>
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td class="px-4 py-3 text-sm">{{ $ouv->departement }}</td>
@@ -110,3 +130,9 @@
 </body>
 
 </html>
+
+<script>
+    document.getElementById("show-image").addEventListener("click", function() {
+        document.getElementById("image-container").style.display = "block";
+    });
+</script>

@@ -90,7 +90,7 @@
   <!-- Basic Page Needs
   ================================================== -->
   <meta charset="utf-8">
-  <title>KayJob | Accuiel</title>
+  <title>JobLegii | Accueil</title>
 
   <!-- Mobile Specific Metas
   ================================================== -->
@@ -105,7 +105,7 @@
 
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="{{asset('asssets/images/favicon.png')}}" />
+  <link rel="shortcut icon" type="image/x-icon" href="{{asset('asssets/images/fav-icon3.png')}}" />
 
   <!-- PLUGINS CSS STYLE -->
   <link rel="stylesheet" href="{{asset('asssets/plugins/bootstrap/bootstrap.min.css')}}">
@@ -132,7 +132,7 @@
 
 <nav class="navbar main-nav navbar-expand-lg px-2 px-sm-0 py-2 py-lg-0">
   <div class="container">
-    {{-- <a class="navbar-brand" href="index.html"><img src="./asssets/images/logo.png" alt="logo"></a> --}}
+    <a class="navbar-brand" href="{{route('accueil')}}"><img src="./assets/img/logo4.png" alt="logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="ti-menu"></span>
@@ -142,14 +142,14 @@
         <li class="nav-item @@about">
             <a class="nav-link" href="{{route('accueil')}}">Accueil</a>
         </li>
-        <li class="nav-item @@about">
+        {{-- <li class="nav-item @@about">
             <a class="nav-link" href="{{route('ad.index')}}">Les annonces</a>
-          </li>
+        </li> --}}
           <li class="nav-item @@about">
             <a class="nav-link" href="{{route('app_ouvrier')}}">Les ouvriers</a>
           </li>
           @guest
-        <li class="nav-item dropdown active">
+        <li class="nav-item dropdown ">
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Mon compte
             <span><i class="ti-angle-down"></i></span>
           </a>
@@ -160,7 +160,7 @@
           </ul>
           @endguest
           @auth
-          <li class="nav-item dropdown active">
+          <li class="nav-item dropdown ">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">{{ auth()->user()->prenom }} {{ auth()->user()->name }}
               <span><i class="ti-angle-down"></i></span>
             </a>
@@ -168,10 +168,10 @@
             <li><a class="dropdown-item active" href="{{route('redirection')}}">Gérer mon compte</a></li>
             <li><a class="dropdown-item" href="{{route('app_logout')}}">Se déconnecter</a></li>
           </ul>
-          @endauth
           <li class="nav-item @@about">
             <a class="nav-link" href="{{route('nouvelleAnnonce')}}">Ajouter une annonce</a>
           </li>
+          @endauth
         </li>
       </ul>
     </div>

@@ -90,6 +90,21 @@ class HomeController extends Controller
         return view('Admin.gestAgence');
     }
 
+    public function listeAgence(){
+        $agence = DB::table('agences')
+                        ->join('chefs','chefAgence_id','=','chef_id')
+                        ->join('users','users.id','=','chefAgence_id')
+                        ->get();
+        return view('Admin.listeAgence',compact('agence'));
+    }
+
+    public function listeChef(){
+        $chef = DB::table('chefs')
+                        ->join('users','users.id','=','chefAgence_id')
+                        ->get();
+        return view('Admin.listeChef',compact('chef'));
+    }
+
     public function affectation()
     {
         $chef = DB::table('users')

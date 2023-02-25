@@ -12,6 +12,7 @@ use App\Http\Controllers\EmailController;
 use App\Http\Controllers\gestClientController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\PaiementController;
+use App\Http\Controllers\PdfController;
 use App\Models\Paiement;
 use Illuminate\Support\Facades\Route;
 
@@ -67,6 +68,9 @@ Route::get('/home', [HomeController::class,'redirection'])->name('redirection');
 Route::get('/accueil', [HomeController::class,'accueil'])->name('accueil');
 Route::get('/metier', [HomeController::class,'metier'])->name('metier');
 Route::get('/changerMotPasse', [HomeController::class,'changer'])->name('changer');
+Route::get('/gestion/agence', [HomeController::class,'listeAgence'])->name('listeAgence');
+Route::get('/gestion/chef', [HomeController::class,'listeChef'])->name('listeChef');
+
 Route::get('/getRegion',[ServiceController::class,'getRegion']);
 
 //Route::get('/accueil', [HomeController::class,'accueil'])->name('accueil');
@@ -221,5 +225,10 @@ Route::post('/enregistrer/devis',[ServiceController::class,'getDevis'])->name('g
 //============================ Route pour les Emails =============================
 Route::get('/email',[EmailController::class,'bar'])->name('email');
 
+//============================ Route pour les PDF ================================
 
+Route::get('/pdf',[PdfController::class,'generatePdf']);
 
+Route::get('/image', function () {
+    return view('Agence.image');
+});

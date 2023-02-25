@@ -136,15 +136,16 @@ class OuvriersController extends Controller
         ->join('ouvriers', 'ouvriers.id_Ouvrier', '=', 'ouvrier_id')
         ->where('ouvrier_id','=',auth()->user()->id)
         ->where('statut','=','en relation')
+        ->where('etat','=','en cour')
         ->get();
 
-        $requete2=DB::table('users')
-        ->join('annonces', 'users.id', '=', 'user_id')
-        ->join('relations', 'annonces.id', '=', 'relations.annonce_id')
-        ->join('ouvriers', 'ouvriers.id_Ouvrier', '=', 'ouvrier_id')
-        ->where('ouvrier_id','=',auth()->user()->id)
-        ->get();
-        return view('DashboardOuvrier.enCour',compact('requete','requete2'));
+        // $requete2=DB::table('users')
+        // ->join('annonces', 'users.id', '=', 'user_id')
+        // ->join('relations', 'annonces.id', '=', 'relations.annonce_id')
+        // ->join('ouvriers', 'ouvriers.id_Ouvrier', '=', 'ouvrier_id')
+        // ->where('ouvrier_id','=',auth()->user()->id)
+        // ->get();
+        return view('DashboardOuvrier.enCour',compact('requete'));
     }
 
     public function terminer(){

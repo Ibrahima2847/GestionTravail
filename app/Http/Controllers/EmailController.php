@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Mail;
 class EmailController extends Controller
 {
     public function bar(){
-        // Mail::to(Auth::user()->email)->send(new AnnonceMarkdownMail());
+        Mail::to(Auth::user()->email)->send(new AnnonceMarkdownMail());
         return view('Email.bar');
     }
 }

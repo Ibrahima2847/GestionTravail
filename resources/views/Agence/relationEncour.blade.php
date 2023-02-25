@@ -67,22 +67,23 @@
                     <tr
                         class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                         <th class="px-4 py-3">Annonce</th>
-                        <th class="px-4 py-3">Terminer</th>
+                        <th></th>
+                        <th class="px-4 py-3">Action</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                     @foreach ($relation as $ouv)
-                {{-- <form action="{{ route('annonceTerminer', [$ad->id, $ouv->id]) }}" method="POST"> --}}
-
+                    <form action="{{route('devis')}}" method="POST">
+                            @csrf
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td class="px-4 py-3 text-sm"><strong>Titre</strong></td>
                                 <td class="px-4 py-3 text-sm">{{ $ouv->titre }}</td>
                                 <td class="px-4 py-3 text-sm">
                                     <a class="btn btn-success btn btn-primary btn-sm"
                                         href="{{ route('travailTerminer', $ouv->id) }}">Oui</a>
-                                    <a class="btn btn-danger btn btn-primary btn-sm"
-                                        href="{{ route('annuler', [$ouv->id]) }}">Annuler</a>
+                                        <button type="submit" class="btn btn-primary btn-sm">Faire le devis</button>
                                 </td>
+                            </tr>
 
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td class="px-4 py-3 text-sm"><strong>Région</strong></td>

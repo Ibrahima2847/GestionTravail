@@ -16,23 +16,15 @@
                   <form class="mx-1 mx-md-4" action="{{ route('create.Agence') }}" method="POST">
                     @csrf
                     <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                      <i class="fa-solid fa-city fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
                         <input type="text" id="form3Example1c" class="form-control" placeholder="Nom de l'agence" name="nom"/>
                       </div>
                     </div>
 
                     <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                      <i class="fa-solid fa-globe fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        {{-- <select id="form3Example3c" class="form-control" placeholder="Localité de l'agence" name="localite">
-                            <option value="Dakar">Dakar</option>
-                            <option value="Thies">Thies</option>
-                            <option value="Kaolack">Kaolack</option>
-                            <option value="">Saint-Louis</option>
-                            <option value="">Diourbel</option>
-
-                        </select> --}}
                         <select name="localite" id="form3Example3c" class="form-control">
                             <option>------ Choisissez un région ------</option>
                             @foreach(\App\Models\Region::all() as $region)

@@ -123,10 +123,11 @@ src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"defe>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Connexion</title>
+	<title>JobLegii | Connexion</title>
 	<link rel="stylesheet" type="text/css" href="./assets/css/styleLogin.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="{{asset('asssets/images/fav-icon3.png')}}" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -139,7 +140,7 @@ src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"defe>
 			<form action="{{route('login')}}" method="POST">
                 @csrf
                 <div class="img2">
-				<img src="./assets/img/logo.png">
+				<img src="./assets/img/logo3bis.png">
                 </div>
 				<h3 class="title">Content de vous revoir</h3>
            		<div class="input-div one">
