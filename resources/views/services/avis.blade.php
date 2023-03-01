@@ -82,7 +82,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Forgot password - Windmill Dashboard</title>
+    <title>JobLegii | Avis</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -95,6 +95,7 @@
     ></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('asssets/images/fav-icon3.png')}}" />
 
     <script src="./assets/js/init-alpine.js"></script>
   </head>
@@ -112,11 +113,11 @@
               <div class="col-md-6 col-lg-7 d-flex align-items-center">
                 <div class="card-body p-4 p-lg-5 text-black">
 
-                  <form action="{{route('avis')}}" method="POST">
+                  <form action="{{route('avis',$relation->id)}}" method="POST">
                     @csrf
                     <div class="d-flex align-items-center mb-3 pb-1">
                       <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
-                      <img src="./assets/img/logo2.png" class="w-50 rounded mx-auto d-block" alt="">
+                      <img src="./assets/img/logo4.png" class="w-50 rounded mx-auto d-block" alt="">
                     </div>
 
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Votre avis ?</h5>

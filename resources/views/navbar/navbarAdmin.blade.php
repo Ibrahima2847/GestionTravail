@@ -52,7 +52,7 @@
             >
             </a>
             <div class="d-flex flex-column flex-shrink-0 text-white" style=" margin-left:2%; margin-top:1px; margin-bottom:1px">
-                <img src="{{ asset('./assets/img/logo2.png')}}" class="align-items-center me-md-auto text-white text-decoration-none" alt="">
+                <img src="{{ asset('./assets/img/logo4.png')}}" class="align-items-center me-md-auto text-white text-decoration-none" alt="">
             </div>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li>
@@ -91,6 +91,12 @@
                       <span class="ml-4" style="font-size: 20px">Affectation</span>
                     </a>
                 </li>
+                <li class="{{'home' == request()->path() ? 'active' : ''}}">
+                    <a class=" nav-link text-white" href="{{route('agence_client')}}">
+                  <svg class="bi me-2" width="16" height="11"><use xlink:href="#speedometer2"/></svg>
+                  <span class="ml-4" style="font-size: 20px">Gestion Client</span>
+                </a>
+              </li>
             </ul>
           </div>
         </aside>
@@ -422,12 +428,6 @@
                 </div>
               </div>
               <ul class="flex items-center flex-shrink-0 space-x-6">
-                <!-- Theme toggler -->
-                <p style="color: #585858">
-                    {{auth()->user()->prenom }} {{ auth()->user()->name }}
-                </p>
-
-                <!-- Profile menu -->
                 <li class="relative">
                   <button
                     class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none"
@@ -438,11 +438,14 @@
                   >
                     <img
                       class="object-cover w-8 h-8 rounded-full"
-                      src="https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82"
+                      src="{{asset('/assets/img/User.png')}}"
                       alt=""
                       aria-hidden="true"
                     />
                   </button>
+
+                  {{auth()->user()->prenom }}
+
                   <template x-if="isProfileMenuOpen">
                     <ul
                       x-transition:leave="transition ease-in duration-150"

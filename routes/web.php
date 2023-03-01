@@ -48,6 +48,10 @@ Route::get('/agent/affectation', [ChefAgnceController::class,'getAgent'])->name(
 Route::post('/agent/create', [ChefAgnceController::class,'createAgent'])->name('create.agent');
 Route::get('/ajouter/agent', [ChefAgnceController::class,'gestAgent'])->name('gestAgent');
 Route::get('/gestion/agent', [ChefAgnceController::class,'toutAgent'])->name('toutAgent');
+Route::get('/gestion/relationTerminer', [ChefAgnceController::class,'relationTerminer'])->name('relationTerminer');
+Route::get('/voir/relationTerminer{id}', [ChefAgnceController::class,'voirRelTerminer'])->name('voirRelTerminer');
+
+
 
 
 
@@ -211,15 +215,15 @@ Route::get('/departments/{regionName}', [AdController::class,'getDep']);
 
 //======================= Routes pour Service ===============================
 Route::get('/materiel',[ServiceController::class,'materiel'])->name('materiel');
-Route::post('/devis',[ServiceController::class,'devis'])->name('devis');
+Route::get('faire/devis/{id}',[ServiceController::class,'faireDevis'])->name('faireDevis');
 Route::get('/afficheMatos',[ServiceController::class,'afficheMatos'])->name('afficheMatos');
 Route::get('/paiement',[ServiceController::class,'paiement'])->name('paiement');
-Route::get('/faireAvis',[ServiceController::class,'getAvis'])->name('getAvis');
-Route::post('/avis',[ServiceController::class,'avis'])->name('avis');
+Route::get('/faireAvis/{id}',[ServiceController::class,'getAvis'])->name('getAvis');
+Route::post('/avis/{id}',[ServiceController::class,'avis'])->name('avis');
 
-Route::post('/facturation',[PaiementController::class,'paiement'])->name('payer');
+Route::post('/facturation/{id}',[PaiementController::class,'paiement'])->name('payer');
 
-Route::post('/enregistrer/materiel',[ServiceController::class,'ajoutDevis'])->name('ajoutDevis');
+Route::post('/enregistrer/materiel/{id}',[ServiceController::class,'ajoutDevis'])->name('ajoutDevis');
 Route::post('/enregistrer/devis',[ServiceController::class,'getDevis'])->name('getDevis');
 
 //============================ Route pour les Emails =============================

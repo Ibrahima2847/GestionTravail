@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Agence;
+use App\Models\Agent;
 use App\Models\Annonce;
 use App\Models\Chef;
 use App\Models\ChefAgence;
+use App\Models\Client;
+use App\Models\Ouvrier;
+use App\Models\Paiement;
 use App\Models\Region;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +33,18 @@ class HomeController extends Controller
     {
         if (Auth::id()) {
             if (Auth::user()->profil === 'admin') {
-                return view('Admin.admin');
+                $client = DB::table('users')
+                ->join('clients', 'users.id', '=', 'id_client')
+                ->get();
+
+                $nbClient = count(Client::all());
+                $nbOuvrier = count(Ouvrier::all());
+                $nbChef = count(Chef::all());
+                $nbAgent = count(Agent::all());
+                $nbAgence = count(Agence::all());
+                $nbMontant = Paiement::sum('montant');
+
+                return view('Admin.admin',compact('client','nbClient','nbOuvrier','nbChef','nbAgent','nbAgence','nbMontant'));
             } elseif (Auth::user()->profil === 'ouvrier') {
                 return view('DashboardOuvrier.index');
             } elseif (Auth::user()->profil === 'client') {
@@ -41,7 +56,23 @@ class HomeController extends Controller
             } elseif (Auth::user()->profil === 'agent') {
                 return view('Agence.admin');
             } elseif (Auth::user()->profil === 'chefAgence') {
-                return view('DashboardChefAgence.accueil');
+                $region = DB::table('agences')
+                        ->join('chefs','chefAgence_id','=','chef_id')
+                        ->join('regions','regions.id','=','region_id')
+                        ->where('chef_id','=',auth()->user()->id)
+                        ->get();
+
+                foreach($region as $reg){
+
+                $agent = DB::table('agents')
+                            ->join('users','users.id','=','id_chefAgence')
+                            ->join('agences','agences.id','=','agence_id')
+                            ->join('regions','regions.id','=','agences.region_id')
+                            ->where('affectation', '=', 'oui')
+                            ->where('agences.id','=',$reg->id)
+                            ->get();
+        }
+                return view('DashboardChefAgence.gestAgent',compact('agent'));
             } else {
                 return view('Home.accueil');
             }

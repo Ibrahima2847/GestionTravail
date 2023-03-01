@@ -1,4 +1,4 @@
-@include('navbar.navbarAgence')
+@include('navbar.navbarAdmin')
 
 
 <main class="h-full overflow-y-auto">

@@ -43,7 +43,7 @@
                                     {{ $gestAnnonce->statut }}
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                    <a href="{{route('getAvis')}}" class="btn btn-success">Avis</a>
+                                    <a href="{{route('getAvis',$gestAnnonce->relation_id)}}" class="btn btn-success">Avis</a>
                                 </td>
                             </tr>
                         @endforeach

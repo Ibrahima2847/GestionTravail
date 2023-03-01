@@ -67,7 +67,7 @@
 
         .banner::after {
             content: "";
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color:#e21111;
             position: absolute;
             width: 100%;
             height: 100%;
@@ -243,11 +243,6 @@
                 width: calc(50% - 20px);
             }
 
-            /* .name-item select,
-            .city-item select {
-                width: calc(50% - 20px);
-             */
-
             .city-item input {
                 width: calc(100% - 8px);
             }
@@ -258,7 +253,7 @@
 
 <body>
     <div class="testbox">
-        <form action="{{route('ajoutDevis')}}" method="POST">
+        <form action="{{route('ajoutDevis',$rel->id)}}" method="POST">
             @csrf
             <div class="banner">
                 <h1>Faire le Devis</h1>

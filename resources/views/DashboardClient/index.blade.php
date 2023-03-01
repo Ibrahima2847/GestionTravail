@@ -19,9 +19,10 @@
                   <tbody
                     class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
                   >
-                  <form action="{{route('payer')}}" method="POST">
-                    @csrf
+
         @foreach ($annonceClients as $gestAnnonce)
+                <form action="{{route('payer',$gestAnnonce->relation_id)}}" method="POST">
+                    @csrf
                     <tr class="text-gray-700 dark:text-gray-400">
                       <td class="px-4 py-3">
                         <div class="flex items-center text-sm">
@@ -57,7 +58,7 @@
                       <td class="px-4 py-3 text-sm">
                         {{-- <a href="{{route('payer')}}" class="btn btn-success">Payer</button> --}}
                         <button type="submit" class="btn btn-success">Payer</button>
-                        <button type="button" class="btn btn-danger">Annuler</button>
+                        {{-- <button type="button" class="btn btn-danger">Annuler</button> --}}
                       </td>
                     </tr>
       @endforeach

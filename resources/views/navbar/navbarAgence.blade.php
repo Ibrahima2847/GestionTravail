@@ -76,12 +76,6 @@
                   <span class="ml-4" style="font-size: 20px">Gestion Ouvriers</span>
                 </a>
               </li>
-              {{-- <li class="{{'home' == request()->path() ? 'active' : ''}}">
-                <a class=" nav-link text-white" href="{{route('agence_client')}}">
-                  <svg class="bi me-2" width="16" height="11"><use xlink:href="#speedometer2"/></svg>
-                  <span class="ml-4" style="font-size: 20px">Gestion Client</span>
-                </a>
-              </li> --}}
               <li>
                 <a class=" nav-link text-white" href="{{route('gererToutAnnonce')}}">
                   <svg class="bi me-2" width="16" height="11"><use xlink:href="#speedometer2"/></svg>

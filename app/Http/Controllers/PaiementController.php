@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Devis;
 use App\Models\Materiel;
 use App\Models\Paiement;
+use App\Models\Relation;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -33,8 +34,9 @@ Paydunya_Checkout_Store::setLogoUrl("http://127.0.0.1:8000/logo2.png");
 class PaiementController extends Controller
 {
 
-public function paiement(Request $request) {
-
+public function paiement($id) {
+    $rel = Relation::find($id);
+// dd($rel);
     $relation = DB::table('users')
                     ->join('annonces','users.id','=','user_id')
                     ->join('relations','annonces.id','=','relations.annonce_id')
@@ -42,6 +44,7 @@ public function paiement(Request $request) {
                     ->join('devis','devis.id','=','devis_id')
                     ->join('materiels','devis.id','=','materiels.devis_id')
                     ->where('users.id','=',auth()->user()->id)
+                    ->where('relations.id','=',$rel->id)
                     ->where('statut','=','en relation')
                     ->get();
 
@@ -68,8 +71,9 @@ public function paiement(Request $request) {
                 ->join('ouvriers','id_Ouvrier','=','ouvrier_id')
                 ->join('users','users.id','=','id_Ouvrier')
                 ->join('services','relations.id','=','relation_id')
-                ->latest('services.created_at')->first();
-
+                ->where('services.relation_id','=',$rel->id)
+                ->first();
+        // dd($serv);
     $invoice = new Paydunya_Checkout_Invoice();
 
     for ($i = 0; $i < count($nbMatos); $i++) {

@@ -56,7 +56,7 @@
             </div>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li>
-                  <a class=" nav-link text-white" {{'home' == request()->path() ? 'active' : ''}} aria-current="page" href="{{route('redirection')}}">
+                  <a class=" nav-link text-white" {{'home' == request()->path() ? 'active' : ''}} aria-current="page" href="#">
                       <svg class="bi me-2" width="16" height="11"><use xlink:href="#speedometer2"/></svg>
                     <span class="ml-4" style="font-size: 20px">Dashboard Ouvrier</span>
                   </a>
@@ -85,12 +85,12 @@
                       <span class="ml-4" style="font-size: 20px">Mon métier</span>
                     </a>
                 </li>
-                <li>
+                {{-- <li>
                     <a class=" nav-link text-white"  {{'enCour' == request()->path() ? 'active' : ''}} aria-current="page" href="{{route('ouvrier.annonce')}}">
                         <svg class="bi me-2" width="16" height="11"><use xlink:href="#speedometer2"/></svg>
                       <span class="ml-4" style="font-size: 20px">Gérer mes annonces</span>
                     </a>
-                </li>
+                </li> --}}
                 <li>
                     {{-- <a class=" nav-link text-white"  {{'enCour' == request()->path() ? 'active' : ''}} aria-current="page" href="{{route('disponibilite')}}">
                         <svg class="bi me-2" width="16" height="11"><use xlink:href="#speedometer2"/></svg>

@@ -56,7 +56,7 @@
             >
             </a>
             <div class="d-flex flex-column flex-shrink-0 text-white" style=" margin-left:2%; margin-top:1px; margin-bottom:1px">
-                <img src="{{ asset('./assets/img/logo2.png')}}" class="align-items-center me-md-auto text-white text-decoration-none" alt="">
+                <img src="{{ asset('./assets/img/logo4.png')}}" class="align-items-center me-md-auto text-white text-decoration-none" alt="">
             </div>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li>
@@ -87,6 +87,12 @@
                     <a class=" nav-link text-white"  {{'enCour' == request()->path() ? 'active' : ''}} aria-current="page" href="{{route('getAgent')}}">
                         <svg class="bi me-2" width="16" height="11"><use xlink:href="#speedometer2"/></svg>
                       <span class="ml-4" style="font-size: 20px">Affectation</span>
+                    </a>
+                </li>
+                <li>
+                    <a class=" nav-link text-white"  {{'enCour' == request()->path() ? 'active' : ''}} aria-current="page" href="{{route('relationTerminer')}}">
+                        <svg class="bi me-2" width="16" height="11"><use xlink:href="#speedometer2"/></svg>
+                      <span class="ml-4" style="font-size: 20px">Relation terminer</span>
                     </a>
                 </li>
               </ul>

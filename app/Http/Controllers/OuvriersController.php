@@ -21,20 +21,19 @@ class OuvriersController extends Controller
      */
     public function indexOn()
     {
-        //Recuperation des ouvriers
-       $region = DB::table('agences')
-                    ->join('regions','regions.id','=','region_id')
+        $agent = DB::table('agences')
+                    ->join('agents','agences.id','=','agence_id')
+                    ->where('id_chefAgence','=',auth()->user()->id)
                     ->get();
 
-       foreach($region as $reg){
+        foreach($agent as $reg){
 
-       $ouvriers = DB::table('ouvriers')
-                    ->join('users', 'users.id','=' ,'id_Ouvrier')
-                    ->join('metiers', 'id_Ouvrier','=', 'ouvrier_id')
-                    ->join('regions','regions.nomRegion','=','region')
-                    ->where('regions.id','=',$reg->id)
-                    ->get();
-        }
+        $ouvriers = DB::table('ouvriers')
+                ->join('users','users.id','=','id_Ouvrier')
+                ->join('metiers','ouvriers.id_Ouvrier','=','ouvrier_id')
+                ->where('region','=',$reg->localite)
+                ->get();
+    }
 
        return view('ouvriers.index', compact('ouvriers'));
    }

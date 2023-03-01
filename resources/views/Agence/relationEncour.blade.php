@@ -1,4 +1,4 @@
-@include('navbar.navbarAgence')
+ @include('navbar.navbarAgence')
 
 <main class="h-full overflow-y-auto">
     <div class="container px-6 mx-auto grid">
@@ -27,32 +27,39 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                        @foreach ($relation as $ad)
+                        @foreach ($relations as $rel)
+                        <tr class="text-gray-700 dark:text-gray-400">
+                            <td class="px-4 py-3 text-sm">#</td>
+                            <td class="px-4 py-3 text-sm">{{ $rel->relation_id }}</td>
+                            <td class="px-4 py-3 text-sm">
+                                <form action="{{ route('faireDevis', $rel->relation_id) }}" method="GET">
+                                    @csrf
+                                    <a class="btn btn-success btn btn-primary btn-sm" href="{{ route('travailTerminer', [$rel->id]) }}">Oui</a>
+                                    <button type="submit" class="btn btn-primary btn-sm">devis</button>
+                                </form>
+                            </td>
+                        </tr>
                                 <tr class="text-gray-700 dark:text-gray-400">
                                     <td class="px-4 py-3 text-sm"><strong>Nom</strong></td>
-                                    <td class="px-4 py-3 text-sm">{{ $ad->name }}</td>
+                                    <td class="px-4 py-3 text-sm">{{ $rel->name }}</td>
                                     <td class="px-4 py-3 text-sm">
-
-                                    </td>
+                                </tr>
 
                                 <tr class="text-gray-700 dark:text-gray-400">
                                     <td class="px-4 py-3 text-sm"><strong>Prénom</strong></td>
-                                    <td class="px-4 py-3 text-sm">{{ $ad->prenom }}</td>
+                                    <td class="px-4 py-3 text-sm">{{ $rel->prenom }}</td>
                                 </tr>
                                 <tr class="text-gray-700 dark:text-gray-400">
                                     <td class="px-4 py-3 text-sm"><strong>Téléphone</strong></td>
-                                    <td class="px-4 py-3 text-sm">{{ $ad->telephone }}</td>
+                                    <td class="px-4 py-3 text-sm">{{ $rel->telephone }}</td>
                                 </tr>
                                 <tr class="text-gray-700 dark:text-gray-400">
                                     <td class="px-4 py-3 text-sm"><strong>Email</strong></td>
-                                    <td class="px-4 py-3 text-sm">{{ $ad->email }}</td>
-                                    {{-- <tr class="text-gray-700 dark:text-gray-400"> --}}
-                                    {{-- </tr> --}}
+                                    <td class="px-4 py-3 text-sm">{{ $rel->email }}</td>
                                 </tr>
 
                                 <tr class="text-gray-700 dark:text-gray-400">
                                     <td class="px-4 py-3 text-sm"> </td>
-                                    {{-- <td class="px-4 py-3 text-sm">{{ $ad->email }}</td> --}}
                                 </tr>
 
 
@@ -61,7 +68,7 @@
             </tbody>
 
             </table>
-
+{{--
             <table class="table" style="float: left; width:50%;">
                 <thead>
                     <tr
@@ -71,9 +78,10 @@
                         <th class="px-4 py-3">Action</th>
                     </tr>
                 </thead>
+                @foreach ($relation as $ouv)
+
                 <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                    @foreach ($relation as $ouv)
-                    <form action="{{route('devis')}}" method="POST">
+                    <form action="{{route('devis',$ad->id)}}" method="GET">
                             @csrf
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td class="px-4 py-3 text-sm"><strong>Titre</strong></td>
@@ -81,7 +89,7 @@
                                 <td class="px-4 py-3 text-sm">
                                     <a class="btn btn-success btn btn-primary btn-sm"
                                         href="{{ route('travailTerminer', $ouv->id) }}">Oui</a>
-                                        <button type="submit" class="btn btn-primary btn-sm">Faire le devis</button>
+                                    <button type="submit" class="btn btn-primary btn-sm">devis</button>
                                 </td>
                             </tr>
 
@@ -104,8 +112,8 @@
 
         </div>
         </tr>
-        @endforeach
         </tbody>
+        @endforeach
 
         </table>
         </div>
@@ -116,4 +124,4 @@
 </div>
 </body>
 
-</html>
+</html> --}}

@@ -31,6 +31,7 @@ class gestClientController extends Controller
                         ->where('statut','=','en relation')
                         ->where('etat','=','en cour')
                         ->get();
+        // dd($annonceClients);
 
         return view('DashboardClient.index',compact('annonceClients'));
     }
@@ -50,8 +51,9 @@ class gestClientController extends Controller
                         ->join('services','relations.id','=','relation_id')
                         ->where('user_id','=',auth()->user()->id)
                         ->where('avis_id','=',NULL)
-                        ->where('etat','=','terminer')
+                        // ->where('etat','=','terminer')
                         ->get();
+        // dd($annonces);
         return view('DashboardClient.refuse', compact('annonces'));
     }
 

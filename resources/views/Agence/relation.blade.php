@@ -46,7 +46,7 @@
                         @foreach ($annonces as $data)
                             <tr class="text-gray-700 dark:text-gray-400">
 
-                                            <td class="px-4 py-3">{{ $data->id }}</td>
+                                            <td class="px-4 py-3">{{ $data->id_Ouvrier }}</td>
                                             <td class="px-4 py-3">{{ $data->name }}</td>
                                             <td class="px-4 py-3">{{ $data->prenom }}</td>
                                             <td class="px-4 py-3">{{ $data->telephone }}</td>

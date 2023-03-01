@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Agence;
 use App\Models\Agent;
 use App\Models\Region;
+use App\Models\Relation;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -38,7 +39,9 @@ class ChefAgnceController extends Controller
     public function toutAgent(){
 
         $region = DB::table('agences')
+                        ->join('chefs','chefAgence_id','=','chef_id')
                         ->join('regions','regions.id','=','region_id')
+                        ->where('chef_id','=',auth()->user()->id)
                         ->get();
 
         foreach($region as $reg){
@@ -48,7 +51,7 @@ class ChefAgnceController extends Controller
                     ->join('agences','agences.id','=','agence_id')
                     ->join('regions','regions.id','=','agences.region_id')
                     ->where('affectation', '=', 'oui')
-                    ->where('regions.id','=',$reg->id)
+                    ->where('agences.id','=',$reg->id)
                     ->get();
         }
 
@@ -77,5 +80,41 @@ class ChefAgnceController extends Controller
             ->where('affectation', '=', 'non')
             ->get();
         return view('DashboardChefAgence.affectationAgent', compact('chef'));
+    }
+
+    public function relationTerminer(){
+        $chef = DB::table('agences')
+                        ->join('chefs','chefs.chefAgence_id','=','chef_id')
+                        ->join('users','users.id','=','chefAgence_id')
+                        ->where('chefAgence_id','=',auth()->user()->id)
+                        ->get();
+
+        foreach($chef as $reg){
+            $fin = DB::table('annonces')
+                ->join('users','users.id','=','user_id')
+                ->join('relations','annonces.id','=','relations.annonce_id')
+                ->where('relations.etat','=','terminer')
+                ->where('region','=',$reg->localite)
+                ->get();
+        }
+
+        return view('DashboardChefAgence.relationTerminer',compact('fin'));
+    }
+
+    public function voirRelTerminer($id){
+        $rel = Relation::find($id);
+
+        $client =DB::table('annonces')
+                        ->join('users','users.id','=','user_id')
+                        ->join('relations','annonces.id','=','relations.annonce_id')
+                        ->join('services','relations.id','=','services.relation_id')
+                        ->join('paiements','paiements.id','=','paiement_id')
+                        ->join('avis','avis.id','=','avis_id')
+                        ->where('relation_id','=',$rel->id)
+                        ->get();
+        // dd($client);
+
+
+        return view('DashboardChefAgence.voirRelTerminer',compact('client'));
     }
 }

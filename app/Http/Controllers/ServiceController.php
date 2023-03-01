@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Annonce;
 use App\Models\Avis;
 use App\Models\Devis;
 use App\Models\Materiel;
+use App\Models\Relation;
 use App\Models\Service;
 use App\Models\User;
 use Dompdf\Dompdf;
@@ -98,27 +100,34 @@ class ServiceController extends Controller
         //             ->where('profession', 'LIKE', '%'.$words.'%')
         //             ->get();
 
-        $matos = DB::table('devis')->get();
-        return response()->json($matos);
+        // $matos = DB::table('devis')->get();
+        // return response()->json($matos);
 
         // return view('services.devis',compact('matos'));
 
     }
 
-    public function getAvis(){
-        return view('services.avis');
+    public function getAvis($id){
+        $rel = Relation::find($id);
+        // dd($rel);
+        return view('services.avis')->with('relation',$rel);
     }
 
-    public function avis(Request $request){
+    public function avis($id,Request $request){
+    $rel = Relation::find($id);
+
     $annonceClients = DB::table('users')
                             ->join('annonces', 'users.id','=' ,'user_id')
                             ->where('user_id','=',auth()->user()->id)
                             ->join('relations','annonces.id','=','relations.annonce_id')
                             ->join('services','relations.id','=','relation_id')
+                            ->where('relations.id','=',$rel->id)
                             ->where('avis_id','=',NULL)
+                            ->first();
                             // ->where('statut','=','terminer')
-                            ->latest('services.created_at')->first();
+                            // ->latest('services.created_at')->first();
 
+        // dd($annonceClients);
         $avis = new Avis();
         $avis->description = $request['description'];
         $avis->note = $request['note'];
@@ -130,7 +139,7 @@ class ServiceController extends Controller
         $service->avis_id = $avis->id;
         $service->save();
 
-        return view('DashboardClient.accepte')->with('success','Merci de nous avoir fait confiance');
+        return redirect('refuse')->with('success','Merci de nous avoir fait confiance');
     }
 
     public function materiel(){
@@ -141,20 +150,29 @@ class ServiceController extends Controller
         return view('services.paiement');
     }
 
-    public function devis(){
+    public function faireDevis($id){
 
+
+        // $rel = Relation::find($id);
+        // $devis = Service::where('relation_id','=',$rel->id)->first();
+        // dd($devis);
+
+        // $devis->save();
+
+        $rel = Relation::find($id);
         $devis = new Devis();
         $devis->save();
 
-        return view('services.devis',compact('devis'));
+        return view('services.devis',compact('rel'));
     }
 
-    public function ajoutDevis(Request $request){
+    public function ajoutDevis($idevis,Request $request){
 
+        $rel = Relation::find($idevis);
         $devis = DB::table('devis')->latest('created_at')->first();
 
-       $materiels = $request->input('materiel');
-       $prix = $request->input('prix');
+        $materiels = $request->input('materiel');
+        $prix = $request->input('prix');
 
     for ($i = 0; $i < count($materiels); $i++) {
 
@@ -166,12 +184,7 @@ class ServiceController extends Controller
         $materiel->save();
     }
 
-        $relation = DB::table('annonces')
-                    ->join('relations','annonces.id','=','annonce_id')
-                    ->join('ouvriers','id_Ouvrier','=','ouvrier_id')
-                    ->join('services','relations.id','=','relation_id')
-                    ->latest('services.created_at')->first();
-
+        $relation = Service::where('relation_id','=',$rel->id)->first();
         $service = Service::find($relation->id);
         $service->devis_id = $devis->id;
         $service->save();
@@ -190,12 +203,10 @@ class ServiceController extends Controller
                 ->sum('materiels.montant');
     }
 
-    $user = User::join('annonces', 'users.id', '=', 'user_id')
-                    ->join('relations', 'annonces.id', '=', 'relations.annonce_id')
-                    ->join('ouvriers', 'ouvriers.id_Ouvrier', '=', 'ouvrier_id')
-                    ->where('ouvrier_id','=',auth()->user()->id)
-                    ->where('statut','=','en relation')
-                    ->where('etat','=','en cour')
+    $user = DB::table('users')
+                    ->join('annonces','users.id','=','user_id')
+                    ->join('relations','annonces.id','=','relations.annonce_id')
+                    ->where('relations.annonce_id','=',$rel->annonce_id)
                     ->first();
 
     $logoPath = public_path('./assets/img/logo.png');
@@ -295,7 +306,7 @@ class ServiceController extends Controller
                     ->attachData(base64_decode($pdfData), 'document.pdf');
         });
 
-       return view('DashboardOuvrier.index')->with('success','Votre devis a été enregistré et envoyé avec succes');
+       return view('Agence.admin')->with('success','Votre devis a été enregistré et envoyé avec succes');
 
     }
 
