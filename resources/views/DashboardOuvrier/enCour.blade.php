@@ -74,9 +74,13 @@
                                 <td class="px-4 py-3 text-sm">{{ $ouv->titre }}</td>
                                 <td class="px-4 py-3 text-sm">
                                     {{-- <button type="submit" class="btn btn-success btn btn-primary btn-sm">Faire le devis</button> --}}
-                                    <a class="btn btn-danger btn btn-primary btn-sm"
-                                        href="#">Résilier</a>
-                                </td>
+                                {{-- <a class="btn btn-danger btn btn-primary btn-sm"href="#">Résilier</a> --}}
+                                <form action="{{route('upload',$ouv->id)}}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="file" name="pdf">
+                                    <button type="submit" class="btn btn-success btn btn-primary btn-sm">Joindre contrat</button>
+                                </form>
+                            </td>
 
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td class="px-4 py-3 text-sm">{{ $ouv->message }}</td>
@@ -94,15 +98,13 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <img src="./assets/img/{{$ouv->image}}" alt="Image">
+                                                    <img src="{{ asset('assets/img/' . $ouv->image) }}" alt="Image">
+                                                    {{-- <img src="{{ asset('assets/img/' . $ad->photo) }}" alt="Image"> --}}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </td>
-                                {{-- <div id="image-container" style="display:none;">
-                                    <img src="./assets/img/{{$ouv->image}}" alt="Image">
-                                </div> --}}
                             </tr>
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td class="px-4 py-3 text-sm">{{ $ouv->departement }}</td>
@@ -136,3 +138,15 @@
         document.getElementById("image-container").style.display = "block";
     });
 </script>
+
+@if (session()->has('success'))
+<script>
+  toastr.success("{!! session()->get('success') !!}");
+</script>
+@endif
+
+@if (session()->has('error'))
+<script>
+  toastr.error("{!! session()->get('success') !!}");
+</script>
+@endif

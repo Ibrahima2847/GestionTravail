@@ -13,6 +13,7 @@ use App\Http\Controllers\gestClientController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\PaiementController;
 use App\Http\Controllers\PdfController;
+use App\Http\Controllers\UploadController;
 use App\Models\Paiement;
 use Illuminate\Support\Facades\Route;
 
@@ -138,7 +139,8 @@ Route::get('/gestioClient', [gestClientController::class,'indexClient'])->name('
 Route::get('/accepte', [gestClientController::class,'accepte'])->name('accepte');
 Route::get('/refuse', [gestClientController::class,'refuse'])->name('refuse_client');
 Route::get('/gestAnnoceCl', [gestClientController::class,'gestAnnonce'])->name('gestAnnonce_client');
-Route::get('/changerMotPasse_client', [gestClientController::class,'changer'])->name('changer_client');
+Route::get('/changerMotPasse_client', [gestClientController::class,'changerCl'])->name('changer_client');
+Route::post('/UpdateMotPasse_client', [gestClientController::class,'updatePassword'])->name('updatePassword');
 
 
 
@@ -167,7 +169,7 @@ Route::get('/relationEnCour', [AgenceController::class,'relationEnCour'])->name(
 
 Route::get('/publier/{id}', [AgenceController::class,'publier'])->name('publier');
 Route::get('/travailTerminer/{id}', [AgenceController::class,'travailTerminer'])->name('travailTerminer');
-// Route::get('/annonce/terminer/{id}{$idOuv}', [AgenceController::class,'annonceTerminer'])->name('annonceTerminer');
+Route::get('/annonce/terminer', [AgenceController::class,'annonceTerminer'])->name('annonceTerminer');
 Route::get('/annuler/{id}', [AgenceController::class,'annuler'])->name('annuler');
 Route::get('/nonPublier/{id}', [AgenceController::class,'nonPublier'])->name('nonPublier');
 Route::get('/voir/{id}', [AgenceController::class,'voir'])->name('voir');
@@ -232,6 +234,11 @@ Route::get('/email',[EmailController::class,'bar'])->name('email');
 //============================ Route pour les PDF ================================
 
 Route::get('/pdf',[PdfController::class,'generatePdf']);
+Route::post('/upload/{id}',[UploadController::class,'upload'])->name('upload');
+Route::post('/uploadClient/{id}',[UploadController::class,'uploadClient'])->name('uploadlient');
+
+
+
 
 Route::get('/image', function () {
     return view('Agence.image');

@@ -48,11 +48,11 @@ class HomeController extends Controller
             } elseif (Auth::user()->profil === 'ouvrier') {
                 return view('DashboardOuvrier.index');
             } elseif (Auth::user()->profil === 'client') {
-                $annonceClients = DB::table('users')
+                $annonces = DB::table('users')
                     ->join('annonces', 'users.id', '=', 'user_id')
                     ->where('user_id', '=', auth()->user()->id)
                     ->get();
-                return view('DashboardClient.index', compact('annonceClients'));
+                return view('DashboardClient.accepte', compact('annonces'));
             } elseif (Auth::user()->profil === 'agent') {
                 return view('Agence.admin');
             } elseif (Auth::user()->profil === 'chefAgence') {
@@ -171,6 +171,13 @@ class HomeController extends Controller
     public function createChefAgence(Request $input)
     {
 
+        $input->validate([
+            'name' => ['required', 'string', 'max:255','alpha', 'regex:/^[a-zA-Z]+$/'],
+            'prenom' => ['required', 'string', 'max:255','alpha', 'regex:/^[a-zA-Z]+$/'],
+            'telephone' => ['required','integer','starts_with:77,76,75,70,78,33', Rule::unique(User::class),],
+            'email' => ['required','string','email','max:255',Rule::unique(User::class),],
+        ]);
+
         $user = User::create([
             'prenom' => $input['prenom'],
             'name' => $input['name'],
@@ -189,6 +196,10 @@ class HomeController extends Controller
 
     public function createAgence(Request $request)
     {
+        $request->validate([
+            'nom' => ['required', 'string', 'max:255','alpha'],
+            'localite' => [Rule::unique(Agence::class),],
+        ]);
 
         $agence = new Agence();
 

@@ -101,22 +101,40 @@ class OuvriersController extends Controller
     }
     public function store(OuvrierStore $request)
     {
+        // $ouv = DB::table('ouvriers')
+        //                 ->join('users','users.id','=','id_Ouvrier')
+        //                 ->where('users.id','=',auth()->user()->id)
+        //                 ->get();
 
-        $validated = $request->validated();
+        $metier = DB::table('metiers')->get();
 
-        $ouvier = new Metier();
 
-        $ouvier->profession = $validated['profession'];
-        $ouvier->cv = $validated['cv'];
-        $ouvier->diplome = $validated['diplome'];
-        $ouvier->potentiel = $validated['potentiel'];
-        $ouvier->photo = $validated['photo'];
-        $ouvier->ouvrier_id = auth()->user()->id;
-        $ouvier->region = $validated['region'];
+        foreach($metier as $m){
 
-        $ouvier->save();
+            if($m->ouvrier_id === auth()->user()->id){
+                return back()->with('error', 'Désolé vous avez déja un métier !');
+            }else{
 
-        return back()->with('success', 'Votre métier a été bien enregitré !');
+            $validated = $request->validated();
+
+            $ouvier = new Metier();
+
+            $ouvier->profession = $validated['profession'];
+            $ouvier->cv = $validated['cv'];
+            $ouvier->diplome = $validated['diplome'];
+            $ouvier->potentiel = $validated['potentiel'];
+            $ouvier->photo = $validated['photo'];
+            $ouvier->ouvrier_id = auth()->user()->id;
+            $ouvier->region = $validated['region'];
+
+            $ouvier->save();
+
+                return back()->with('success', 'Votre métier a été bien enregitré !');
+            }
+
+        }
+
+
     }
 
     public function edit($id)
@@ -129,14 +147,18 @@ class OuvriersController extends Controller
 
     public function enCour(){
         $requete=DB::table('clients')
-        ->join('users', 'users.id', '=', 'id_client')
-        ->join('annonces', 'users.id', '=', 'user_id')
-        ->join('relations', 'annonces.id', '=', 'relations.annonce_id')
-        ->join('ouvriers', 'ouvriers.id_Ouvrier', '=', 'ouvrier_id')
-        ->where('ouvrier_id','=',auth()->user()->id)
-        ->where('statut','=','en relation')
-        ->where('etat','=','en cour')
-        ->get();
+                    ->join('users', 'users.id', '=', 'id_client')
+                    ->join('annonces', 'users.id', '=', 'user_id')
+                    ->join('relations', 'annonces.id', '=', 'relations.annonce_id')
+                    ->join('ouvriers', 'ouvriers.id_Ouvrier', '=', 'ouvrier_id')
+                    ->join('contrats','contrats.id','=','contrat_id')
+                    // ->select('relations.*')
+                    ->select('contrats.*','users.*','annonces.*','relations.*')
+                    ->where('ouvrier_id','=',auth()->user()->id)
+                    ->where('statut','=','en relation')
+                    ->where('etat','=','en cour')
+                    ->where('contratOuvrier','=',NULL)
+                    ->get();
 
         // $requete2=DB::table('users')
         // ->join('annonces', 'users.id', '=', 'user_id')

@@ -33,7 +33,7 @@ class AnnonceMarkdownMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: new Address("kayJob@gmail.com", 'KayJob'),
+            from: new Address("JobLegii@gmail.com", 'JobLegii'),
             subject: 'Annonce Markdown Mail',
         );
     }

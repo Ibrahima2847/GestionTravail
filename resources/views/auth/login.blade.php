@@ -131,6 +131,16 @@ src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"defe>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> IL y'a queleques erreurs dans les champs<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 	<img class="wave" src="./assets/img/wave3.jpg">
 	<div class="container">
 		<div class="img">

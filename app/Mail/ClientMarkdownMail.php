@@ -33,7 +33,7 @@ class ClientMarkdownMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: new Address("kayJob@gmail.com", 'KayJob'),
+            from: new Address("JobLegii@gmail.com", 'JobLegii'),
             subject: 'Mise en Relation',
         );
     }

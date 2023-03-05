@@ -1,5 +1,16 @@
 @include('navbar.navbarAdmin')
 
+@if ($errors->any())
+<div class="alert alert-danger">
+    <strong>Whoops!</strong> IL y'a queleques erreurs dans les champs<br><br>
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <section class="vh-100" style="background-color: #eee;">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">

@@ -2,7 +2,7 @@
 # Bonjour,
 
 merci de nous faire confiance votre annonce a été bien reçu.
-Nos agents vont le traiter et vont vous revenir dans les 24H suivant votre annonce.
+Nos agents vont le traiter et vous revenir dans les 24H suivant votre annonce.
 
 {{-- <x-mail::button :url="''">
 Button Text

@@ -168,6 +168,12 @@ class ServiceController extends Controller
 
     public function ajoutDevis($idevis,Request $request){
 
+
+        $request->validate([
+            'materiel' => ['required', 'max:255'],
+            'prix' => ['required'],
+        ]);
+
         $rel = Relation::find($idevis);
         $devis = DB::table('devis')->latest('created_at')->first();
 

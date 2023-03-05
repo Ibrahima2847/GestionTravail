@@ -24,11 +24,12 @@ Paydunya_Setup::setToken("uO0YieMnqwUZ1FHfO10T");
 Paydunya_Setup::setMode("test"); // Optionnel en mode test. Utilisez cette option pour les paiements tests.
 
 //Configuration des informations de votre service/entreprise
-Paydunya_Checkout_Store::setName("KayJob"); // Seul le nom est requis
+Paydunya_Checkout_Store::setName("JobLegii"); // Seul le nom est requis
 Paydunya_Checkout_Store::setTagline("Quelle que soit votre compétence elle sera la bienvenue !");
 Paydunya_Checkout_Store::setPhoneNumber("+221 78 012 09 81");
 Paydunya_Checkout_Store::setPostalAddress("Thies - Mbour");
 Paydunya_Checkout_Store::setLogoUrl("http://127.0.0.1:8000/logo2.png");
+// Paydunya_Checkout_Store::setReturnUrl("http://127.0.0.1:8000/gestioClient");
 
 // Paydunya_Checkout_Store::setCallbackUrl("http://magasin-le-choco.com/callback_url.php");
 class PaiementController extends Controller
@@ -76,6 +77,11 @@ public function paiement($id) {
         // dd($serv);
     $invoice = new Paydunya_Checkout_Invoice();
 
+    $invoice->addChannel('wari');
+    $invoice->addChannel('card');
+    $invoice->addChannel('ORANGE-MONEY-SENEGAL');
+    $invoice->addChannel('PAYDUNYA');
+
     for ($i = 0; $i < count($nbMatos); $i++) {
         $invoice->addItem($nbMatos[$i]->description, 1, $nbMatos[$i]->montant, $nbMatos[$i]->montant);
         $invoice->setTotalAmount($somme);
@@ -91,6 +97,9 @@ public function paiement($id) {
         $service = Service::find($serv->id);
         $service->paiement_id = $serv->id;
         $service->save();
+
+        // $invoice->setReturnUrl("http://127.0.0.1:8000/gestioClient");
+
 
         return redirect($invoice->getInvoiceUrl());
 

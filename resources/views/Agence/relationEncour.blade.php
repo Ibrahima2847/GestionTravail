@@ -18,24 +18,24 @@
             </h1>
         <div class="w-full overflow-hidden rounded-lg shadow-xs">
             <div class="w-full overflow-x-auto">
-                <table class="table" style="float: left; width:50%;">
+                <table class="table" style="float: left; width:100%;">
                     <thead>
                         <tr
                             class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                             <th class="px-4 py-3">Civilité</th>
                             <th class="px-4 py-3">Client</th>
+                            <th class="px-4 py-3">Action</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                         @foreach ($relations as $rel)
                         <tr class="text-gray-700 dark:text-gray-400">
-                            <td class="px-4 py-3 text-sm">#</td>
-                            <td class="px-4 py-3 text-sm">{{ $rel->relation_id }}</td>
+                            <td class="px-4 py-3 text-sm">Titre</td>
+                            <td class="px-4 py-3 text-sm">{{ $rel->titre }}</td>
                             <td class="px-4 py-3 text-sm">
                                 <form action="{{ route('faireDevis', $rel->relation_id) }}" method="GET">
                                     @csrf
-                                    <a class="btn btn-success btn btn-primary btn-sm" href="{{ route('travailTerminer', [$rel->id]) }}">Oui</a>
-                                    <button type="submit" class="btn btn-primary btn-sm">devis</button>
+                                    <button type="submit" class="btn btn-primary btn-sm">Faire le devis</button>
                                 </form>
                             </td>
                         </tr>
@@ -59,7 +59,25 @@
                                 </tr>
 
                                 <tr class="text-gray-700 dark:text-gray-400">
-                                    <td class="px-4 py-3 text-sm"> </td>
+                                    <td class="px-4 py-3 text-sm"><strong>Image</strong></td>
+                                    <td class="px-4 py-3 text-sm">
+                                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#photo1-modal">Afficher l'image</a>
+                                        <div class="modal fade" id="photo1-modal" tabindex="-1" role="dialog" aria-labelledby="photo1-modal-label" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="photo1-modal-label">Photo</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <img src="{{ asset('assets/img/' . $rel->image) }}" alt="Image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
 
 

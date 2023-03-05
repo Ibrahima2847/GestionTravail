@@ -104,7 +104,7 @@
                             <option value="Maçon">Maçon</option>
                             <option value="Ménagére">Ménagére</option>
                             <option value="Maçon">Electricien</option>
-                            <option value="Maçon">Maçon</option>
+                            <option value="Menuisier">Menuisier</option>
                         </select>
                       </div>
                     </div>
@@ -181,6 +181,12 @@
   @if (session()->has('success'))
   <script>
     toastr.success("{!! session()->get('success') !!}");
+  </script>
+  @endif
+
+  @if (session()->has('error'))
+  <script>
+    toastr.error("{!! session()->get('error') !!}");
   </script>
   @endif
 

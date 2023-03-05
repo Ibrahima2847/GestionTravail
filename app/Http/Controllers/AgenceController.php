@@ -8,6 +8,7 @@ use App\Mail\OuvrierMarkdownMail;
 use App\Models\Agence;
 use App\Models\Annonce;
 use App\Models\Client;
+use App\Models\Contrat;
 use App\Models\Devis;
 use App\Models\Metier;
 use App\Models\Ouvrier;
@@ -19,6 +20,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Validation\Rule;
 
 class AgenceController extends Controller
 {
@@ -73,13 +75,12 @@ class AgenceController extends Controller
     public function store(request $request)
     {
         //dd($request);
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'prenom' => ['required', 'string', 'max:255'],
-            'telephone' => ['required', 'integer', 'unique:users'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8']
-        ]);
+            $request->validate([
+                'name' => ['required', 'string', 'max:255','alpha', 'regex:/^[a-zA-Z]+$/'],
+                'prenom' => ['required', 'string', 'max:255','alpha', 'regex:/^[a-zA-Z]+$/'],
+                'telephone' => ['required','integer','starts_with:77,76,75,70,78,33', Rule::unique(User::class),],
+                'email' => ['required','string','email','max:255',Rule::unique(User::class),],
+            ]);
 
         $user = User::create([
             'prenom' => $request->prenom,
@@ -183,6 +184,7 @@ class AgenceController extends Controller
 
     }
 
+
     public function travailTerminer($id) {
         $data=Relation::find($id);
         $ouvrier = Ouvrier::where('id_Ouvrier','=',$data->ouvrier_id)
@@ -199,7 +201,29 @@ class AgenceController extends Controller
     }
 
     public function annonceTerminer(){
-        return view('Agence.terminer');
+
+        $agent = DB::table('agences')
+                        ->join('agents','agences.id','=','agence_id')
+                        ->join('users','users.id','=','id_chefAgence')
+                        ->where('id_chefAgence','=',auth()->user()->id)
+                        ->get();
+
+        foreach($agent as $reg){
+
+        $relation = DB::table('services')
+                        ->join('relations','relations.id','=','relation_id')
+                        ->join('contrats','contrats.id','=','contrat_id')
+                        ->join('annonces','annonces.id','=','relations.annonce_id')
+                        ->join('users','users.id','=','user_id')
+                        ->where('region','=',$reg->localite)
+                        ->where('paiement_id','<>',NULL)
+                        ->where('etat','=','en cour')
+                        ->select('contrats.*','services.*','annonces.*','users.*','relations.*')
+                        ->get();
+        }
+
+        // dd($relation);
+        return view('Agence.terminer',compact('relation'));
     }
 
     public function annuler($id) {
@@ -246,6 +270,11 @@ class AgenceController extends Controller
 
     public function rechercher($id,Request $request){
 
+
+        // $request->validate([
+        //     'words' => ['required', 'string', 'max:255','alpha', 'regex:/^[a-zA-Z]+$/'],
+        // ]);
+
         $ad=Annonce::find($id);
 
         $words = $request->input('words');
@@ -290,6 +319,11 @@ class AgenceController extends Controller
 
         $relation->ouvrier_id = $ouvrier->id_Ouvrier;
         $relation->annonce_id = $annonce->id;
+
+        $contrat = new Contrat();
+        $contrat->save();
+
+        $relation->contrat_id = $contrat->id;
 
         $relation->save();
 
@@ -336,6 +370,7 @@ class AgenceController extends Controller
                         ->join('users','users.id','=','user_id')
                         ->where('region','=',$reg->localite)
                         ->where('statut','=','en relation')
+                        ->where('devis_id','=',NULL)
                         ->get();
         }
 
@@ -355,6 +390,7 @@ class AgenceController extends Controller
                     ->join('metiers','id_Ouvrier','=','ouvrier_id')
                     ->join('regions','regions.NomRegion','=','region')
                     ->where('etat','=','en cour')
+                    ->select('users.*','metiers.*')
                     ->get();
         // }
 
@@ -368,7 +404,7 @@ class AgenceController extends Controller
         $data->etat = 'accepter';
         $data->save();
 
-        return view('Agence.relationEncour')->with('success', 'Demande de métier accepté');
+        return back()->with('success', 'Demande de métier accepté');
     }
 
     public function refuserMetier($id){

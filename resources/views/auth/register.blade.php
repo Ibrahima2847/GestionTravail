@@ -148,6 +148,16 @@
 </head>
 
 <body>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> IL y'a queleques erreurs dans les champs<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <img class="wave" src="./assets/img/wave3.jpg">
     <div class="container">
         <div class="img">

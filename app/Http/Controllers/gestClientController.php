@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Hash;
 
 class gestClientController extends Controller
 {
@@ -65,8 +66,25 @@ class gestClientController extends Controller
         return view('DashboardClient.gerer',compact('annonceClients'));
     }
 
-    public function changer(){
+    public function changerCl(){
         return view('DashboardClient.changer');
+    }
+
+    public function updatePassword(Request $request){
+
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => ['required','confirmed', 'string', 'min:8'],
+        ]);
+
+        if(!Hash::check($request->old_password , auth()->user()->password)){
+            return back()->with('error', 'Veuillez mettre le bon mot de passe !');
+        }
+            User::whereId(auth()->user()->id)->update([
+                'password' => Hash::make($request->new_password)
+            ]);
+            return back()->with('success', 'Mot de passe changer avec succés !');
+
     }
 
     /**

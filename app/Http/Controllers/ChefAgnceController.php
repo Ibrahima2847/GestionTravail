@@ -10,10 +10,18 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class ChefAgnceController extends Controller
 {
     public function createAgent(Request $input){
+
+        $input->validate([
+            'name' => ['required', 'string', 'max:255','alpha', 'regex:/^[a-zA-Z]+$/'],
+            'prenom' => ['required', 'string', 'max:255','alpha', 'regex:/^[a-zA-Z]+$/'],
+            'telephone' => ['required','integer','starts_with:77,76,75,70,78,33', Rule::unique(User::class),],
+            'email' => ['required','string','email','max:255',Rule::unique(User::class),],
+        ]);
 
         $user = User::create([
             'prenom' => $input['prenom'],
@@ -111,6 +119,7 @@ class ChefAgnceController extends Controller
                         ->join('paiements','paiements.id','=','paiement_id')
                         ->join('avis','avis.id','=','avis_id')
                         ->where('relation_id','=',$rel->id)
+                        ->where('etat','=','terminer')
                         ->get();
         // dd($client);
 

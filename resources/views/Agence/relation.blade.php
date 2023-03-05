@@ -13,7 +13,7 @@
                   viewBox="0 0 20 20"
                 >
                 </svg>
-                <h5>Mise en Relation</h5>
+                <h5>Mise en Relationj</h5>
               </div>
             </h1>
             <div class="testbox">
@@ -21,7 +21,15 @@
                     <div class="colums">
                         <div class="item">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="words" placeholder="Rechercher un métier">
+                                {{-- <input type="text" class="form-control" name="words" placeholder="Rechercher un métier"> --}}
+                                <select  id="form3Example1c" class="form-control" name="words" placeholder="Rechercher un métier">
+                                    <option value="Mécanicien">Mecanicien</option>
+                                    <option value="Plombier">Plombier</option>
+                                    <option value="Maçon">Maçon</option>
+                                    <option value="Ménagére">Ménagére</option>
+                                    <option value="Maçon">Electricien</option>
+                                    <option value="Menuisier">Menuisier</option>
+                                </select>
                                 <button type="submit" class="btn btn-primary">Rechercher</button>
 
                             </div>

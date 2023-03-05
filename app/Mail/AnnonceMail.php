@@ -26,7 +26,7 @@ class AnnonceMail extends Mailable
 
     public function build(){
         return $this->from('ibuseck670@gmail.com')
-                    ->subject('KayJob')
+                    ->subject('JobLegii')
                     ->view('Email.email');
     }
 

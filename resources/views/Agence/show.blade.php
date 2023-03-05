@@ -39,7 +39,7 @@
                                     <th>Région</th>
                                     <th>Departement</th>
                                     <th>Message</th>
-                                    <th>Nombre d'Ouvrier</th>
+                                    {{-- <th>Nombre d'Ouvrier</th> --}}
                                     <th>Image</th>
                                 </tr>
                             </thead>
@@ -54,7 +54,7 @@
                                   <td>{{$datas->region}}</td>
                                   <td>{{$datas->departement}}</td>
                                   <td>{{$datas->message}}</td>
-                                  <td>{{$datas->nombre}}</td>
+                                  {{-- <td>{{$datas->nombre}}</td> --}}
                                     <td class="px-4 py-3 text-sm">
                                         <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#diplome-modal">Afficher l'image</a>
                                         <div class="modal fade" id="diplome-modal" tabindex="-1" role="dialog" aria-labelledby="diplome-modal-label" aria-hidden="true">
@@ -88,27 +88,13 @@
             </div>
           </div>
         </div>
-
-        {{-- <div class="col-lg-6 mb-5 mb-lg-0">
-          <img src="{{ asset('./assets/img/details.svg')}}" class="w-100 rounded-4 shadow-4"
-            alt="" />
-        </div> --}}
       </div>
     </div>
     <!-- Jumbotron -->
   </section>
 
-  <!-- Section: Design Block -->
-
-{{-- @if (session()->has('success'))
-<script>
-  toastr.warning("{!! session()->get('success') !!}");
-</script>
-@endif
-
-@if (session()->has('success'))
-<script>
-  toastr.error("{!! session()->get('success') !!}");
-</script>
-@endif --}}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 

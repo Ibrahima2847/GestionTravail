@@ -23,8 +23,9 @@ class AdStore extends FormRequest
      */
     public function rules()
     {
+
         return [
-            'titre' => ['required'],
+            'titre' => ['required','max:255'],
             'nombre' => ['required', 'gt:0'],
             'region' => ['required'],
             'departement' => ['required'],

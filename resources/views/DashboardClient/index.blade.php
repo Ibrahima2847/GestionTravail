@@ -11,9 +11,8 @@
                     >
                       <th class="px-4 py-3">Titre</th>
                       <th class="px-4 py-3">Date</th>
-                      <th class="px-4 py-3">Etat</th>
                       <th class="px-4 py-3">Paiement</th>
-                      {{-- <th class="px-4 py-3">Date</th> --}}
+                      <th class="px-4 py-3">Contrat</th>
                     </tr>
                   </thead>
                   <tbody
@@ -53,16 +52,19 @@
                         {{ Carbon\Carbon::parse($gestAnnonce->created_at)->diffForHumans() }}
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        {{$gestAnnonce->statut}}
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        {{-- <a href="{{route('payer')}}" class="btn btn-success">Payer</button> --}}
                         <button type="submit" class="btn btn-success">Payer</button>
+                      </td>
+    </form>
+<td>
+                        <form action="{{route('uploadlient',$gestAnnonce->relation_id)}}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <input type="file" name="pdf">
+                                <button type="submit" class="btn btn-primary btn-sm">Joindre contrat</button>
+                        </form>
                         {{-- <button type="button" class="btn btn-danger">Annuler</button> --}}
                       </td>
                     </tr>
       @endforeach
-    </form>
                   </tbody>
                 </table>
               </div>

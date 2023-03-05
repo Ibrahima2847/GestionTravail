@@ -12,6 +12,17 @@
     </div>
 </div>
 
+@if ($errors->any())
+<div class="alert alert-danger">
+    <strong>Whoops!</strong> IL y'a queleques erreurs dans les champs<br><br>
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <div class="contact-page">
     <div class="container">
         <div class="row">
